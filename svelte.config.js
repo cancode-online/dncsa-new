@@ -16,7 +16,8 @@ const config = {
 			$stores: 'src/lib/stores',
 			$types: 'src/app.d.ts',
 			$utils: 'src/lib/utils',
-			$files: 'src/lib/files'
+			$files: 'src/lib/files',
+			$firebase: 'src/firebase.ts'
 		},
 		adapter: adapter()
 	}
