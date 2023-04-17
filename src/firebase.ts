@@ -77,7 +77,11 @@ const createUserDocument = async (user) => {
 		for (let i = 0; i < 5; i++) {
 			new_tag = Math.floor(Math.random() * 10000);
 
-			const q = query(docCollection, where('display_name', '==', user.displayName), where('usertag', '==', new_tag));
+			const q = query(
+				docCollection,
+				where('display_name', '==', user.displayName),
+				where('usertag', '==', new_tag)
+			);
 			const querySnapshot = await getDocs(q);
 
 			// querySnapshot.forEach((doc) => {
