@@ -5,9 +5,9 @@
 
 	import type { ZodParsedType } from 'zod'
 
-    // import LucideGithub from '~icons/lucide/github';
-    // import BiGoogle from '~icons/bi/google';
-    // import BiMeta from '~icons/bi/meta';
+    import LucideGithub from '~icons/lucide/github';
+    import BiGoogle from '~icons/bi/google';
+    import BiMeta from '~icons/bi/meta';
     
 	let email: string = '';
 	let password: string = '';
@@ -104,20 +104,20 @@
 	<!-- Login Buttons -->
 	<div class="flex flex-row justify-center gap-10 pt-2 pb-1">
 		<div class="tooltip tooltip-top tooltip-neutral" data-tip="GitHub">
-			<button class="btn bg-base-100 w-14 h-14" on:click={signInWithGithub}>
-				<!-- <LucideGithub/> -->
+			<button class="btn bg-base-100 w-14 h-14 text-xl p-0" on:click={signInWithGithub}>
+				<LucideGithub />
 			</button>
 		</div>
 
 		<div class="tooltip tooltip-top tooltip-neutral" data-tip="Google">
-			<button class="btn bg-base-100 w-14 h-14" on:click={signInWithGoogle}>
-				<!-- <BiGoogle/> -->
+			<button class="btn bg-base-100 w-14 h-14 text-xl p-0" on:click={signInWithGoogle}>
+				<BiGoogle/>
 			</button>
 		</div>
 
 		<div class="tooltip tooltip-top tooltip-neutral" data-tip="Meta">
-			<button class="btn bg-base-100 w-14 h-14" on:click={signInWithFacebook}>
-				<!-- <BiMeta/> -->
+			<button class="btn bg-base-100 w-14 h-14 text-xl p-0" on:click={signInWithFacebook}>
+				<BiMeta/>
 			</button>
 		</div>
 	</div>

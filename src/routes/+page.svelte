@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Landing from './Landing.svelte';
+	import Landing from './(auth)/Landing.svelte';
 </script>
 
 <Landing />
