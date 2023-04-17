@@ -1,6 +1,8 @@
 <script lang='ts'>
-import Login from "./Login.svelte";
-import Signup from "./Signup.svelte";
+	import Login from "./Login.svelte";
+	import Signup from "./Signup.svelte";
+
+	import { fade, fly } from "svelte/transition";
 
 	let state = 'login';
 
@@ -8,16 +10,26 @@ import Signup from "./Signup.svelte";
 
 <div class='flex w-screen h-screen bg-primary justify-center gap-8'>
 
-	<div class='w-96 h-72 bg-secondary self-center'>
-		{ state }
+	<div class='w-1/2 flex justify-end'>
+
+		<div class='w-96 h-72 bg-secondary self-center'>
+			{ state }
+		</div>
+	
 	</div>
 
-	<div class='w-96 h-72 bg-secondary self-center'>
+	<div class='w-1/2 flex justify-start relative'>
+
 		{#if state==='login'}
-			<Login bind:state={state} />
+			<div class='absolute self-center' in:fly out:fade>
+				<Login bind:state={state}/>
+			</div>
 		{:else}
-			<Signup bind:state={state} />
+			<div class='absolute self-center' in:fly out:fade>
+				<Signup bind:state={state} />
+			</div>
 		{/if}
+
 	</div>
 
 </div>

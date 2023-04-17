@@ -12,11 +12,6 @@
 
     export let state;
 
-    function changeState () {
-        state = 'login';
-        console.log(state);
-    }
-
 	async function post() {
 		signUpWithEmail(email, password, username);
 	}
@@ -141,7 +136,9 @@
     <!-- Login Redirect -->
     <div class="divider h-0">OR</div>
     <div class="self-center">
-        Already have an account? <button class="underline" on:click={changeState}>Login</button>
+        Already have an account? <button class="underline" on:click={() => {
+			state = 'login';
+		}}>Login</button>
     </div>
 </div>
 

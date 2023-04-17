@@ -11,11 +11,6 @@
     
 	export let state;
 
-	function changeState () {
-		state = 'signup';
-		console.log(state);
-	}
-
 	let email: string = '';
 	let password: string = '';
 
@@ -132,7 +127,9 @@
 	<!-- Signup Redirect -->
 	<div class="divider h-0">OR</div>
 	<div class="self-center text-center">
-		Don't have an account? <button class="underline" on:click={changeState}>Sign Up</button>
+		Don't have an account? <button class="underline" on:click={() => {
+			state = 'signup';
+		}}>Sign Up</button>
 	</div>
 </div>
 
