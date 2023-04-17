@@ -7,9 +7,9 @@
 	let state = 'login';
 </script>
 
-<div class="flex w-screen h-screen bg-primary justify-center gap-8">
+<div class="flex w-screen h-screen bg-base-100 justify-center gap-8">
 	<div class="w-1/2 flex justify-end">
-		<div class="w-96 h-72 bg-secondary self-center">
+		<div class="w-96 h-72 bg-base-200 self-center">
 			{state}
 		</div>
 	</div>

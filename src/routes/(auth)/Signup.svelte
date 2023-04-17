@@ -81,7 +81,7 @@
 </svelte:head>
 
 <div
-	class=" bg-secondary flex flex-col p-8 w-96 h-fit justify-around self-center rounded-lg gap-4 shadow-xl"
+	class=" bg-base-100 flex flex-col p-8 w-96 h-fit justify-around self-center rounded-lg gap-4 shadow-xl"
 >
 	<form method="POST">
 		<!-- Username/Email/Password/Confirm Boxes -->

@@ -85,7 +85,7 @@
 </svelte:head>
 
 <div
-	class=" bg-secondary flex flex-col p-8 w-96 h-fit justify-around self-center rounded-lg gap-4 shadow-xl"
+	class=" bg-base-300 flex flex-col p-8 w-96 h-fit justify-around self-center rounded-lg gap-4 shadow-xl"
 >
 	<!-- Email and Password Box -->
 	<form method="POST">
@@ -149,15 +149,3 @@
 		>
 	</div>
 </div>
-
-<style>
-	.wrapper {
-		background-size: 100% 100%;
-		background-position: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
-		background-image: radial-gradient(49% 81% at 45% 47%, #bc03ff45 0%, #073aff00 100%),
-			radial-gradient(113% 91% at 17% -2%, #1900ffff 1%, #ff000000 99%),
-			radial-gradient(142% 91% at 83% 7%, #e600ffff 1%, #3f00ff00 99%),
-			radial-gradient(142% 91% at -6% 74%, #f200ffff 1%, #8900ff00 99%),
-			radial-gradient(142% 91% at 111% 84%, #0016ffff 0%, #ac00ffff 100%);
-	}
-</style>
