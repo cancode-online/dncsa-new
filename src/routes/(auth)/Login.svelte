@@ -9,6 +9,8 @@
     import BiGoogle from '~icons/bi/google';
     import BiMeta from '~icons/bi/meta';
     
+	export let loginState;
+
 	let email: string = '';
 	let password: string = '';
 
@@ -125,7 +127,7 @@
 	<!-- Signup Redirect -->
 	<div class="divider h-0">OR</div>
 	<div class="self-center text-center">
-		Don't have an account? <a class="underline" href="/signup">Sign Up</a>
+		Don't have an account? <button class="underline" on:click={() => {loginState = true; console.log(loginState)}}>Sign Up</button>
 	</div>
 </div>
 
