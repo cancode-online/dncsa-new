@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Landing from './(auth)/Landing.svelte';
+	import Landing from './(landing)/Landing.svelte';
 	import { fade, fly } from 'svelte/transition';
 
 	import AdminDashboard from './(dashboards)/AdminDashboard.svelte';
