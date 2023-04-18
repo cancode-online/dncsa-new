@@ -38,12 +38,14 @@ export const getAuthApp = () => {
 export const database = () => {
 	return getFirestore(APP);
 };
+export const admin = writable(false);
 export const user = writable(null) as Writable<User | null>;
 
 // Listen for authentication state to change => updates authenticated store
 onAuthStateChanged(getAuth(APP), (User) => {
 	if (User) {
 		authenticated.set(true);
+		admin.set(true);
 		user.set(User);
 	} else {
 		authenticated.set(false);

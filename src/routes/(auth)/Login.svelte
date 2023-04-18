@@ -6,78 +6,61 @@
 		signInWithFacebook
 	} from '$firebase';
 
-	import { z, ZodError } from 'zod';
-
-	import type { ZodParsedType } from 'zod';
-
 	import LucideGithub from '~icons/lucide/github';
-	import BiGoogle from '~icons/bi/google';
+	import MingcuteGoogleFill from '~icons/mingcute/google-fill'
 	import BiMeta from '~icons/bi/meta';
+
+	import { z } from 'zod';
 
 	export let state;
 
 	let email: string = '';
+	let emailSchema = z.string().email();
 	let password: string = '';
+	let passwordSchema = z.string().min(6);
 
 	async function post() {
-		checkLogin(email, password);
+		signInWithEmail(email, password);
 	}
 
-	const emailSchema = z.object({
-		email: z.string().email({ message: 'Invalid Email' })
-	});
+	function validateEmail() {
 
-	const passSchema = z.object({
-		password: z.string().min(6, { message: 'Password must be at least 6 characters long' })
-	});
-
-	function blurEmail() {
-		const emailInput = document.getElementsByName('email_box')[0] as HTMLInputElement;
-		const toolLogin = document.getElementById('toolLogin') as HTMLDivElement;
-		const emailValue = emailInput.value;
 		try {
-			emailSchema.parse({ email: emailValue });
-			emailInput.classList.remove('input-error');
-			toolLogin.classList.add('before:hidden', 'after:hidden');
+			
+			emailSchema.parse(email);
+
+			document?.getElementById('email_box')?.classList.remove('input-error');
+			document?.getElementById('email_box_tooltip')?.classList.add('before:hidden', 'after:hidden');
+
 		} catch (error) {
-			toolLogin.classList.remove('before:hidden', 'after:hidden');
-			toolLogin.setAttribute('data-tip', 'Invalid Email');
-			emailInput.classList.add('input-error');
+
+			document?.getElementById('email_box')?.classList.add('input-error');
+			document?.getElementById('email_box_tooltip')?.classList.remove('before:hidden', 'after:hidden');
+
+			return;
 		}
+
 	}
 
-	function blurPassword() {
-		const passwordInput = document.getElementsByName('password_box')[0] as HTMLInputElement;
-		const toolLogin = document.getElementById('toolLogin') as HTMLDivElement;
-		const passwordValue = passwordInput.value;
+	function validatePassword() {
+
 		try {
-			passSchema.parse({ password: passwordValue });
-			passwordInput.classList.remove('input-error');
-			toolLogin.classList.add('before:hidden', 'after:hidden');
+			
+			passwordSchema.parse(password);
+
+			document?.getElementById('password_box')?.classList.remove('input-error');
+			document?.getElementById('password_box_tooltip')?.classList.add('before:hidden', 'after:hidden');
+
 		} catch (error) {
-			passwordInput.classList.add('input-error');
-			toolLogin.classList.remove('before:hidden', 'after:hidden');
-			toolLogin.setAttribute('data-tip', 'Password must be at least 6 characters long');
+
+			document?.getElementById('password_box')?.classList.add('input-error');
+			document?.getElementById('password_box_tooltip')?.classList.remove('before:hidden', 'after:hidden');
+
+			return;
 		}
+
 	}
 
-	function errorLogin() {
-		const toolLogin = document.getElementById('toolLogin') as HTMLDivElement;
-		const emailInput = document.getElementsByName('email_box')[0] as HTMLInputElement;
-		const passwordInput = document.getElementsByName('password_box')[0] as HTMLInputElement;
-		toolLogin.classList.remove('before:hidden', 'after:hidden');
-		toolLogin.setAttribute('data-tip', 'Invalid Email or Password');
-		emailInput.classList.add('input-error');
-		passwordInput.classList.add('input-error');
-	}
-
-	function checkLogin(email: string, password: string) {
-		try {
-			signInWithEmail(email, password);
-		} catch (error) {
-			errorLogin();
-		}
-	}
 </script>
 
 <svelte:head>
@@ -85,64 +68,68 @@
 </svelte:head>
 
 <div
-	class=" bg-base-300 flex flex-col p-8 w-96 h-fit justify-around self-center rounded-lg gap-4 shadow-xl"
+	class="b-300 flex flex-col p-8 w-96 !h-fit justify-around self-center gap-4"
 >
 	<!-- Email and Password Box -->
 	<form method="POST">
-		<div
-			id="toolLogin"
-			class="tooltip tooltip-top tooltip-error before:hidden after:hidden tooltip-open"
-			data-tip=""
-		>
+		<div id='email_box_tooltip' class="tooltip tooltip-error tooltip-open tooltip-right w-full normal-case after:hidden before:hidden" data-tip="Invalid email">
 			<input
 				bind:value={email}
-				on:blur={blurEmail}
+				on:blur={validateEmail}
 				type="text"
 				placeholder="Email"
-				class="input w-full max-w-xs"
+				class="input w-full max-w-xs bg-base-200"
 				name="email_box"
 				id="email_box"
 			/>
+		</div>
+		<div id='password_box_tooltip' class="tooltip tooltip-error tooltip-open tooltip-right w-full normal-case after:hidden before:hidden" data-tip="Too short">
 			<input
 				bind:value={password}
+				on:blur={validatePassword}
 				type="password"
 				placeholder="Password"
-				class="input w-full max-w-xs my-4"
+				class="input w-full max-w-xs my-4 bg-base-200"
 				name="password_box"
 				id="password_box"
-				on:blur={blurPassword}
 			/>
 		</div>
 		<!-- Submit Button -->
-		<input type="button" value="Login" class="btn my-4 w-full" on:click={post} />
+		<input type="button" value="login" class="btn btn-neutral uppercase max-w-xs my-4 w-full" on:click={post} />
 	</form>
 
 	<!-- Login Buttons -->
 	<div class="flex flex-row justify-center gap-10 pt-2 pb-1">
 		<div class="tooltip tooltip-top tooltip-neutral" data-tip="GitHub">
-			<button class="btn bg-base-100 w-14 h-14 text-xl p-0" on:click={signInWithGithub}>
-				<LucideGithub />
-			</button>
+			<div class='input w-fit h-fit min-w-none p-0 border-none bg-base-200'>
+				<button class="btn btn-ghost w-14 h-14 text-xl p-0" on:click={signInWithGithub}>
+					<LucideGithub />
+				</button>
+			</div>
 		</div>
 
 		<div class="tooltip tooltip-top tooltip-neutral" data-tip="Google">
-			<button class="btn bg-base-100 w-14 h-14 text-xl p-0" on:click={signInWithGoogle}>
-				<BiGoogle />
-			</button>
+			<div class='input w-fit h-fit min-w-none p-0 border-none bg-base-200'>
+				<button class="btn btn-ghost w-14 h-14 text-xl p-0" on:click={signInWithGoogle}>
+					<MingcuteGoogleFill />
+				</button>
+			</div>
 		</div>
 
 		<div class="tooltip tooltip-top tooltip-neutral" data-tip="Meta">
-			<button class="btn bg-base-100 w-14 h-14 text-xl p-0" on:click={signInWithFacebook}>
-				<BiMeta />
-			</button>
+			<div class='input w-fit h-fit min-w-none p-0 border-none bg-base-200'>
+				<button class="btn btn-ghost w-14 h-14 text-xl p-0" on:click={signInWithFacebook}>
+					<BiMeta />
+				</button>
+			</div>
 		</div>
 	</div>
 
 	<!-- Signup Redirect -->
-	<div class="divider h-0">OR</div>
-	<div class="self-center text-center">
-		Don't have an account? <button
-			class="underline"
+	<div class="divider h-0 px-4">OR</div>
+	<div class="self-center text-center normal-case">
+		Don't have an account?<button
+			class="btn btn-link px-1 text-base-content normal-case"
 			on:click={() => {
 				state = 'signup';
 			}}>Sign Up</button
