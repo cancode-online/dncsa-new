@@ -16,11 +16,11 @@
 
 	<div class="w-1/2 flex justify-start relative">
 		{#if state === 'login'}
-			<div class="absolute self-center" in:fly out:fade>
+			<div class="absolute self-center" in:fly="{{ y: -250, duration: 500, delay: 0}}" out:fade="{{duration: 250}}">
 				<Login bind:state />
 			</div>
 		{:else}
-			<div class="absolute self-center" in:fly out:fade>
+			<div class="absolute self-center" in:fly="{{ y: 250, duration: 500, delay: 0}}" out:fade="{{duration: 250}}">
 				<Signup bind:state />
 			</div>
 		{/if}

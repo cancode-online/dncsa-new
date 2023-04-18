@@ -15,11 +15,18 @@
 	export let state;
 
 	let email: string = '';
-	let emailSchema = z.string().email();
+	const emailSchema = z.string().email();
 	let password: string = '';
-	let passwordSchema = z.string().min(6);
+	const passwordSchema = z.string().min(6);
 
 	async function post() {
+
+		try {
+
+		} catch {
+			
+		}
+
 		signInWithEmail(email, password);
 	}
 
@@ -27,7 +34,7 @@
 
 		try {
 			
-			emailSchema.parse(email);
+			if (email.length > 0) emailSchema.parse(email);
 
 			document?.getElementById('email_box')?.classList.remove('input-error');
 			document?.getElementById('email_box_tooltip')?.classList.add('before:hidden', 'after:hidden');
@@ -46,7 +53,7 @@
 
 		try {
 			
-			passwordSchema.parse(password);
+			if (password.length > 0) passwordSchema.parse(password);
 
 			document?.getElementById('password_box')?.classList.remove('input-error');
 			document?.getElementById('password_box_tooltip')?.classList.add('before:hidden', 'after:hidden');
