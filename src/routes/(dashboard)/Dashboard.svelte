@@ -1,4 +1,4 @@
-<div class="w-screen h-screen pt-20">
+<!-- <div class="w-screen h-screen pt-20">
 	<div class="flex flex-row w-screen h-screen justify-between gap-10 p-10">
 		<div class="h-96 bg-lime-300 w-fit">Schedule</div>
 		<div class="flex flex-col bg-lime-300 h-full xl:w-[65rem]">
@@ -52,5 +52,15 @@
 			</div>
 		</div>
 		<div class="bg-lime-300 h-64 w-fit">Assignment Due</div>
+	</div>
+</div> -->
+
+<div class='w-screen h-screen p-2 gap-2 pt-20 flex'>
+	<div class='btn btn-primary h-72 w-72'>
+	</div>
+	<div class='flex-1'>
+
+	</div>
+	<div class='b-300 w-72 !h-72'>
 	</div>
 </div>

@@ -1,30 +1,23 @@
 <script lang="ts">
 	import Landing from './(landing)/Landing.svelte';
-	import { fade, fly } from 'svelte/transition';
+	import { fade } from 'svelte/transition';
 
-	import AdminDashboard from './(dashboards)/AdminDashboard.svelte';
-	import StudentDashboard from './(dashboards)/StudentDashboard.svelte';
+	import Dashboard from './(dashboard)/Dashboard.svelte';
 
-	import { authenticated, admin } from '$firebase';
+	import { authenticated } from '$firebase';
 
 </script>
 
-<div class='relative'>
+<div class='relative w-full h-full'>
 
-	{#if $authenticated && $admin}
-		<div class='absolute' in:fade out:fade>
-			<AdminDashboard />
-		</div>
-	{/if}
-
-	{#if $authenticated && !$admin}
-		<div class='absolute' in:fade out:fade>
-			<StudentDashboard />
+	{#if $authenticated}
+		<div class='absolute w-full h-full' in:fade out:fade>
+			<Dashboard />
 		</div>
 	{/if}
 
 	{#if !$authenticated}
-		<div class='absolute' in:fade out:fade>
+		<div class='absolute w-full h-full' in:fade out:fade>
 			<Landing />
 		</div>
 	{/if}
