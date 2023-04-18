@@ -55,12 +55,134 @@
 	</div>
 </div> -->
 
-<div class='w-screen h-screen p-2 gap-2 pt-20 flex'>
-	<div class='btn btn-primary h-72 w-72'>
+<script>
+	import LucideFiles from '~icons/lucide/files';
+	import LucideFileText from '~icons/lucide/file-text';
+	import LucideFolderOpen from '~icons/lucide/folder-open';
+</script>
+
+<div class='w-screen h-screen p-2 gap-2 pt-16 flex'>
+
+	<div class='w-56'>
+		<button class="h-12 uppercase flex justify-start p-2 w-full bg-primary border-x-2 border-t-2 border-base-200 text-primary-content !rounded-b-none">
+			<div class='flex self-center w-fit gap-2'>
+				<span class='self-center'><LucideFileText /></span>
+				<span class='flex-1 text-left'>Timeline</span>
+			</div>
+		</button>
+		<div class='bg-base-300 border-2 border-base-200 h-64 w-full p-1 gap-1 flex flex-col flex-nowrap overflow-y-scroll !rounded-t-none'>
+			{#each [
+				{
+					name: 'Schedule',
+					type: 'page',
+				},
+				{
+					name: 'Unit 1',
+					type: 'unit',
+				},
+				{
+					name: 'Week 0',
+					type: 'week',
+				},
+				{
+					name: 'Week 1',
+					type: 'week',
+				},
+				{
+					name: 'Week 2',
+					type: 'week',
+				},
+				{
+					name: 'Unit 2',
+					type: 'unit',
+				},
+				{
+					name: 'Week 3',
+					type: 'week',
+				},
+				{
+					name: 'Week 4',
+					type: 'week',
+				},
+				{
+					name: 'Hackathon',
+					type: 'page',
+				},
+				{
+					name: 'Week 5',
+					type: 'week',
+				},
+				] as key, i}
+	
+				{#if key.type === 'week'}
+					<button class="btn btn-sm btn-ghost w-full uppercase flex gap-2 p-2">
+						<LucideFiles />
+						<span class='flex-1 text-left'>{key.name}</span>
+					</button>
+				{:else if key.type === 'unit'}
+					<button class="btn btn-sm btn-neutral w-full uppercase flex gap-2 p-2">
+						<LucideFolderOpen />
+						<span class='flex-1 text-left'>{key.name}</span>
+					</button>
+				{:else if key.type === 'page'}
+					<button class="btn btn-sm btn-neutral w-full uppercase flex gap-2 p-2">
+						<LucideFileText />
+						<span class='flex-1 text-left'>{key.name}</span>
+					</button>
+				{/if}
+			{/each}
+		</div>
 	</div>
+	
 	<div class='flex-1'>
 
 	</div>
-	<div class='b-300 w-72 !h-72'>
+	<div class='w-96 h-fit'>
+		{#each [
+			{
+				name: 'Binary search',
+				type: 'problem',
+				due: '2021-10-10',
+			},
+			{
+				name: 'Coding help session',
+				type: 'announcement',
+				due: '2021-10-10',
+			},
+			{
+				name: 'Fibonacci sequence',
+				type: 'problem',
+				due: '2021-10-10',
+			},
+			{
+				name: 'What is recursion?',
+				type: 'reading',
+				due: '2021-10-10',
+			},
+			] as key, i}
+
+			{#if key.type === 'problem'}
+				<button class="btn btn-sm btn-ghost w-full uppercase flex gap-2 p-2">
+					<LucideFiles />
+					<span class='flex-1 text-left'>{key.name}</span>
+				</button>
+			{:else if key.type === 'announcement'}
+				<button class="btn btn-sm btn-neutral w-full uppercase flex gap-2 p-2">
+					<LucideFolderOpen />
+					<span class='flex-1 text-left'>{key.name}</span>
+				</button>
+			{:else if key.type === 'reading'}
+				<button class="btn btn-sm btn-neutral w-full uppercase flex gap-2 p-2">
+					<LucideFileText />
+					<span class='flex-1 text-left'>{key.name}</span>
+				</button>
+			{/if}
+		{/each}
 	</div>
 </div>
+
+<style>
+	div, button {
+		border-radius: var(--rounded-btn, 0.5rem);
+	}
+</style>
