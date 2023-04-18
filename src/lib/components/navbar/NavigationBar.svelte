@@ -5,7 +5,7 @@
 	
 </script>
 
-<div class="navbar bg-base-100 absolute">
+<div class="navbar bg-base-100 absolute gap-2">
 	<div class="flex-1 z-10">
 		<a href="/" class="btn btn-ghost uppercase">AP Computer Science A</a>
 	</div>
