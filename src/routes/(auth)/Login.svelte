@@ -78,7 +78,7 @@
 				on:blur={validateEmail}
 				type="text"
 				placeholder="Email"
-				class="input w-full max-w-xs bg-base-200"
+				class="input w-full max-w-xs bg-base-200 placeholder:text-base-content/30"
 				name="email_box"
 				id="email_box"
 			/>
@@ -89,7 +89,7 @@
 				on:blur={validatePassword}
 				type="password"
 				placeholder="Password"
-				class="input w-full max-w-xs my-4 bg-base-200"
+				class="input w-full max-w-xs my-4 bg-base-200 placeholder:text-base-content/30"
 				name="password_box"
 				id="password_box"
 			/>
