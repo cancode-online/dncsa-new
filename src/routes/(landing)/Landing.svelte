@@ -12,8 +12,8 @@
 	<div class="w-1/2 flex justify-end" in:fly="{{ x: -250, duration: 500, delay: 0}}" out:fade="{{duration: 250}}">
 		<div class="flex flex-col justify-center w-3/4">
 			<div class="!w-full !h-fit b-300 flex flex-col justify-between py-10 self-center">
-					<span class="self-center text-2xl font-thin px-10">Del Norte High School</span>
-					<span class="self-center text-4xl font-bold px-10">AP Computer Science A</span>
+					<span class="self-center text-2xl font-thin px-10 uppercase">Del Norte High School</span>
+					<span class="self-center text-4xl font-bold px-10 uppercase">AP Computer Science A</span>
 			</div>
 		</div>
 	</div>

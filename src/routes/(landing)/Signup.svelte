@@ -202,7 +202,7 @@
 			/>
 		</div>
 		<!-- Submit Button -->
-		<input type="button" value="signup" class="btn btn-primary uppercase max-w-xs mb-4 w-full self-center" on:click={post} />
+		<input type="button" value="signup" class="btn btn-neutral uppercase max-w-xs mb-4 w-full self-center" on:click={post} />
 	</form>
 
 	<!-- Login Buttons -->
@@ -235,11 +235,11 @@
 	<!-- Signup Redirect -->
 	<div class="divider h-0 px-4">OR</div>
 	<div class="self-center text-center normal-case">
-		Don't have an account?<button
+		Already have an account?<button
 			class="btn btn-link px-1 text-base-content normal-case"
 			on:click={() => {
-				state = 'signup';
-			}}>Sign Up</button
+				state = 'login';
+			}}>Login</button
 		>
 	</div>
 </div>
