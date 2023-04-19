@@ -1,4 +1,4 @@
-<script>
+<script lang='ts'>
 	import LucideFiles from '~icons/lucide/files';
 	import LucideFileText from '~icons/lucide/file-text';
 	import LucideFolderOpen from '~icons/lucide/folder-open';
@@ -7,6 +7,8 @@
 	import LucideMegaphone from '~icons/lucide/megaphone';
 	import LucideBook from '~icons/lucide/book';
 	import LucideCog from '~icons/lucide/cog';
+
+	export let page: String;
 
 </script>
 

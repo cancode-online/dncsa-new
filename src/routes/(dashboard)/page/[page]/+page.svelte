@@ -48,7 +48,7 @@
 
 <article
 	class="prose dark:prose-invert m-0 p-2 self-center min-w-0 max-w-none xl:w-[54rem] lg:w-[44rem] md:w-[36rem] sm:w-[30rem] w-[22rem]"
-	in:fly="{{ y: 500, duration: 450, delay: 0}}" out:fly="{{ x: 500, duration: 450, delay: 0, easing: quadInOut }}"
+	in:fly="{{ y: 500, duration: 450, delay: 0}}" out:fly="{{ y: 500, duration: 450, delay: 0, easing: quadInOut }}"
 >
 	<h1 class="m-0">{data.title}</h1>
 	<h4 class="m-0">Published: {data.date}</h4>

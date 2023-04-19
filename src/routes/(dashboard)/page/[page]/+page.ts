@@ -2,12 +2,13 @@
 import { error } from '@sveltejs/kit';
 
 //import type { Load } from '@sveltejs/kit';
+import { pages } from '$/pages/indexed.js';
+console.log(pages);
+
 export async function load({ params }: { params: { page: string } }) {
-	//${params.page}
-	console.log(params);
-	console.log(`../../../../pages/${params.page}.md`)
+
 	try {
-		const post = await import(`../../../../pages/${params.page}.md`);
+		const post = await pages[params.page]();
 		const { title, date, summary } = post.metadata;
 		const content = post.default;
 
