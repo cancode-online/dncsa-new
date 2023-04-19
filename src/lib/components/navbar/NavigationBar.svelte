@@ -80,12 +80,12 @@
 	
 </script>
 
-<div class="navbar bg-base-100 absolute gap-2">
-	<div class="flex-1 z-10">
+<div class="navbar bg-base-100 absolute gap-2 z-20">
+	<div class="flex-1">
 		<a href="/" class="btn btn-ghost uppercase">AP Computer Science A</a>
 	</div>
 	<button
-		class="swap swap-rotate swap-active btn btn-ghost p-2 h-full flex relative gap-2 z-10"
+		class="swap swap-rotate swap-active btn btn-ghost p-2 h-full flex relative gap-2"
 		on:click={switchTheme}
 		>
 		<div id="theme-switch-sun" class="swap-on text-lg self-center">
@@ -106,11 +106,11 @@
             ><path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z" /></svg
         >
 	</button>
-	<div class="flex z-10">
+	<div class="flex">
 		<ThemeDropdown />
 	</div>
 	{#if $authenticated}
-		<div class="flex z-10">
+		<div class="flex">
 			<button on:click={()=>{
 				goto('/')
 				logOut()
