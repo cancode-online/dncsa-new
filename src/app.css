@@ -3,10 +3,36 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body {
+	width: 100vw;
+	overflow-x: clip;
+	@apply font-mono;
+}
+
 .fira {
 	font-family: 'Fira Code', monospace !important;
 }
 
 .b-300 {
 	@apply btn btn-sm btn-ghost hover:bg-base-300 cursor-default hover:border-base-200 no-animation bg-base-300 border-base-200 border-2 flex box-border;
+}
+
+pre {
+	@apply !border-none !shadow-none !rounded-sm !font-normal !text-sm !my-2;
+}
+
+pre:not(.output) {
+	@apply !bg-base-100;
+}
+
+code {
+	line-height: 1.5 !important;
+	text-shadow: none !important;
+	font-family: 'Fira Code', monospace !important;
+}
+
+@supports (font-variation-settings: normal) {
+	code {
+		font-family: 'Fira Code VF', monospace !important;
+	}
 }
