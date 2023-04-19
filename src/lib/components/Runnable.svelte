@@ -46,7 +46,7 @@
 		class="btn btn-primary btn-sm absolute bottom-0 right-0 m-2 rounded-sm"
 		on:click={execute}
 	>
-		<span>{button}</span>
+		<span class='uppercase'>{button}</span>
 	</button>
 	<code
 		class="absolute right-0 top-0 m-2 prose dark:prose-invert opacity-50 select-none font-thin text-sm"

@@ -86,8 +86,15 @@
 			</div>
 		</div>
 	</div>
-	<div class='w-[54rem] bg-base-200 p-2'>
-		<div class='flex flex-1 justify-center'>
+	<div class='w-[54rem] bg-base-200'>
+		<div class="tabs bg-base-300 !rounded-b-none">
+			<a class="tab">Learning about fiboancci</a> 
+			<a class="tab tab-lifted tab-active border-none">Tab 2</a> 
+			<a class="tab">Tab 3</a>
+			<a class="tab">Tab 3</a>
+			<a class="tab">Tab 3</a>
+		</div>
+		<div class='flex flex-col flex-1 justify-center p-2'>
 			<slot/>
 		</div>
 	</div>
@@ -169,7 +176,7 @@
 	
 </div>
 
-<style>
+<style lang='postcss'>
 	div, button {
 		border-radius: var(--rounded-btn, 0.5rem);
 	}
@@ -192,6 +199,14 @@
 	/* Handle on hover */
 	.no-scrollbar::-webkit-scrollbar-thumb:hover {
 		background: transparent;
+	}
+
+	.tab-active::after, .tab-active::before {
+		background-image: radial-gradient(circle at var(--circle-pos), transparent var(--tab-grad), var(--tab-border-color) calc(var(--tab-grad) + 0.3px), var(--tab-border-color) calc(var(--tab-grad) + var(--tab-border, 1px)), hsla(var(--b2) / var(--tw-bg-opacity, 1)) calc(var(--tab-grad) + var(--tab-border, 1px) + 0.3px)) !important;
+	}
+
+	.tab-active {
+		@apply !bg-base-200;
 	}
 
 </style>
