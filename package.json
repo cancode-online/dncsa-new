@@ -38,8 +38,11 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"buffer": "^6.0.3",
 		"daisyui": "^2.51.5",
 		"firebase": "^9.19.1",
+		"mdsvex": "^0.10.6",
+		"prismjs": "^1.29.0",
 		"zod": "^3.21.4"
 	}
 }

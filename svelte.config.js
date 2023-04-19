@@ -1,13 +1,12 @@
 import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/kit/vite';
+import { mdsvex } from 'mdsvex';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
-	// for more information about preprocessors
-	preprocess: vitePreprocess(),
-
+	extensions: ['.svelte', '.md', '.svx', '.svexy', '.svelte.md', '.mdx'],
 	kit: {
+		adapter: adapter(),
 		alias: {
 			$: 'src',
 			$lib: 'src/lib',
@@ -16,11 +15,17 @@ const config = {
 			$stores: 'src/lib/stores',
 			$types: 'src/app.d.ts',
 			$utils: 'src/lib/utils',
-			$files: 'src/lib/files',
-			$firebase: 'src/firebase.ts'
-		},
-		adapter: adapter()
-	}
+			$files: 'src/files',
+			$firebase: 'src/firebase.ts',
+			$pages: 'src/pages',
+		}
+	},
+	preprocess: [
+		vitePreprocess(),
+		mdsvex({
+			extensions: ['.md', '.svx', '.svexy', '.svelte.md', '.mdx']
+		})
+	]
 };
 
 export default config;

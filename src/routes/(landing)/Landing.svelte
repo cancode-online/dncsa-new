@@ -5,6 +5,7 @@
 	import { fade, fly } from 'svelte/transition';
 
 	let state = 'login';
+
 </script>
 
 <div class="flex w-screen h-screen bg-base-100 justify-center gap-8">
