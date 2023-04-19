@@ -147,12 +147,12 @@ const createUserDocument = async (user) => {
 };
 
 // Sign up with Email/Password function
-export const signUpWithEmail = async (email: string, password: string, username: string) => {
+export const signUpWithEmail = async (email: string, password: string, firstName: string, lastName: string) => {
 	const auth = getAuthApp();
 	createUserWithEmailAndPassword(auth, email, password)
 		.then(async () => {
 			const auth = getAuthApp();
-			await updateProfile(auth.currentUser, { displayName: username });
+			await updateProfile(auth.currentUser, { displayName: firstName + ' ' + lastName });
 
 			alert('Successfully signed up', 'success');
 			goto('/');

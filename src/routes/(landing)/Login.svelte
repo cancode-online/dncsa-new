@@ -71,7 +71,7 @@
 </script>
 
 <svelte:head>
-	<title>Login to CanCode</title>
+	<title>Login to DN CSA</title>
 </svelte:head>
 
 <div
