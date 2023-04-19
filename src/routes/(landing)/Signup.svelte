@@ -2,140 +2,207 @@
 	import {
 		signInWithGoogle,
 		signInWithGithub,
-		signUpWithEmail,
-		signInWithFacebook
+		signInWithFacebook,
+		signUpWithEmail
 	} from '$firebase';
 
 	import LucideGithub from '~icons/lucide/github';
 	import MingcuteGoogleFill from '~icons/mingcute/google-fill'
 	import BiMeta from '~icons/bi/meta';
 
-	let username: string = '';
-	let email: string = '';
-	let password: string = '';
-	let confirmPassword: string = '';
+	import { z } from 'zod';
 
 	export let state;
 
+	let email: string = '';
+	const emailSchema = z.string().email();
+	let password: string = '';
+	const passwordSchema = z.string().min(6);
+	let firstName: string = '';
+	const firstNameSchema = z.string().min(2);
+	let lastName: string = '';
+	const lastNameSchema = z.string().min(2);
+	let confirmPassword: string = '';
+
+
 	async function post() {
-		signUpWithEmail(email, password, username);
+
+		try {
+
+		} catch {
+			
+		}
+
+		signUpWithEmail(email, password, firstName, lastName);
 	}
 
-	function checkUsername() {
-		const usernameInput = document.getElementsByName('username_box')[0] as HTMLInputElement;
-		const userTool = document.getElementById('tooltip-user') as HTMLDivElement;
-		const submit = document.getElementById('submit') as HTMLButtonElement;
-		if (usernameInput.value.length < 3) {
-			requestAnimationFrame(() => {
-				usernameInput.classList.add('input-error');
-				userTool.classList.remove('before:hidden', 'after:hidden');
-				submit.disabled = true;
-			});
-		} else {
-			usernameInput.classList.remove('input-error');
-			userTool.classList.add('before:hidden', 'after:hidden');
-			submit.disabled = false;
+	function validateFirstName() {
+
+		try {
+			
+			if (firstName.length > 0) firstNameSchema.parse(firstName);
+
+			document?.getElementById('first_name_box')?.classList.remove('input-error');
+			document?.getElementById('first_name_box_tooltip')?.classList.add('before:hidden', 'after:hidden');
+
+		} catch (error) {
+
+			document?.getElementById('first_name_box')?.classList.add('input-error');
+			document?.getElementById('first_name_box_tooltip')?.classList.remove('before:hidden', 'after:hidden');
+
+			return;
+		}
+
+	}
+
+	function validateLastName() {
+
+		try {
+			
+			if (lastName.length > 0) firstNameSchema.parse(lastName);
+
+			document?.getElementById('last_name_box')?.classList.remove('input-error');
+			document?.getElementById('last_name_box_tooltip')?.classList.add('before:hidden', 'after:hidden');
+
+		} catch (error) {
+
+			document?.getElementById('last_name_box')?.classList.add('input-error');
+			document?.getElementById('last_name_box_tooltip')?.classList.remove('before:hidden', 'after:hidden');
+
+			return;
+		}
+
+	}
+
+
+	function validateEmail() {
+
+		try {
+			
+			if (email.length > 0) emailSchema.parse(email);
+
+			document?.getElementById('email_box')?.classList.remove('input-error');
+			document?.getElementById('email_box_tooltip')?.classList.add('before:hidden', 'after:hidden');
+
+		} catch (error) {
+
+			document?.getElementById('email_box')?.classList.add('input-error');
+			document?.getElementById('email_box_tooltip')?.classList.remove('before:hidden', 'after:hidden');
+
+			return;
+		}
+
+	}
+
+	function validatePassword() {
+
+		try {
+			
+			if (password.length > 0) passwordSchema.parse(password);
+
+			document?.getElementById('password_box')?.classList.remove('input-error');
+			document?.getElementById('password_box_tooltip')?.classList.add('before:hidden', 'after:hidden');
+
+		} catch (error) {
+
+			document?.getElementById('password_box')?.classList.add('input-error');
+			document?.getElementById('password_box_tooltip')?.classList.remove('before:hidden', 'after:hidden');
+
+			return;
+		}
+
+	}
+
+	function validateConfirmPassword() {
+
+
+		if (confirmPassword === password){
+
+			document?.getElementById('confirm_password_box')?.classList.remove('input-error');
+			document?.getElementById('confirm_password_box_tooltip')?.classList.add('before:hidden', 'after:hidden');
+
+		}
+
+		else {
+
+			document?.getElementById('confirm_password_box')?.classList.add('input-error');
+			document?.getElementById('confirm_password_box_tooltip')?.classList.remove('before:hidden', 'after:hidden');
+
+			return;
+		
 		}
 	}
 
-	function checkEmail() {
-		const emailInput = document.getElementsByName('email_box')[0] as HTMLInputElement;
-		const emailTool = document.getElementById('tooltip-email') as HTMLDivElement;
-		const submit = document.getElementById('submit') as HTMLButtonElement;
-		if (!emailInput.value.includes('@')) {
-			requestAnimationFrame(() => {
-				emailInput.classList.add('input-error');
-				emailTool.classList.remove('before:hidden', 'after:hidden');
-				submit.disabled = true;
-			});
-		} else {
-			emailInput.classList.remove('input-error');
-			emailTool.classList.add('before:hidden', 'after:hidden');
-			submit.disabled = false;
-		}
-	}
-
-	function checkPasswords() {
-		const passwordInput = document.getElementsByName('password_box')[0] as HTMLInputElement;
-		const confirmInput = document.getElementsByName('confirm_box')[0] as HTMLInputElement;
-		const submit = document.getElementById('submit') as HTMLButtonElement;
-		const passTool = document.getElementById('tooltip-pass') as HTMLDivElement;
-		if (passwordInput.value !== confirmInput.value) {
-			requestAnimationFrame(() => {
-				passwordInput.classList.add('input-error');
-				confirmInput.classList.add('input-error');
-				passTool.classList.remove('before:hidden', 'after:hidden');
-				submit.disabled = true;
-			});
-		} else {
-			passwordInput.classList.remove('input-error');
-			confirmInput.classList.remove('input-error');
-			passTool.classList.add('before:hidden', 'after:hidden');
-			submit.disabled = false;
-		}
-	}
+			
+	
 </script>
 
 <svelte:head>
-	<title>Signup for CanCode</title>
+	<title>Signup for DN CSA</title>
 </svelte:head>
 
 <div
 	class="b-300 flex flex-col p-8 w-96 !h-fit justify-around self-center gap-4"
 >
-	<form method="POST">
-		<!-- Username/Email/Password/Confirm Boxes -->
-		<div
-			id="tooltip-user"
-			class="w-full tooltip tooltip-top tooltip-neutral before:hidden after:hidden tooltip-open"
-			data-tip="Username must be at least 3 characters"
-		>
+	<!-- Email and Password Box -->
+	<form method="POST" class="flex flex-col gap-4 w-full">
+		<div id='first_name_box_tooltip' class="tooltip tooltip-error tooltip-open tooltip-right w-full normal-case after:hidden before:hidden" data-tip="Too short">
 			<input
-				bind:value={username}
+				bind:value={firstName}
+				on:blur={validateFirstName}
 				type="text"
-				placeholder="Username"
-				class="input w-full max-w-xs bg-base-200"
-				name="username_box"
-				on:blur={checkUsername}
+				placeholder="First Name"
+				class="input w-full max-w-xs bg-base-200 placeholder:text-base-content/30"
+				name="first_name_box"
+				id="first_name_box"
 			/>
 		</div>
-		<div
-			id="tooltip-email"
-			class="w-full tooltip tooltip-top tooltip-neutral before:hidden after:hidden tooltip-open"
-			data-tip="Email must be valid"
-		>
+		<div id='last_name_box_tooltip' class="tooltip tooltip-error tooltip-open tooltip-right w-full normal-case after:hidden before:hidden" data-tip="Too short">
+			<input
+				bind:value={lastName}
+				on:blur={validateLastName}
+				type="text"
+				placeholder="Last Name"
+				class="input w-full max-w-xs bg-base-200 placeholder:text-base-content/30"
+				name="last_name_box"
+				id="last_name_box"
+			/>
+		</div>
+		<div id='email_box_tooltip' class="tooltip tooltip-error tooltip-open tooltip-right w-full normal-case after:hidden before:hidden" data-tip="Invalid email">
 			<input
 				bind:value={email}
-				type="email"
+				on:blur={validateEmail}
+				type="text"
 				placeholder="Email"
-				class="input w-full max-w-xs my-4 bg-base-200"
+				class="input w-full max-w-xs bg-base-200 placeholder:text-base-content/30"
 				name="email_box"
-				on:blur={checkEmail}
+				id="email_box"
 			/>
 		</div>
-		<div
-			id="tooltip-pass"
-			class="w-full tooltip tooltip-top tooltip-neutral before:hidden after:hidden tooltip-open"
-			data-tip="Passwords must match"
-		>
+		<div id='password_box_tooltip' class="tooltip tooltip-error tooltip-open tooltip-right w-full normal-case after:hidden before:hidden" data-tip="Too short">
 			<input
 				bind:value={password}
+				on:blur={validatePassword}
 				type="password"
 				placeholder="Password"
-				class="input w-full max-w-xs"
+				class="input w-full max-w-xs bg-base-200 placeholder:text-base-content/30"
 				name="password_box"
+				id="password_box"
 			/>
+		</div>
+		<div id='confirm_password_box_tooltip' class="tooltip tooltip-error tooltip-open tooltip-right w-full normal-case after:hidden before:hidden" data-tip="Password does not match">
 			<input
 				bind:value={confirmPassword}
+				on:blur={validateConfirmPassword}
 				type="password"
 				placeholder="Confirm Password"
-				class="input w-full max-w-xs my-4"
-				name="confirm_box"
-				on:blur={checkPasswords}
+				class="input w-full max-w-xs bg-base-200 placeholder:text-base-content/30"
+				name="confirm_password_box"
+				id="confirm_password_box"
 			/>
 		</div>
 		<!-- Submit Button -->
-		<input id="submit" type="button" value="Sign Up" class="btn max-w-xs my-4 w-full" on:click={post} />
+		<input type="button" value="signup" class="btn btn-primary uppercase max-w-xs mb-4 w-full self-center" on:click={post} />
 	</form>
 
 	<!-- Login Buttons -->
@@ -165,14 +232,14 @@
 		</div>
 	</div>
 
-	<!-- Login Redirect -->
+	<!-- Signup Redirect -->
 	<div class="divider h-0 px-4">OR</div>
-	<div class="self-center">
-		Already have an account?<button
-			class="btn btn-link px-1 text-base-content"
+	<div class="self-center text-center normal-case">
+		Don't have an account?<button
+			class="btn btn-link px-1 text-base-content normal-case"
 			on:click={() => {
-				state = 'login';
-			}}>Login</button
+				state = 'signup';
+			}}>Sign Up</button
 		>
 	</div>
 </div>
