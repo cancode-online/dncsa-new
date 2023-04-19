@@ -96,6 +96,8 @@
 
 	function validatePassword() {
 
+		validateConfirmPassword();
+
 		try {
 			
 			if (password.length > 0) passwordSchema.parse(password);

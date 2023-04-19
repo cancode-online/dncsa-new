@@ -80,7 +80,7 @@
 	
 </script>
 
-<div class="navbar bg-base-100 absolute gap-2 z-20">
+<div class="navbar bg-base-100/80 fixed gap-2 z-20 backdrop-blur-sm">
 	<div class="flex-1">
 		<a href="/" class="btn btn-ghost uppercase">AP Computer Science A</a>
 	</div>
