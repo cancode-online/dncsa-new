@@ -116,7 +116,7 @@
 				<div class='w-full min-h-[4rem] h-fit flex flex-col'>
 					<div class='flex justify-start w-full h-fit !rounded-b-none'>
 						<div class='flex self-start justify-between w-full h-fit bg-neutral'>
-							<div class='flex flex-1 gap-2 self-center bg-primary text-primary-content p-2 !rounded-b-none' style={ key.type != 'announcement' ? "border-top-right-radius: 0;": ""} >
+							<div class='flex flex-1 gap-2 self-center bg-neutral text-neutral-content p-2 !rounded-b-none' style={ key.type != 'announcement' ? "border-top-right-radius: 0;": ""} >
 								<span class='self-center'>
 									{#if key.type === 'problem'}
 										<LucideCog />
@@ -129,7 +129,7 @@
 								<span class='self-center'>{key.name}</span>
 							</div>
 							{#if key.type === 'problem' || key.type === 'reading'}
-								<div class='self-start p-2 bg-neutral text-neutral-content !rounded-b-none !rounded-l-none'>
+								<div class='self-start p-2 bg-primary text-primary-content !rounded-b-none !rounded-l-none'>
 									<span>due 03:02:11</span>
 								</div>
 							{/if}

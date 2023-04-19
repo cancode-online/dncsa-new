@@ -6,10 +6,13 @@
 
 	import LucideSun from '~icons/lucide/sun';
 	import LucideMoon from '~icons/lucide/moon';
-	import { codeTheme } from '$stores/codeTheme';
+	import { codeTheme, layoutTheme } from '$stores/theme';
 	import { onMount } from 'svelte';
 
 	onMount(() => {
+
+		document.documentElement.setAttribute('data-theme', $layoutTheme);
+
 		if ($codeTheme === 'light') {
 			if (document && document.getElementById('theme-switch-moon')) {
 				document.getElementById('theme-switch-moon')?.classList.remove('swap-off');
@@ -82,18 +85,26 @@
 		<a href="/" class="btn btn-ghost uppercase">AP Computer Science A</a>
 	</div>
 	<button
-		class="swap swap-rotate swap-active btn btn-sm btn-ghost p-2 h-full flex relative gap-2"
+		class="swap swap-rotate swap-active btn btn-ghost p-2 h-full flex relative gap-2 z-10"
 		on:click={switchTheme}
 		>
-		<div id="theme-switch-sun" class="swap-on">
+		<div id="theme-switch-sun" class="swap-on text-lg self-center">
 			<LucideMoon size={'30'} strokeWidth={'2px'} />
 		</div>
-		<div id="theme-switch-moon" class="swap-off absolute left-0 pl-2">
+		<div id="theme-switch-moon" class="swap-off absolute text-lg left-0 pl-2 self-center">
 			<LucideSun size={'30'} strokeWidth={'2px'} />
 		</div>
-		<span>
-			Code
-		</span>
+		<button class='inline uppercase'>
+			CODE
+		</button>
+		<svg
+            width="12px"
+            height="12px"
+            class="ml-1 hidden h-3 w-3 fill-current opacity-60 sm:inline-block self-center"
+            xmlns="http://www.w3.org/2000/svg"
+            viewbox="0 0 2048 2048"
+            ><path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z" /></svg
+        >
 	</button>
 	<div class="flex z-10">
 		<ThemeDropdown />

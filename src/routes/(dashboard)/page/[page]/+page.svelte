@@ -2,7 +2,7 @@
 	import prismLight from '$lib/prism/prism-light.txt?raw';
 	import prismDark from '$lib/prism/prism-dark.txt?raw';
 
-	import { codeTheme } from '$stores/codeTheme';
+	import { codeTheme } from '$stores/theme';
 	import { onMount, onDestroy } from 'svelte';
 	import { browser } from '$app/environment';
 	import SEO from '$components/SEO.svelte';
