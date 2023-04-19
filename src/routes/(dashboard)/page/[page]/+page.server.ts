@@ -2,8 +2,7 @@
 import { error } from '@sveltejs/kit';
 
 //import type { Load } from '@sveltejs/kit';
-import { pages } from '$/pages/indexed.js';
-console.log(pages);
+import { pages } from '$/pages/indexer.server.js';
 
 export async function load({ params }: { params: { page: string } }) {
 
