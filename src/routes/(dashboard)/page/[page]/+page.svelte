@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { fade, fly } from 'svelte/transition';
+	import { quadInOut } from 'svelte/easing';
 
 	import prismLight from '$lib/prism/prism-light.txt?raw';
 	import prismDark from '$lib/prism/prism-dark.txt?raw';
@@ -8,6 +9,7 @@
 	import { onMount, onDestroy } from 'svelte';
 	import { browser } from '$app/environment';
 	import SEO from '$components/SEO.svelte';
+	import Dashboard from '../../Dashboard.svelte';
 
 	let unsubscribe: () => void;
 
@@ -40,11 +42,13 @@
 	};
 </script>
 
+<Dashboard>
+
 <SEO title={data.title} description={data.summary} />
 
 <article
 	class="prose dark:prose-invert pt-24 mb-0 self-center min-w-0 max-w-none xl:w-[54rem] lg:w-[44rem] md:w-[36rem] sm:w-[30rem] w-[22rem]"
-	in:fly="{{ y: 500, duration: 450, delay: 0}}" out:fly="{{ x: 800, duration: 650, delay: 0}}"
+	in:fly="{{ y: 500, duration: 450, delay: 0}}" out:fly="{{ x: 1000, duration: 800, delay: 0, easing: quadInOut }}"
 >
 	<h1 class="m-0">{data.title}</h1>
 	<h4 class="mt-4">Published: {data.date}</h4>
@@ -96,3 +100,5 @@
 		text-decoration: none !important;
 	}
 </style>
+
+</Dashboard>
