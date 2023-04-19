@@ -2,6 +2,7 @@
 	import LucideFiles from '~icons/lucide/files';
 	import LucideFileText from '~icons/lucide/file-text';
 	import LucideFolderOpen from '~icons/lucide/folder-open';
+	import LucideCalendar from '~icons/lucide/calendar'
 
 	import LucideMegaphone from '~icons/lucide/megaphone';
 	import LucideBook from '~icons/lucide/book';
@@ -11,11 +12,11 @@
 
 <div class='w-screen min-h-screen p-2 gap-2 pt-16 flex justify-center'>
 
-	<div class='flex-1 flex justify-end'>
+	<div class='flex-1 flex justify-end z-10 bg-red-500'>
 		<div class='w-56'>
 			<div class="h-12 uppercase flex justify-start p-2 w-full bg-primary border-x-2 border-t-2 border-base-200 text-primary-content !rounded-b-none">
 				<div class='flex self-center w-fit gap-2'>
-					<span class='self-center'><LucideFileText /></span>
+					<span class='self-center'><LucideCalendar /></span>
 					<span class='flex-1 text-left'>Timeline</span>
 				</div>
 			</div>
@@ -62,23 +63,25 @@
 						type: 'week',
 					},
 					] as key, i}
-		
-					{#if key.type === 'week'}
-						<button class="btn btn-sm btn-ghost w-full uppercase flex gap-2 p-2">
-							<LucideFiles />
-							<span class='flex-1 text-left'>{key.name}</span>
-						</button>
-					{:else if key.type === 'unit'}
-						<button class="btn btn-sm btn-neutral w-full uppercase flex gap-2 p-2">
-							<LucideFolderOpen />
-							<span class='flex-1 text-left'>{key.name}</span>
-						</button>
-					{:else if key.type === 'page'}
-						<button class="btn btn-sm btn-neutral w-full uppercase flex gap-2 p-2">
-							<LucideFileText />
-							<span class='flex-1 text-left'>{key.name}</span>
-						</button>
-					{/if}
+					<a href='http://localhost:5173/page/pbl-tools'>
+						{#if key.type === 'week'}
+						
+							<button class="btn btn-sm btn-ghost w-full uppercase flex gap-2 p-2">
+								<LucideFiles />
+								<span class='flex-1 text-left'>{key.name}</span>
+							</button>
+						{:else if key.type === 'unit'}
+							<button class="btn btn-sm btn-neutral w-full uppercase flex gap-2 p-2">
+								<LucideFolderOpen />
+								<span class='flex-1 text-left'>{key.name}</span>
+							</button>
+						{:else if key.type === 'page'}
+							<button class="btn btn-sm btn-neutral w-full uppercase flex gap-2 p-2">
+								<LucideFileText />
+								<span class='flex-1 text-left'>{key.name}</span>
+							</button>
+						{/if}
+					</a>
 				{/each}
 			</div>
 		</div>
@@ -88,7 +91,7 @@
 			<slot/>
 		</div>
 	</div>
-	<div class='flex-1 flex justify-start'>
+	<div class='flex-1 flex justify-start z-10 bg-red-500'>
 		<div class='flex flex-col w-96 h-fit gap-2'>
 			{#each [
 				{
@@ -140,21 +143,21 @@
 							<span class='self-center'>
 								Not graded
 							</span>
-							<button class='btn btn-sm btn-neutral'>
+							<button class='btn btn-sm btn-neutral uppercase'>
 								Solve
 							</button>
 						{:else if key.type === 'announcement'}
 							<span class='self-center'>
 								Important announcement
 							</span>
-							<button class='btn btn-sm btn-neutral'>
+							<button class='btn btn-sm btn-neutral uppercase'>
 								View
 							</button>
 						{:else if key.type === 'reading'}
 							<span class='self-center'>
 								Not graded
 							</span>
-							<button class='btn btn-sm btn-neutral'>
+							<button class='btn btn-sm btn-neutral uppercase'>
 								Read
 							</button>
 						{/if}

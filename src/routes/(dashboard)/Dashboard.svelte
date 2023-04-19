@@ -62,23 +62,24 @@
 						type: 'week',
 					},
 					] as key, i}
-		
-					{#if key.type === 'week'}
-						<button class="btn btn-sm btn-ghost w-full uppercase flex gap-2 p-2">
-							<LucideFiles />
-							<span class='flex-1 text-left'>{key.name}</span>
-						</button>
-					{:else if key.type === 'unit'}
-						<button class="btn btn-sm btn-neutral w-full uppercase flex gap-2 p-2">
-							<LucideFolderOpen />
-							<span class='flex-1 text-left'>{key.name}</span>
-						</button>
-					{:else if key.type === 'page'}
-						<button class="btn btn-sm btn-neutral w-full uppercase flex gap-2 p-2">
-							<LucideFileText />
-							<span class='flex-1 text-left'>{key.name}</span>
-						</button>
-					{/if}
+					<a href='http://localhost:5173/page/pbl-tools'>
+						{#if key.type === 'week'}
+							<button class="btn btn-sm btn-ghost w-full uppercase flex gap-2 p-2">
+								<LucideFiles />
+								<span class='flex-1 text-left'>{key.name}</span>
+							</button>
+						{:else if key.type === 'unit'}
+							<button class="btn btn-sm btn-neutral w-full uppercase flex gap-2 p-2">
+								<LucideFolderOpen />
+								<span class='flex-1 text-left'>{key.name}</span>
+							</button>
+						{:else if key.type === 'page'}
+							<button class="btn btn-sm btn-neutral w-full uppercase flex gap-2 p-2">
+								<LucideFileText />
+								<span class='flex-1 text-left'>{key.name}</span>
+							</button>
+						{/if}
+					</a>
 				{/each}
 			</div>
 		</div>

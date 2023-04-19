@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { fade, fly } from 'svelte/transition';
+
 	import prismLight from '$lib/prism/prism-light.txt?raw';
 	import prismDark from '$lib/prism/prism-dark.txt?raw';
 
@@ -42,6 +44,7 @@
 
 <article
 	class="prose dark:prose-invert pt-24 mb-0 self-center min-w-0 max-w-none xl:w-[54rem] lg:w-[44rem] md:w-[36rem] sm:w-[30rem] w-[22rem]"
+	in:fly="{{ y: 500, duration: 450, delay: 0}}" out:fly="{{ x: 800, duration: 650, delay: 0}}"
 >
 	<h1 class="m-0">{data.title}</h1>
 	<h4 class="mt-4">Published: {data.date}</h4>
