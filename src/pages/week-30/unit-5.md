@@ -1,0 +1,21 @@
+---
+title: Unit 5
+date: '2023-04-21'
+summary: 'Lesson on topics covered in AP CSA Unit 5 (Classes)'
+tags: ['lesson', 'Unit 5']
+image: 'https://i.imgur.com/4Z4Z4Z4.png'
+type: 'page'
+---
+
+<script>
+	import Runnable from '$components/Runnable.svelte';
+	import classExample1 from './java-code/classExample1.java?raw';
+</script>
+
+# Unit 5: Java Classes
+
+## Lesson 1: Classes
+
+Java is an Object Oriented programming language or OOP for short.
+
+<Runnable code={classExample1} lang={'java'} title={'Java Class'}/>
