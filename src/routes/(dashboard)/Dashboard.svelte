@@ -3,7 +3,11 @@
 	import LucideMegaphone from '~icons/lucide/megaphone';
 	import LucideBook from '~icons/lucide/book';
 	import LucideCog from '~icons/lucide/cog';
+
 	import Timeline from '$components/Timeline.svelte';
+	import Tabs from '$components/Tabs.svelte';
+
+	import { pages, pageToFolder } from '$pages/indexer';
 
 </script>
 
@@ -13,13 +17,7 @@
 		<Timeline />
 	</div>
 	<div class='xl:w-[54rem] lg:w-[44rem] w-[10rem] bg-base-200'>
-		<div class="tabs bg-base-300 !rounded-b-none px-2 pt-2">
-			<a class="tab tab-lifted tab-active border-none"><span>Learning about fiboancci</span></a> 
-			<a class="tab tab-lifted"><span>Tab 2</span></a> 
-			<a class="tab tab-lifted"><span>CODE CODE CODDE</span></a>
-			<a class="tab tab-lifted"><span>Tab 4</span></a>
-			<a class="tab tab-lifted"><span>Tab 5</span></a>
-		</div>
+		<Tabs />
 		<div class='flex flex-col flex-1 justify-center p-2'>
 			<slot/>
 		</div>
@@ -125,22 +123,6 @@
 	/* Handle on hover */
 	.no-scrollbar::-webkit-scrollbar-thumb:hover {
 		background: transparent;
-	}
-
-	.tab-active::after, .tab-active::before {
-		background-image: radial-gradient(circle at var(--circle-pos), transparent var(--tab-grad), var(--tab-border-color) calc(var(--tab-grad) + 0.3px), var(--tab-border-color) calc(var(--tab-grad) + var(--tab-border, 1px)), hsla(var(--b2) / var(--tw-bg-opacity, 1)) calc(var(--tab-grad) + var(--tab-border, 1px) + 0.3px)) !important;
-	}
-
-	.tab-active {
-		@apply !bg-base-200;
-	}
-
-	.tab > span {
-		white-space: nowrap;
-		max-width: 8rem;
-		overflow: hidden;              /* "overflow" value must be different from  visible"*/ 
-		-o-text-overflow: ellipsis;    /* Opera < 11*/
-		text-overflow:    ellipsis;    /* IE, Safari (WebKit), Opera >= 11, FF > 6 */
 	}
 
 </style>

@@ -40,6 +40,7 @@
 		summary: string;
 		content: any;
 	};
+
 </script>
 
 <Dashboard>

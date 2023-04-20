@@ -2,12 +2,14 @@
 import { error } from '@sveltejs/kit';
 
 //import type { Load } from '@sveltejs/kit';
-import { pages } from '$/pages/indexer.server.js';
+import { pages, pageToFolder } from '$/pages/indexer';
 
 export async function load({ params }: { params: { page: string } }) {
 
+	const page = params.page;
+
 	try {
-		const post = await pages[params.page]();
+		const post = await pages[pageToFolder[page]].pages[page](); // fix void to defined function type in indexer.ts
 		const { title, date, summary } = post.metadata;
 		const content = post.default;
 
