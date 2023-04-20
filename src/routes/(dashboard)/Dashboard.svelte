@@ -18,7 +18,9 @@
 	</div>
 	<div class='w-full max-w-3xl bg-base-200'>
 		<Tabs />
-		<div class='flex flex-col flex-1 p-2 max-h-screen overflow-y-scroll'>
+		<div class='bg-base-200 h-1 !rounded-none'>
+		</div>
+		<div class='flex flex-col flex-1 p-2 max-h-screen overflow-y-scroll no-scrollbar'>
 			<slot/>
 		</div>
 	</div>
