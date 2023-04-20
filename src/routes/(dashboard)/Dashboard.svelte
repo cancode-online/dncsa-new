@@ -16,9 +16,9 @@
 	<div class='flex-1 flex justify-end z-10 bg-base-100'>
 		<Timeline />
 	</div>
-	<div class='xl:w-[54rem] lg:w-[44rem] w-[10rem] bg-base-200'>
+	<div class='w-full max-w-3xl bg-base-200'>
 		<Tabs />
-		<div class='flex flex-col flex-1 justify-center p-2'>
+		<div class='flex flex-col flex-1 p-2 max-h-screen overflow-y-scroll'>
 			<slot/>
 		</div>
 	</div>

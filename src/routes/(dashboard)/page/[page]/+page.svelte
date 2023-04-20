@@ -48,7 +48,7 @@
 <SEO title={data.title} description={data.summary} />
 
 <article
-	class="prose dark:prose-invert m-0 p-2 self-center min-w-0 max-w-none xl:w-[34rem] lg:w-[28rem] md:w-[24rem] sm:w-[16rem] w-[14rem]"
+	class="bg-red-500 prose dark:prose-invert m-0 self-center min-w-0 max-w-none h-full w-full"
 	in:fly="{{ y: 500, duration: 450, delay: 0}}" out:fly="{{ y: 500, duration: 450, delay: 0, easing: quadInOut }}"
 >
 	<h1 class="m-0">{data.title}</h1>
@@ -97,6 +97,7 @@
 		right: 1rem;
 		text-decoration: none !important;
 	}
+
 </style>
 
 </Dashboard>
