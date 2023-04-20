@@ -2,7 +2,7 @@ import { browser } from '$app/environment';
 import { writable } from 'svelte/store';
 import type { Writable } from 'svelte/store';
 
-const codeDefault = 'light';
+const codeDefault = 'dark';
 const codeValue = browser ? window.localStorage.getItem('codeTheme') ?? codeDefault : codeDefault;
 
 const codeTheme = writable<string>(codeValue) as Writable<string>;
@@ -14,7 +14,7 @@ codeTheme.subscribe((value) => {
 });
 
 
-const layoutDefault = 'light';
+const layoutDefault = 'garden';
 const layoutValue = browser ? window.localStorage.getItem('layoutTheme') ?? layoutDefault : layoutDefault;
 
 const layoutTheme = writable<string>(layoutValue) as Writable<string>;

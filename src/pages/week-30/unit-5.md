@@ -14,6 +14,8 @@ type: 'page'
 
 # Unit 5: Java Classes
 
+> 5  -7.5% of the test will be on this unit
+
 ## Lesson 1: Classes
 
 Java is an Object Oriented programming language or OOP for short.

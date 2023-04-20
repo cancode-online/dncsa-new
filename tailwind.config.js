@@ -10,5 +10,8 @@ export default {
 	theme: {
 		extend: {}
 	},
+	daisyui: {
+		darkTheme: 'garden',
+	},
 	plugins: [require("@tailwindcss/typography"), require('daisyui')]
 };

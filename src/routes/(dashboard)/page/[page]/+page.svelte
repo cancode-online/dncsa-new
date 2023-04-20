@@ -51,8 +51,8 @@
 	class="prose dark:prose-invert m-0 p-2 self-center min-w-0 max-w-none h-full w-full"
 	in:fly="{{ y: 500, duration: 450, delay: 0}}" out:fly="{{ y: 500, duration: 450, delay: 0, easing: quadInOut }}"
 >
-	<h1 class="m-0">{data.title}</h1>
-	<h4 class="m-0">Published: {data.date}</h4>
+	<h4 class="m-0">{data.title} - {new Date(data.date).toLocaleDateString('en-us')}</h4>
+	<hr>
 	<div class='m-0'>
 		<svelte:component this={data.content} />
 	</div>
