@@ -7,7 +7,27 @@
 
     $: {
 
-        if ($page.url.pathname.split('/')[2]) tabsArray = Object.keys(pages[pageToFolder[$page.url.pathname.split('/')[2]]].pages);
+        if ($page.url.pathname.split('/')[2]) {
+            
+            let tabs = Object.keys(pages[pageToFolder[$page.url.pathname.split('/')[2]]].pages);
+            tabsArray = [];
+
+            if (tabs.length != 0) {
+
+                let order = pages[pageToFolder[$page.url.pathname.split('/')[2]]].metadata.order;
+
+                for (let i = 0; i < order.length; i++) {
+                    
+                    tabsArray[i] = order[i];
+                    tabs.splice(tabs.indexOf(order[i]), 1);
+                    
+                }
+
+                tabsArray = [...tabsArray, ...tabs];
+
+            }
+
+        }
     }
 
 </script>

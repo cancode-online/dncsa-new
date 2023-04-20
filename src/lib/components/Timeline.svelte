@@ -26,7 +26,7 @@
     <div class='no-scrollbar bg-base-300 border-2 border-base-200 max-h-[24rem] w-full p-1 gap-1 flex flex-col flex-nowrap overflow-y-scroll !rounded-t-none'>
         {#each pagesArray as folder, i}
 
-            <a href='/page/{Object.keys(pages[folder].pages).find(pg => pages[folder].metadata.order[0])}'>
+            <a href='/page/{pages[folder].metadata.order[0]}'>
                 {#if pages[folder].metadata.type === 'week'}
                     <button class="btn btn-sm btn-ghost w-full uppercase flex gap-2 p-2 {pageToFolder[$page.url.pathname.split('/')[2]] === folder ? "active-timeline-button" : ""}">
                         <LucideFiles />
