@@ -3,7 +3,6 @@ title: Agile Methodology
 date: '2022-08-15'
 summary: 'The Agile methodology helps bring out all the good characteristics in group development.  The sociology of how an individual and group of individuals work in a Scrum Team using Agile methodology is a key development skill.  Often interview questions focus on the processes of how you work on code.'
 tags: ['test', 'first', 'article']
-image: 'https://i.imgur.com/4Z4Z4Z4.png'
 type: 'page'
 due: '2022-09-14'
 ---

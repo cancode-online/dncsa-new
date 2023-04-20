@@ -17,7 +17,3 @@ for (const url in urls) {
     pages[folder].pages[page] = urls[url];
 
 }
-
-console.log(urls);
-console.log(pages);
-console.log(pageToFolder);

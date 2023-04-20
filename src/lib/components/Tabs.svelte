@@ -32,9 +32,9 @@
 
 </script>
 
-<div class="tabs bg-base-300 !rounded-b-none px-2 pt-2">
+<div class="tabs bg-base-300 !rounded-b-none px-2">
     {#each tabsArray as tab, i}
-        <a href='{tab}' class="tab border-none tab-lifted !px-4 !py-0 {$page.url.pathname.split('/')[2] === tab ? "tab-active" : ""}">
+        <a href='{tab}' class="mt-2 tab border-none tab-lifted !px-4 !py-0 {$page.url.pathname.split('/')[2] === tab ? "tab-active" : ""}">
             <span>
                 {#await (async () => { return (await pages[pageToFolder[tab]].pages[tab]()).metadata.title })()}
                     Loading...
