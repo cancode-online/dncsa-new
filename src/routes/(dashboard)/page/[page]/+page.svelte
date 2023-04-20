@@ -48,7 +48,7 @@
 <SEO title={data.title} description={data.summary} />
 
 <article
-	class="bg-red-500 prose dark:prose-invert m-0 self-center min-w-0 max-w-none h-full w-full"
+	class="prose dark:prose-invert m-0 self-center min-w-0 max-w-none h-full w-full"
 	in:fly="{{ y: 500, duration: 450, delay: 0}}" out:fly="{{ y: 500, duration: 450, delay: 0, easing: quadInOut }}"
 >
 	<h1 class="m-0">{data.title}</h1>
