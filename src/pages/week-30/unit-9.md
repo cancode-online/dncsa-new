@@ -131,8 +131,10 @@ The <strong>Car</strong> class is a <strong>subclass</strong>, <mark>EXTENDING</
 
 </details>
 
-## Hack 2:
-> Demonstrate the usage of polymorphism and overriding methods
-1. temp
-2. temp
-3. temp
+## Hack 2 (Putting it all together):
+> Demonstrate the usage of inheritance, polymorphism and overriding methods
+1. Create a parent class of your choice
+2. Create 2 subclasses from that parent superclass
+4. incorporate some data and atleast one method into each class, using super keyword
+5. Override superclass method in the subclasses
+6. Use a tester method to create objects from the superclass that take on the forms of the subclasses, and print some outputs
