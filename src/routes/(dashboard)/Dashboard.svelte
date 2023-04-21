@@ -13,7 +13,7 @@
 
 <div class='max-w-screen w-screen min-h-screen p-2 gap-2 pt-16 flex justify-center'>
 
-	<div class='flex-1 flex justify-end z-10 bg-base-100'>
+	<div class='lex justify-end z-10 bg-base-100'>
 		<Timeline />
 	</div>
 	<div class='w-full flex flex-col bg-base-200 max-w-2xl'>
@@ -71,7 +71,7 @@
 							{/if}
 						</div>
 					</div>
-					<div class='flex flex-1 p-2 bg-base-300 text-base-content !rounded-t-none justify-between'>
+					<div class='flex p-2 bg-base-300 text-base-content !rounded-t-none justify-between'>
 						{#if key.type === 'problem'}
 							<span class='self-center'>
 								Not graded
