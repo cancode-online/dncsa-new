@@ -23,7 +23,7 @@ Recursion is a process where a function calls itself repeatedly until a certain 
 
 
 <summary>Code Example</summary>
-<Runnable code={example} lang={'java'} title={'Recursion Simple Example'}/>
+<Runnable code={example} lang={'java'} title={'recursion.java'}/>
 
 
 ## Using Recursion for sorting and searching
@@ -31,25 +31,7 @@ Recursion is a process where a function calls itself repeatedly until a certain 
 Binary search is a search algorithm used to find the position of a target value within a sorted array or list. It works by repeatedly dividing the search interval in half until the target value is found or it is determined that the target value is not in the array.
 
 
-```java
-
-public static int binarySearch(int[] array, int start, int end, int value) {
-            if (end >= start) {
-                int mid = (start + end) / 2;
-                if (mid < array.length && array[mid] == value) {
-                    return mid;
-                }
-                if (mid < array.length && array[mid] > value) {
-                    return binarySearch(array, start, mid - 1, value);
-                }
-
-                return binarySearch(array, mid + 1, end, value);
-    
-            }
-            return -1;
-        }
-
-```
+<Runnable code={binarySearch} lang={'java'} title={'binarysearch.java'}/>
 
 ### Merge Sort
 Merge sort is a sorting algorithm that follows the divide-and-conquer approach to sort a list or an array. It divides the list into smaller sub-lists, sorts them recursively, and then merges the sorted sub-lists to produce the final sorted list.

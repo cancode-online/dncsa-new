@@ -1,4 +1,4 @@
-public class Example {
+public class Main {
     public static int factorial(int n) {
         if (n == 0) {
             return 1;
@@ -8,7 +8,6 @@ public class Example {
     }
 
     public static void main(String[] args) {
-        Example ex = new Example();
-        System.out.println(ex.factorial(5));      //returns 5 factorial
+        System.out.println(factorial(5));
     }
 }
