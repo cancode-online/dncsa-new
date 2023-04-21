@@ -8,7 +8,7 @@ type: 'page'
 
 <script>
 	import Runnable from '$components/Runnable.svelte';
-	import example from './java-code/example.java?raw';
+	import examplecode from './java-code/examplecode.java?raw';
     import binarySearch from './java-code/binarySearch.java?raw';
 </script>
 
@@ -23,7 +23,7 @@ Recursion is a process where a function calls itself repeatedly until a certain 
 
 
 <summary>Code Example</summary>
-<Runnable code={example} lang={'java'} title={'recursion.java'}/>
+<Runnable code={examplecode} lang={'java'} title={'recursion.java'}/>
 
 
 ## Using Recursion for sorting and searching
