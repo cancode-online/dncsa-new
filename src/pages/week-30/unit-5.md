@@ -14,10 +14,10 @@ type: 'page'
 
 # Unit 5: Java Classes
 
-> 5  -7.5% of the test will be on this unit
+> 5 - 7.5% of the test will be on this unit
 
-## Lesson 1: Classes
+## # Classes
 
 Java is an Object Oriented programming language or OOP for short.
 
-<Runnable code={classExample1} lang={'java'} title={'Java Class'}/>
+<Runnable code={classExample1} lang={'java'} title={'hello-world.java'}/>
