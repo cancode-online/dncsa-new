@@ -27,7 +27,8 @@ type: 'page'
 
 ## Complete ALL HACKS from Unit 5 Lesson:
 >
-1. Temp
+1. Hack (Putting it all together)
+
 
 ***
 

@@ -67,7 +67,8 @@ Scope is something present in almost every programming language and is a very im
 
 ## Hack (Putting it all together):
 > Demonstrate the usage of classes and core concepts of unit 5
-- Create a class and tester method which incorporates all core ideas taught in this post
+
+#### Create a class and tester method which incorporates all core ideas taught in this post
 
 1. Class which has a constructor which sets at least 1 public and 1 private attribute (incorporate "this" keyword)
 2. Class which has public and private attributes and methods
