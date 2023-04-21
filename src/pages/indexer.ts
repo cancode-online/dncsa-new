@@ -2,7 +2,7 @@ const urls = import.meta.glob(`../pages/**/**.md`) as { [key: string]: void } | 
 export const pages = {} as { [key: string]: { pages: { [key: string]: void } | Record<string, never>, metadata: { [key: string]: string } } };
 export const pageToFolder = {} as { [key: string]: string };
 
-(async () => {
+//(async () => {
 
     for (const url in urls) {
 
@@ -20,4 +20,4 @@ export const pageToFolder = {} as { [key: string]: string };
     
     }    
 
-})()
+//})()
