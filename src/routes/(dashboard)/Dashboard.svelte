@@ -11,12 +11,12 @@
 
 </script>
 
-<div class='w-screen min-h-screen p-2 gap-2 pt-16 flex justify-center'>
+<div class='max-w-screen w-screen min-h-screen p-2 gap-2 pt-16 flex justify-center'>
 
 	<div class='flex-1 flex justify-end z-10 bg-base-100'>
 		<Timeline />
 	</div>
-	<div class='w-full max-w-4xl bg-base-200'>
+	<div class='w-full flex flex-col bg-base-200 max-w-2xl'>
 		<Tabs />
 		<div class='bg-base-200 h-1 !rounded-none'>
 		</div>
@@ -24,8 +24,8 @@
 			<slot/>
 		</div>
 	</div>
-	<div class='flex-1 flex justify-start z-10 bg-base-100'>
-		<div class='flex flex-col w-96 h-fit gap-2'>
+	<div class='flex justify-start z-10 bg-base-100'>
+		<div class='flex flex-col w-96 h-fit gap-2 min-w-[24rem]ss'>
 			{#each [
 				{
 					name: 'Week 3 - Recursion with',

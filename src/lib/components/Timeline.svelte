@@ -16,7 +16,7 @@
 
 </script>
 
-<div class='w-56'>
+<div class='w-56 min-w-[14rem]'>
     <div class="h-12 uppercase flex justify-start p-2 w-full bg-primary border-x-2 border-t-2 border-base-200 text-primary-content !rounded-b-none">
         <div class='flex self-center w-fit gap-2'>
             <span class='self-center'><LucideCalendar /></span>

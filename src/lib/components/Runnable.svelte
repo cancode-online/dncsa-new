@@ -27,11 +27,12 @@
 		output = `> ${result.replace(/\n/g, '\n> ')}`;
 		button = 'Re-run code';
 	}
+
 </script>
 
 <div class="relative w-full my-2">
 	<div class="rounded-t-sm min-h-12">
-		<pre class="!m-0 language-js bg-transparent"><code class="!text-base-content language-js bg-transparent"
+		<pre class="!m-0 language-js bg-transparent" ><code class="!text-base-content language-js bg-transparent"
 				>{@html prismCode}</code
 			></pre>
 	</div>
