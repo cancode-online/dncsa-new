@@ -2,18 +2,22 @@ const urls = import.meta.glob(`../pages/**/**.md`) as { [key: string]: void } | 
 export const pages = {} as { [key: string]: { pages: { [key: string]: void } | Record<string, never>, metadata: { [key: string]: string } } };
 export const pageToFolder = {} as { [key: string]: string };
 
-for (const url in urls) {
+(async () => {
 
-    const page = url.split('/')[2].split('.')[0];
-    const folder = url.split('/')[1];
-    const folderMetdata = await import(`../pages/${folder}/metadata.ts`);
+    for (const url in urls) {
 
-    pageToFolder[page] = folder;
+        const page = url.split('/')[2].split('.')[0];
+        const folder = url.split('/')[1];
+        const folderMetdata = await import(`../pages/${folder}/metadata.ts`);
+    
+        pageToFolder[page] = folder;
+    
+        if (!pages[folder]) {
+            pages[folder] = { pages: {}, metadata: folderMetdata };
+        }
+    
+        pages[folder].pages[page] = urls[url];
+    
+    }    
 
-    if (!pages[folder]) {
-        pages[folder] = { pages: {}, metadata: folderMetdata };
-    }
-
-    pages[folder].pages[page] = urls[url];
-
-}    
+})()
