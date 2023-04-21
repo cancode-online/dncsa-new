@@ -31,13 +31,14 @@ const APP = initializeApp({
 	measurementId: 'G-TVV87SBYMV'
 });
 
-export const authenticated = writable(false);
+export const authenticated = writable(undefined) as Writable<boolean | undefined>;
 export const getAuthApp = () => {
 	return getAuth(APP);
 };
 export const database = () => {
 	return getFirestore(APP);
 };
+
 export const admin = writable(false);
 export const user = writable(null) as Writable<User | null>;
 
@@ -45,7 +46,7 @@ export const user = writable(null) as Writable<User | null>;
 onAuthStateChanged(getAuth(APP), (User) => {
 	if (User) {
 		authenticated.set(true);
-		admin.set(true);
+		admin.set(true); // Check if admin
 		user.set(User);
 	} else {
 		authenticated.set(false);
@@ -66,8 +67,13 @@ export const logOut = () => {
 };
 
 const createUserDocument = async (user) => {
+
+	const auth = getAuthApp();
+
+	if (!auth?.currentUser) return;
+
 	const db = database();
-	const docRef = doc(db, 'users', getAuthApp().currentUser.uid);
+	const docRef = doc(db, 'users', auth.currentUser.uid);
 	const docSnap = await getDoc(docRef);
 	const document = docSnap.data();
 

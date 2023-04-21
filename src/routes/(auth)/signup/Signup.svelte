@@ -6,13 +6,13 @@
 		signUpWithEmail
 	} from '$firebase';
 
+	import { fly, fade } from 'svelte/transition';
+
 	import LucideGithub from '~icons/lucide/github';
 	import MingcuteGoogleFill from '~icons/mingcute/google-fill'
 	import BiMeta from '~icons/bi/meta';
 
 	import { z } from 'zod';
-
-	export let state;
 
 	let email: string = '';
 	const emailSchema = z.string().email();
@@ -144,7 +144,20 @@
 </svelte:head>
 
 <div
-	class="b-300 flex flex-col p-8 w-96 !h-fit justify-around self-center gap-4"
+	class="absolute b-300 flex flex-col p-8 w-96 !h-fit justify-around self-center gap-4"
+	in:fly={
+		{
+			x: 0,
+			y: 100,
+			duration: 500,
+			delay: 100
+		}
+	}
+	out:fade={
+		{
+			duration: 200,
+		}
+	}
 >
 	<!-- Email and Password Box -->
 	<form method="POST" class="flex flex-col gap-4 w-full">
@@ -237,11 +250,10 @@
 	<!-- Signup Redirect -->
 	<div class="divider h-0 px-4">OR</div>
 	<div class="self-center text-center normal-case">
-		Already have an account?<button
+		Already have an account?<a
+			href="/login"
 			class="btn btn-link px-1 text-base-content normal-case"
-			on:click={() => {
-				state = 'login';
-			}}>Login</button
+			>Login</a
 		>
 	</div>
 </div>

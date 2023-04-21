@@ -6,41 +6,7 @@
 
 	import LucideSun from '~icons/lucide/sun';
 	import LucideMoon from '~icons/lucide/moon';
-	import { codeTheme, layoutTheme } from '$stores/theme';
-	import { onMount } from 'svelte';
-
-	onMount(() => {
-
-		document.documentElement.setAttribute('data-theme', $layoutTheme);
-
-		if ($codeTheme === 'light') {
-			if (document && document.getElementById('theme-switch-moon')) {
-				document.getElementById('theme-switch-moon')?.classList.remove('swap-off');
-				document.getElementById('theme-switch-moon')?.classList.add('swap-on');
-
-				if (document.getElementById('theme-switch-sun')) {
-					document.getElementById('theme-switch-sun')?.classList.remove('swap-on');
-					document.getElementById('theme-switch-sun')?.classList.add('swap-off');
-				}
-			}
-
-			document.body.classList.remove('dark');
-			document.documentElement.style.setProperty('color-scheme', 'light');
-		} else {
-			if (document && document.getElementById('theme-switch-sun')) {
-				document.getElementById('theme-switch-sun')?.classList.add('swap-on');
-				document.getElementById('theme-switch-sun')?.classList.remove('swap-off');
-
-				if (document.getElementById('theme-switch-moon')) {
-					document.getElementById('theme-switch-moon')?.classList.add('swap-off');
-					document.getElementById('theme-switch-moon')?.classList.remove('swap-on');
-				}
-			}
-
-			document.body.classList.add('dark');
-			document.documentElement.style.setProperty('color-scheme', 'dark');
-		}
-	});
+	import { codeTheme } from '$stores/theme';
 
 	function switchTheme() {
 		codeTheme.update((data) => {

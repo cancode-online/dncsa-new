@@ -6,13 +6,13 @@
 		signInWithFacebook
 	} from '$firebase';
 
+	import { fly, fade } from 'svelte/transition';
+
 	import LucideGithub from '~icons/lucide/github';
 	import MingcuteGoogleFill from '~icons/mingcute/google-fill'
 	import BiMeta from '~icons/bi/meta';
 
 	import { z } from 'zod';
-
-	export let state;
 
 	let email: string = '';
 	const emailSchema = z.string().email();
@@ -75,8 +75,19 @@
 </svelte:head>
 
 <div
-	class="b-300 flex flex-col p-8 w-96 !h-fit justify-around self-center gap-4"
->
+	class="absolute b-300 flex flex-col p-8 w-96 !h-fit justify-around self-center gap-4" in:fly={
+		{
+			x: 0,
+			y: -100,
+			duration: 500,
+			delay: 100
+		}
+	}
+	out:fade={
+		{
+			duration: 200,
+		}
+	}>
 	<!-- Email and Password Box -->
 	<form method="POST">
 		<div id='email_box_tooltip' class="tooltip tooltip-error tooltip-open tooltip-right w-full normal-case after:hidden before:hidden" data-tip="Invalid email">
@@ -135,11 +146,10 @@
 	<!-- Signup Redirect -->
 	<div class="divider h-0 px-4">OR</div>
 	<div class="self-center text-center normal-case">
-		Don't have an account?<button
+		Don't have an account?<a
+		href="/signup"
 			class="btn btn-link px-1 text-base-content normal-case"
-			on:click={() => {
-				state = 'signup';
-			}}>Sign Up</button
+			>Sign Up</a
 		>
 	</div>
 </div>
