@@ -3,7 +3,6 @@ title: Unit 5
 date: '2023-04-21'
 summary: 'Lesson on topics covered in AP CSA Unit 5 (Classes)'
 tags: ['lesson', 'Unit 5']
-image: 'https://i.imgur.com/4Z4Z4Z4.png'
 type: 'page'
 ---
 
@@ -14,10 +13,10 @@ type: 'page'
 
 # Unit 5: Java Classes
 
-> 5  -7.5% of the test will be on this unit
+> 5 - 7.5% of the test will be on this unit
 
-## Lesson 1: Classes
+## # Classes
 
 Java is an Object Oriented programming language or OOP for short.
 
-<Runnable code={classExample1} lang={'java'} title={'Java Class'}/>
+<Runnable code={classExample1} lang={'java'} title={'hello-world.java'}/>

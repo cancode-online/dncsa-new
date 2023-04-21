@@ -31,14 +31,14 @@
 
 <div class="relative w-full my-2">
 	<div class="rounded-t-sm min-h-12">
-		<pre class="!m-0 language-js bg-transparent"><code class="language-js bg-transparent"
+		<pre class="!m-0 language-js bg-transparent"><code class="!text-base-content language-js bg-transparent"
 				>{@html prismCode}</code
 			></pre>
 	</div>
 	<div
 		class="bg-base-300 text-base-content rounded-b-sm min-h-12 prose dark:prose-invert w-full min-w-0 max-w-none"
 	>
-		<pre class="!m-0 language-js output !bg-transparent"><code class="language-js"
+		<pre class="!m-0 language-js output !bg-transparent "><code class="!text-base-content language-js"
 				>{@html output}</code
 			></pre>
 	</div>
@@ -49,7 +49,7 @@
 		<span class='uppercase'>{button}</span>
 	</button>
 	<code
-		class="absolute right-0 top-0 m-2 prose dark:prose-invert opacity-50 select-none font-thin text-sm"
+		class="absolute right-0 top-0 m-2 !text-base-content opacity-50 select-none font-thin text-sm"
 		>{title}</code
 	>
 </div>

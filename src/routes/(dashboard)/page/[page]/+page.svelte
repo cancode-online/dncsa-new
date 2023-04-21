@@ -21,7 +21,7 @@
 
 		unsubscribe = codeTheme.subscribe((value) => {
 			const prismCSS = document.getElementById('prism-css');
-			if (prismCSS) prismCSS.textContent = value === 'light' ? prismLight : prismDark;
+			if (prismCSS) prismCSS.textContent = value === 'dark' ? prismLight : prismDark;
 		});
 	});
 
