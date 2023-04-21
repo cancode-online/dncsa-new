@@ -16,7 +16,7 @@
 	<div class='flex-1 flex justify-end z-10 bg-base-100'>
 		<Timeline />
 	</div>
-	<div class='w-full max-w-3xl bg-base-200'>
+	<div class='w-full max-w-4xl bg-base-200'>
 		<Tabs />
 		<div class='bg-base-200 h-1 !rounded-none'>
 		</div>
