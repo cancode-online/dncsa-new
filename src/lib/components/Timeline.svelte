@@ -8,12 +8,23 @@
 
 	import { pages, pageToFolder } from '$pages/indexer';
 
-	const pagesArray = Object.keys(pages);
-	pagesArray.sort((a, b) => {
-		return new Date(pages[a].metadata.date).getTime() < new Date(pages[b].metadata.date).getTime()
-			? -1
-			: 1; // Sort by date
-	});
+    let timeline = [
+        {
+            title: 'Week 1',
+            date: '2021-09-01',
+            pages: [
+                {
+                    title: 'Introduction',
+                    path: '/page/introduction'
+                },
+                {
+                    title: 'Getting Started',
+                    path: '/page/getting-started'
+                }
+            ]
+        },
+    ]
+
 </script>
 
 <div class="w-56 min-w-[14rem]">
