@@ -1,31 +1,14 @@
 <script lang="ts">
-
 	import { page } from '$app/stores';
-	import { pages, folderMetadata } from '$stores/pages';
-	import { getFolderMetadata } from '$utils/pages';
 
 	import LucideFiles from '~icons/lucide/files';
 	import LucideFileText from '~icons/lucide/file-text';
 	import LucideFolderOpen from '~icons/lucide/folder-open';
 	import LucideCalendar from '~icons/lucide/calendar';
 
-    let timeline = [];
-	let _folderMetadata;
+    let timeline = ['unit-5', 'unit-9', 'unit-10', 'homework'];
 
-	(async () => {
-		_folderMetadata = await getFolderMetadata();
-
-		for (let folder in _folderMetadata) {
-			timeline.push(folder);
-		}
-
-		timeline.sort((a, b) => {
-			return (new Date(_folderMetadata[a].date).getTime() - new Date(_folderMetadata[b].date).getTime());
-		});
-
-		timeline = timeline;
-
-	})();
+	
 
 </script>
 
@@ -42,13 +25,41 @@
 		class="no-scrollbar bg-base-300 border-2 border-base-200 max-h-[24rem] w-full p-1 gap-1 flex flex-col flex-nowrap overflow-y-scroll !rounded-t-none"
 	>
 		{#each timeline as folder, i}
-			<a href="/page/{_folderMetadata[folder].order[0]}">
-				<button
-					class="btn btn-sm btn-ghost w-full uppercase flex gap-2 p-2"
-				>
-					<LucideFiles />
-					<span class="flex-1 text-left">{folder}</span>
-				</button>
+			<a href="/page/{pages[folder].metadata.order[0]}">
+				{#if pages[folder].metadata.type === 'week'}
+					<button
+						class="btn btn-sm btn-ghost w-full uppercase flex gap-2 p-2 {pageToFolder[
+							$page.url.pathname.split('/')[2]
+						] === folder
+							? 'active-timeline-button'
+							: ''}"
+					>
+						<LucideFiles />
+						<span class="flex-1 text-left">{pages[folder].metadata.title}</span>
+					</button>
+				{:else if pages[folder].metadata.type === 'unit'}
+					<button
+						class="btn btn-sm btn-neutral w-full uppercase flex gap-2 p-2 {pageToFolder[
+							$page.url.pathname.split('/')[2]
+						] === folder
+							? 'active-timeline-button'
+							: ''}"
+					>
+						<LucideFolderOpen />
+						<span class="flex-1 text-left">{pages[folder].metadata.title}</span>
+					</button>
+				{:else if pages[folder].metadata.type === 'page'}
+					<button
+						class="btn btn-sm btn-neutral w-full uppercase flex gap-2 p-2 {pageToFolder[
+							$page.url.pathname.split('/')[2]
+						] === folder
+							? 'active-timeline-button'
+							: ''}"
+					>
+						<LucideFileText />
+						<span class="flex-1 text-left">{pages[folder].metadata.title}</span>
+					</button>
+				{/if}
 			</a>
 		{/each}
 	</div>

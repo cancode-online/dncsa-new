@@ -17,7 +17,7 @@
 		duration: 200
 	}}>
 
-		<a href='/page/ts'>Default landing page</a>
+		<a href='/page/unit-5'>Default landing page</a>
 
 	</div>
 

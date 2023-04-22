@@ -1,14 +1,17 @@
 <script>
 
+    import Assignments from '$/lib/components/Assignments.svelte';
+    import Timeline from '$/lib/components/Timeline.svelte';
+
     import { fade, fly } from 'svelte/transition';
 
 </script>
 
-<div class='flex justify-center'>
-    <div class='flex-1'>
-
+<div class='flex justify-center gap-2'>
+    <div class='flex flex-1 bg-green-500 justify-end pt-20'>
+        <Timeline/>
     </div>
-    <div class='max-w-2xl h-screen pt-20 bg-red-500 transition-container w-full' in:fly={{
+    <div class='w-full max-w-2xl h-screen pt-20 bg-red-500' in:fly={{
         x: 0,
         y: -100,
         duration: 500,
@@ -18,8 +21,8 @@
     }}>
         <slot/>
     </div>
-    <div class='flex-1'>
-
+    <div class='flex flex-1 bg-green-500 justify-start pt-20'>
+        <Assignments/>
     </div>
 </div>
 
