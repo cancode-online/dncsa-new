@@ -111,7 +111,7 @@
 				</div>
 			</div>
 
-			<div class="relative lg:w-1/2 w-full flex flex-1 lg:justify-start justify-center h-full">
+			<div class="auth relative lg:w-1/2 w-full flex flex-1 lg:justify-start justify-center h-full">
 				<slot />
 			</div>
 		</div>

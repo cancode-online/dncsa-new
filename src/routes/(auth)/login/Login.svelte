@@ -66,7 +66,7 @@
 </svelte:head>
 
 <div
-	class="absolute b-300 flex flex-col p-8 w-96 !h-fit justify-around self-center gap-4"
+	class="b-300 flex flex-col p-8 w-96 !h-fit justify-around gap-4 self-center absolute"
 	in:fly={{
 		x: 0,
 		y: -100,
