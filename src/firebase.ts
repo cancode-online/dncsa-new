@@ -67,7 +67,6 @@ export const logOut = () => {
 };
 
 const createUserDocument = async (user) => {
-
 	const auth = getAuthApp();
 
 	if (!auth?.currentUser) return;
@@ -153,7 +152,12 @@ const createUserDocument = async (user) => {
 };
 
 // Sign up with Email/Password function
-export const signUpWithEmail = async (email: string, password: string, firstName: string, lastName: string) => {
+export const signUpWithEmail = async (
+	email: string,
+	password: string,
+	firstName: string,
+	lastName: string
+) => {
 	const auth = getAuthApp();
 	createUserWithEmailAndPassword(auth, email, password)
 		.then(async () => {

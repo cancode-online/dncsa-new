@@ -13,30 +13,28 @@ type: 'page'
 </script>
 
 ## Lesson Overview
-> Lesson on topics covered in AP CSA Unit 10 (Recursion).
-AP Exam Weighting 5-7.5%
 
+> Lesson on topics covered in AP CSA Unit 10 (Recursion).
+> AP Exam Weighting 5-7.5%
 
 ### What is Recursion
-Recursion is a process where a function calls itself repeatedly until a certain condition is done. It's like a loop where each iteration calls the function again instead of using a traditional loop construct. 
 
-
+Recursion is a process where a function calls itself repeatedly until a certain condition is done. It's like a loop where each iteration calls the function again instead of using a traditional loop construct.
 
 <summary>Code Example</summary>
 <Runnable code={examplecode} lang={'java'} title={'recursion.java'}/>
 
-
 ## Using Recursion for sorting and searching
-### Binary Search
-Binary search is a search algorithm used to find the position of a target value within a sorted array or list. It works by repeatedly dividing the search interval in half until the target value is found or it is determined that the target value is not in the array.
 
+### Binary Search
+
+Binary search is a search algorithm used to find the position of a target value within a sorted array or list. It works by repeatedly dividing the search interval in half until the target value is found or it is determined that the target value is not in the array.
 
 <Runnable code={binarySearch} lang={'java'} title={'binarysearch.java'}/>
 
 ### Merge Sort
+
 Merge sort is a sorting algorithm that follows the divide-and-conquer approach to sort a list or an array. It divides the list into smaller sub-lists, sorts them recursively, and then merges the sorted sub-lists to produce the final sorted list.
-
-
 
 ```java
      void mergeSort(int[] array, int low, int high) {
@@ -91,7 +89,8 @@ Merge sort is a sorting algorithm that follows the divide-and-conquer approach t
 ```
 
 ## Hacks
+
 > Create your own recursive algorithm of any type. Options include
+
 1. Fibonacci, or factorial, although this is pretty basic
 2. A more advanced version of this would be to create your own searching or sorting algorithm that utilizes recursive
-

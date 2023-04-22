@@ -2,7 +2,7 @@
 title: Unit 9
 date: '2023-04-21'
 summary: 'Lesson on topics covered in AP CSA Unit 9 (Inheritance)'
-tags: ['lesson','Unit 9']
+tags: ['lesson', 'Unit 9']
 type: 'page'
 ---
 
@@ -13,11 +13,12 @@ type: 'page'
 </script>
 
 # Unit 9 - Inheritance
+
 - 5 - 10% of the test, usually about 2 to 4 MC Questions, could show up on FRQ #4, on Writing Classes
 
 ## Lesson 1 - Superclasses and Subclasses (9.1)
 
-***
+---
 
 ### What is a Superclass?
 
@@ -41,7 +42,7 @@ A <strong>subclass</strong> is a class, just like any other Java class, but it <
 
 <br>
 
-***
+---
 
 ### Identify the Superclass and the Subclass:
 
@@ -71,15 +72,17 @@ The <strong>Car</strong> class is a <strong>subclass</strong>, <mark>EXTENDING</
 </blockquote>
 
 ## Hack 1:
+
 > Use the code above as a template (Steps Below):
+
 1. Create a "name" attribute in the Vehicle class.
-2. Create "honk" method that prints a console message in the Vehicle class. 
+2. Create "honk" method that prints a console message in the Vehicle class.
 3. Create a Car class that extends the Vehicle class
 4. Create an object in the Car class
 5. Call the inherited "honk" method through the Car object
 6. Print the inherited "name" attribute through the Car object
 
-*** 
+---
 
 ## Lesson 2 - Writing Subclasses (9.2, 9.3, 9.4)
 
@@ -99,7 +102,7 @@ The <strong>Car</strong> class is a <strong>subclass</strong>, <mark>EXTENDING</
 
 </details>
 
-***
+---
 
 ## Lesson 3 - Polymorphism (9.6)
 
@@ -111,7 +114,7 @@ The <strong>Car</strong> class is a <strong>subclass</strong>, <mark>EXTENDING</
 - Its a big word, but its quite simple
 - It literally means "_having multiple forms_"
 - How it translates to computer science:
-    - Polymorphism allows you to **access objects of different types through the same superclass**
+  - Polymorphism allows you to **access objects of different types through the same superclass**
 
 </details>
 
@@ -119,10 +122,10 @@ The <strong>Car</strong> class is a <strong>subclass</strong>, <mark>EXTENDING</
 
 - For example, lets say we have a parent Superclass called `Student`
 - Lets now create 2 Subclasses called `MathStudent` and `ScienceStudent`
-    - If we create the object `Student Akhil = new ScienceStudent();`, our student object will take the form of the ScienceStudent "template", in a way
-    - This means that **if the `ScienceStudent` class has any overriden methods**, any calls to those methods **will run throught the `ScienceStudent` subclass instead of the `Student` superclass**
-    - As a result, our `Student` object has now taken the form of the `ScienceStudent` class
-    - This can be done with many other subclasses, taking many forms, hence the name, **polymorphism**.
+  - If we create the object `Student Akhil = new ScienceStudent();`, our student object will take the form of the ScienceStudent "template", in a way
+  - This means that **if the `ScienceStudent` class has any overriden methods**, any calls to those methods **will run throught the `ScienceStudent` subclass instead of the `Student` superclass**
+  - As a result, our `Student` object has now taken the form of the `ScienceStudent` class
+  - This can be done with many other subclasses, taking many forms, hence the name, **polymorphism**.
 
 <details>
 <summary>Code Example</summary>
@@ -132,9 +135,11 @@ The <strong>Car</strong> class is a <strong>subclass</strong>, <mark>EXTENDING</
 </details>
 
 ## Hack 2 (Putting it all together):
+
 > Demonstrate the usage of inheritance, polymorphism and overriding methods
+
 1. Create a parent class of your choice
 2. Create 2 subclasses from that parent superclass
-4. incorporate some data and atleast one method into each class, using super keyword
-5. Override superclass method in the subclasses
-6. Use a tester method to create objects from the superclass that take on the forms of the subclasses, and print some outputs
+3. incorporate some data and atleast one method into each class, using super keyword
+4. Override superclass method in the subclasses
+5. Use a tester method to create objects from the superclass that take on the forms of the subclasses, and print some outputs

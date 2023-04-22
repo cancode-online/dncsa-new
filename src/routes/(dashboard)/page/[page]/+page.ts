@@ -5,7 +5,6 @@ import { error } from '@sveltejs/kit';
 import { pages, pageToFolder } from '$/pages/indexer';
 
 export async function load({ params }: { params: { page: string } }) {
-
 	const page = params.page;
 
 	try {

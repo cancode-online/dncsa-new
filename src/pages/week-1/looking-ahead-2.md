@@ -11,7 +11,5 @@ Looking ahead!!!#1
 [link](pages/1.md)
 
 ```javascript
-
 let canvas = document.getElementById('ThreeSun');
-
 ```

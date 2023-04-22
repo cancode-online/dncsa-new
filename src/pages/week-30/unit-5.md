@@ -29,7 +29,7 @@ The following code segment is an example of a Java class ("Hello world"):
 
 ### Constructors
 
-We can super-power our classes by adding constructors. Constructors are special methods that are called when an object is created. They are used to initialize the attributes of an object. 
+We can super-power our classes by adding constructors. Constructors are special methods that are called when an object is created. They are used to initialize the attributes of an object.
 
 The following code segment is an example of a Java class with a constructor:
 
@@ -37,7 +37,7 @@ The following code segment is an example of a Java class with a constructor:
 
 ### Attributes and methods
 
-We can make our classes even more powerful by giving them attributes and methods. Attributes are variables that are part of a class. Methods are functions that are part of a class. 
+We can make our classes even more powerful by giving them attributes and methods. Attributes are variables that are part of a class. Methods are functions that are part of a class.
 
 The following code segment is an example of a Java class with attributes and methods:
 
@@ -66,6 +66,7 @@ Scope is something present in almost every programming language and is a very im
 <Runnable code={staticexample} lang='java' title={'static.java'}/>
 
 ## Hack (Putting it all together):
+
 > Demonstrate the usage of classes and core concepts of unit 5
 
 #### Create a class and tester method which incorporates all core ideas taught in this post

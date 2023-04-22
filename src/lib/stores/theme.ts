@@ -13,9 +13,10 @@ codeTheme.subscribe((value) => {
 	}
 });
 
-
 const layoutDefault = 'garden';
-const layoutValue = browser ? window.localStorage.getItem('layoutTheme') ?? layoutDefault : layoutDefault;
+const layoutValue = browser
+	? window.localStorage.getItem('layoutTheme') ?? layoutDefault
+	: layoutDefault;
 
 const layoutTheme = writable<string>(layoutValue) as Writable<string>;
 
@@ -24,6 +25,5 @@ layoutTheme.subscribe((value) => {
 		window.localStorage.setItem('layoutTheme', value);
 	}
 });
-
 
 export { codeTheme, layoutTheme };

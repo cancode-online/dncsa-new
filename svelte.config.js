@@ -17,7 +17,7 @@ const config = {
 			$utils: 'src/lib/utils',
 			$files: 'src/files',
 			$firebase: 'src/firebase.ts',
-			$pages: 'src/pages',
+			$pages: 'src/pages'
 		}
 	},
 	preprocess: [

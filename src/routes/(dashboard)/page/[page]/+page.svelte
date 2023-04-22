@@ -9,7 +9,7 @@
 	import { onMount, onDestroy } from 'svelte';
 	import { browser } from '$app/environment';
 	import SEO from '$components/SEO.svelte';
-	import Dashboard from '../../Dashboard.svelte';
+	import Dashboard from '../../../Dashboard.svelte';
 
 	let unsubscribe: () => void;
 
@@ -40,68 +40,64 @@
 		summary: string;
 		content: any;
 	};
-
 </script>
 
 <Dashboard>
+	<SEO title={data.title} description={data.summary} />
 
-<SEO title={data.title} description={data.summary} />
+	<article
+		class="prose dark:prose-invert m-0 p-2 self-center min-w-0 max-w-none h-full w-full"
+		in:fly={{ y: 500, duration: 450, delay: 0 }}
+		out:fly={{ y: 500, duration: 450, delay: 0, easing: quadInOut }}
+	>
+		<div class="m-0">
+			<h4 class="m-0 inline">{data.title}</h4>
+			<p class="m-0 inline">- {new Date(data.date).toLocaleDateString('en-us')}</p>
+		</div>
+		<hr class="mt-0" />
+		<div class="m-0">
+			<svelte:component this={data.content} />
+		</div>
+	</article>
 
-<article
-	class="prose dark:prose-invert m-0 p-2 self-center min-w-0 max-w-none h-full w-full"
-	in:fly="{{ y: 500, duration: 450, delay: 0}}" out:fly="{{ y: 500, duration: 450, delay: 0, easing: quadInOut }}"
->	
-	<div class='m-0'>
-		<h4 class="m-0 inline">{data.title}</h4>
-		<p class='m-0 inline'>- {new Date(data.date).toLocaleDateString('en-us')}</p>
-	</div>
-	<hr class='mt-0'>
-	<div class='m-0'>
-		<svelte:component this={data.content} />
-	</div>
-</article>
+	<style lang="postcss">
+		:global(h1 > a):before {
+			position: relative;
+			content: '#';
+			right: 0.5rem;
+			@apply text-secondary dark:text-primary font-bold;
+		}
 
-<style lang="postcss">
+		:global(h1 > a) {
+			position: relative;
+			right: 1rem;
+			text-decoration: none !important;
+		}
 
-	:global(h1 > a):before {
-		position: relative;
-		content: '#';
-		right: 0.5rem;
-		@apply text-secondary dark:text-primary font-bold;
-	}
+		:global(h2 > a):before {
+			position: relative;
+			content: '#';
+			right: 0.5rem;
+			@apply text-secondary dark:text-primary font-bold;
+		}
 
-	:global(h1 > a) {
-		position: relative;
-		right: 1rem;
-		text-decoration: none !important;
-	}
+		:global(h2 > a) {
+			position: relative;
+			right: 1rem;
+			text-decoration: none !important;
+		}
 
-	:global(h2 > a):before {
-		position: relative;
-		content: '#';
-		right: 0.5rem;
-		@apply text-secondary dark:text-primary font-bold;
-	}
+		:global(h3 > a):before {
+			position: relative;
+			content: '#';
+			right: 0.5rem;
+			@apply text-secondary dark:text-primary font-bold;
+		}
 
-	:global(h2 > a) {
-		position: relative;
-		right: 1rem;
-		text-decoration: none !important;
-	}
-
-	:global(h3 > a):before {
-		position: relative;
-		content: '#';
-		right: 0.5rem;
-		@apply text-secondary dark:text-primary font-bold;
-	}
-
-	:global(h3 > a) {
-		position: relative;
-		right: 1rem;
-		text-decoration: none !important;
-	}
-
-</style>
-
+		:global(h3 > a) {
+			position: relative;
+			right: 1rem;
+			text-decoration: none !important;
+		}
+	</style>
 </Dashboard>

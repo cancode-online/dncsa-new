@@ -14,31 +14,36 @@ type: 'page'
 3. Navigate to _**Articles**_
 4. Scroll down and click _**Write a CanCode Article**_
 5. Use markdown and runnable code blocks to create an article post with completed hacks
-    - MUST INCLUDE IN TITLE: **Names of Pair/Trio Members**
-    - Guide to creating articles and creating runnable code blocks within article can be found **[HERE](https://cancode-pi.vercel.app/articles/article-creation-guide)**
+   - MUST INCLUDE IN TITLE: **Names of Pair/Trio Members**
+   - Guide to creating articles and creating runnable code blocks within article can be found **[HERE](https://cancode-pi.vercel.app/articles/article-creation-guide)**
 
 ### <mark>Comment Submission [HERE](https://cancode-pi.vercel.app/articles/cancode-lesson-hw-submissions) </mark>
 
 <br>
 
-***
+---
 
 # Requirements:
 
 ## Complete ALL HACKS from Unit 5 Lesson:
+
 >
+
 1. Hack (Putting it all together)
 
-
-***
+---
 
 ## Complete ALL HACKS from Unit 9 Lesson:
-> 
+
+>
+
 1. Hack 1 (Superclass/Subclass Practice)
 2. Hack 2 (Polymorphism, Super, Override)
 
-***
+---
 
 ## Complete ALL HACKS from Unit 10 Lesson:
+
 >
+
 1. Temp
