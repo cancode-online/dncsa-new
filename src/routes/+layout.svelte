@@ -1,6 +1,9 @@
 <script lang="ts">
 	import '$/app.css';
+
 	import AuthGuard from '$/lib/components/AuthGuard.svelte';
+	import prismLight from '$lib/prism/prism-light.txt?raw';
+	import prismDark from '$lib/prism/prism-dark.txt?raw';
 
 	import NavigationBar from '$/lib/components/navbar/NavigationBar.svelte';
 	import Alerts from '$components/Alerts.svelte';
@@ -11,7 +14,8 @@
 	import { authenticated } from '$firebase';
 
 	import { codeTheme, layoutTheme } from '$stores/theme';
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
+	import { browser } from '$app/environment';
 
 	onMount(() => {
 		document.documentElement.setAttribute('data-theme', $layoutTheme);
@@ -44,6 +48,30 @@
 			document.documentElement.style.setProperty('color-scheme', 'dark');
 		}
 	});
+
+	let unsubscribe: () => void;
+
+	onMount(async () => {
+		const prismCSS = document.createElement('style');
+		prismCSS.id = 'prism-css';
+		prismCSS.textContent = prismDark;
+		document.head.appendChild(prismCSS);
+
+		unsubscribe = codeTheme.subscribe((value) => {
+			const prismCSS = document.getElementById('prism-css');
+			if (prismCSS) prismCSS.textContent = value === 'dark' ? prismLight : prismDark;
+		});
+	});
+
+	onDestroy(() => {
+		if (browser) {
+			const prismCSS = document.getElementById('prism-css');
+			if (prismCSS) prismCSS.remove();
+		}
+
+		if (typeof unsubscribe === 'function') unsubscribe();
+	});
+
 </script>
 
 <Alerts />

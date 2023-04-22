@@ -6,24 +6,7 @@
 	import LucideFolderOpen from '~icons/lucide/folder-open';
 	import LucideCalendar from '~icons/lucide/calendar';
 
-	import { pages, pageToFolder } from '$pages/indexer';
-
-    let timeline = [
-        {
-            title: 'Week 1',
-            date: '2021-09-01',
-            pages: [
-                {
-                    title: 'Introduction',
-                    path: '/page/introduction'
-                },
-                {
-                    title: 'Getting Started',
-                    path: '/page/getting-started'
-                }
-            ]
-        },
-    ]
+    let timeline = ['unit-5', 'unit-9', 'unit-10', 'homework'];
 
 </script>
 
@@ -39,7 +22,7 @@
 	<div
 		class="no-scrollbar bg-base-300 border-2 border-base-200 max-h-[24rem] w-full p-1 gap-1 flex flex-col flex-nowrap overflow-y-scroll !rounded-t-none"
 	>
-		{#each pagesArray as folder, i}
+		{#each timeline as folder, i}
 			<a href="/page/{pages[folder].metadata.order[0]}">
 				{#if pages[folder].metadata.type === 'week'}
 					<button

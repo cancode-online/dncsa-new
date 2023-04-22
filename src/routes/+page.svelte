@@ -1,6 +1,8 @@
 <script lang="ts">
 	import Login from './(auth)/login/Login.svelte';
 
+	import { fade, fly } from 'svelte/transition';
+
 	import { authenticated } from '$firebase';
 </script>
 
@@ -9,9 +11,13 @@
 
 {:else if $authenticated === true}
 
-	<div>
+	<div in:fade={{
+		duration: 200
+	}} out:fade={{
+		duration: 200
+	}}>
 
-		Default landing page
+		<a href='/page/ts'>Default landing page</a>
 
 	</div>
 
