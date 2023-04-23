@@ -8,10 +8,10 @@
 	</slot>
 {:else if $authenticated === false}
 	<slot name="noauth">
-		<div>Not authenticated</div>
+		<div>No slot='noauth' was provided</div>
 	</slot>
 {:else if $authenticated === true}
 	<slot name="auth">
-		<div>Page</div>
+		<div>No slot='auth' was provided</div>
 	</slot>
 {/if}

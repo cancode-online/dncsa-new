@@ -9,7 +9,7 @@
 	import Alerts from '$components/Alerts.svelte';
 	import Dashboard from './Dashboard.svelte';
 
-	import { fade, fly } from 'svelte/transition';
+	import { fly } from 'svelte/transition';
 
 	import { authenticated } from '$firebase';
 
@@ -90,31 +90,7 @@
 
 <AuthGuard>
 	<div slot="noauth">
-		<div class="flex w-screen h-screen bg-base-100 justify-around gap-8">
-			<div
-				class="lg:w-1/2 w-fit sm:flex lg:justify-end justify-center flex-1 hidden"
-				in:fly={{
-					x: -200,
-					y: 0,
-					duration: 500,
-					delay: 100
-				}}
-				out:fade={{
-					duration: 200
-				}}
-			>
-				<div class="flex flex-col justify-center w-3/4">
-					<div class="!w-full !h-fit b-300 flex flex-col justify-between p-10 self-center">
-						<span class="self-center text-2xl font-thin uppercase">Del Norte High School</span>
-						<span class="self-center text-4xl font-bold uppercase">AP Computer Science A</span>
-					</div>
-				</div>
-			</div>
-
-			<div class="auth relative lg:w-1/2 w-full flex flex-1 lg:justify-start justify-center h-full">
-				<slot />
-			</div>
-		</div>
+		<slot />
 	</div>
 
 	<div slot="auth">
@@ -123,3 +99,16 @@
 		</Dashboard>
 	</div>
 </AuthGuard>
+
+<style lang="postcss">
+    .transition-container {
+		display: grid;
+		grid-template-rows: 1fr;
+		grid-template-columns: 1fr;
+	}
+
+	.transition-container > * {
+		grid-row: 1;
+		grid-column: 1;
+   }
+</style>

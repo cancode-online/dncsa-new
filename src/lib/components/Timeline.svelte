@@ -47,7 +47,7 @@
 					class="btn btn-sm btn-ghost w-full uppercase flex gap-2 p-2"
 				>
 					<LucideFiles />
-					<span class="flex-1 text-left">{folder}</span>
+					<span class="flex-1 text-left">{_folderMetadata[folder].title}</span>
 				</button>
 			</a>
 		{/each}

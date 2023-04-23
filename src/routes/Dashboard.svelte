@@ -8,20 +8,26 @@
 </script>
 
 <div class='flex justify-center gap-2'>
-    <div class='flex flex-1 bg-green-500 justify-end pt-20'>
-        <Timeline/>
-    </div>
-    <div class='w-full max-w-2xl h-screen pt-20 bg-red-500' in:fly={{
-        x: 0,
-        y: -100,
-        duration: 500,
+    <div class='flex flex-1 justify-end pt-20' in:fly={{
+        x: -100,
+        duration: 400,
         delay: 100
     }} out:fade={{
-        duration: 200
+        duration: 100
+    }}>
+        <Timeline/>
+    </div>
+    <div class='w-full max-w-2xl h-screen pt-20' in:fly={{
+        x: 0,
+        y: 100,
+        duration: 400,
+        delay: 100
+    }} out:fade={{
+        duration: 100
     }}>
         <slot/>
     </div>
-    <div class='flex flex-1 bg-green-500 justify-start pt-20'>
+    <div class='flex flex-1 justify-start pt-20'>
         <Assignments/>
     </div>
 </div>

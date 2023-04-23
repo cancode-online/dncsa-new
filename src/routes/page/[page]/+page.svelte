@@ -1,6 +1,6 @@
 <script lang='ts'>
 
-    import { fade } from 'svelte/transition';
+    import { fade, fly } from 'svelte/transition';
 
     import AuthGuard from '$lib/components/AuthGuard.svelte';
 	import Login from '$routes/(auth)/login/Login.svelte';
@@ -11,16 +11,18 @@
 
 <AuthGuard>
 
-    <div slot='noauth' class='w-full h-full flex'>
+    <div slot='noauth' class='w-full h-full flex justify-center'>
         <Login />
     </div>
 
     <div class='w-full' slot='auth'>
         {#key data}
-            <div class='w-full' in:fade={{
-                duration: 200
+            <div class='w-full' in:fly={{
+                y: 50,
+                duration: 400,
+                delay: 100
             }} out:fade={{
-                duration: 200
+                duration: 100
             }}>
                 <article
                     class="prose dark:prose-invert m-0 p-2 self-center min-w-0 max-w-none h-full w-full"

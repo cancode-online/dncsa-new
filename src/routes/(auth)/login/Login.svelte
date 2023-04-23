@@ -70,8 +70,8 @@
 	in:fly={{
 		x: 0,
 		y: -100,
-		duration: 500,
-		delay: 100
+		duration: 400,
+		delay: 200
 	}}
 	out:fade={{
 		duration: 200

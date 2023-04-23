@@ -3,10 +3,10 @@ import { getPages } from '$utils/pages';
 export async function load({ params }: { params: { page: string }}) {
 
     const _pages = await getPages();
-
     const page = params.page;
 
     try {
+
         const post = await _pages[page].import();
         const { title, date, summary } = post.metadata;
         const content = post.default;
@@ -17,6 +17,7 @@ export async function load({ params }: { params: { page: string }}) {
             summary,
             date
         };
+
     } catch (e) {
 
         return {
