@@ -29,21 +29,21 @@
 	}
 </script>
 
-<div class="relative w-full my-2">
-	<div class="rounded-t-sm min-h-12">
-		<pre class="!m-0 language-js bg-transparent"><code
-				class="!text-base-content language-js bg-transparent">{@html prismCode}</code
+<div class="relative w-full my-2 ">
+	<div class="min-h-12">
+		<pre class="!m-0 language-js dynamic-code-snip-input"><code
+				class="!text-base-content language-js">{@html prismCode}</code
 			></pre>
 	</div>
 	<div
-		class="bg-base-300 text-base-content rounded-b-sm min-h-12 prose dark:prose-invert w-full min-w-0 max-w-none"
+		class="bg-base-300 text-base-content min-h-12 prose dark:prose-invert w-full min-w-0 max-w-none !rounded-t-none"
 	>
 		<pre class="!m-0 language-js output !bg-transparent"><code
 				class="!text-base-content language-js">{@html output}</code
 			></pre>
 	</div>
 	<button
-		class="btn btn-primary btn-sm absolute bottom-0 right-0 m-2 rounded-sm"
+		class="btn btn-primary btn-sm absolute bottom-0 right-0 m-2"
 		on:click={execute}
 	>
 		<span class="uppercase">{button}</span>
@@ -53,3 +53,15 @@
 		>{title}</code
 	>
 </div>
+
+<style lang="postcss">
+
+	div, pre {
+        border-radius: var(--rounded-btn, 0.5rem);
+    }
+
+	.dynamic-code-snip-input {
+		border-radius: var(--rounded-btn, 0.5rem) var(--rounded-btn, 0.5rem) 0 0 !important;
+	}
+
+</style>

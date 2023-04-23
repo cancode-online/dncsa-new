@@ -1,46 +1,22 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { pages, pageToFolder } from '$pages/indexer';
 
 	let tabsArray = [] as string[];
 
-	$: {
-		if ($page.url.pathname.split('/')[2]) {
-			let tabs = Object.keys(pages[pageToFolder[$page.url.pathname.split('/')[2]]].pages);
-			tabsArray = [];
+	tabsArray = ['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5'];
 
-			if (tabs.length != 0) {
-				let order = pages[pageToFolder[$page.url.pathname.split('/')[2]]].metadata.order;
-
-				for (let i = 0; i < order.length; i++) {
-					tabsArray[i] = order[i];
-					tabs.splice(tabs.indexOf(order[i]), 1);
-				}
-
-				tabsArray = [...tabsArray, ...tabs];
-			}
-		}
-	}
 </script>
 
 <div class="tabs bg-base-300 !rounded-b-none px-2">
 	{#each tabsArray as tab, i}
 		<a
-			href={tab}
+			href={`/page/${tab}`}
 			class="mt-2 tab border-none tab-lifted !px-4 !py-0 {$page.url.pathname.split('/')[2] === tab
 				? 'tab-active'
 				: ''}"
 		>
 			<span>
-				{#await (async () => {
-					return (await pages[pageToFolder[tab]].pages[tab]()).metadata.title;
-				})()}
-					Loading...
-				{:then title}
-					{title}
-				{:catch error}
-					{error}
-				{/await}
+				{tab}
 			</span>
 		</a>
 	{/each}
