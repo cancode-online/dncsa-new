@@ -30,17 +30,17 @@ in:fade={{
     }} out:fade={{
         duration: 100
     }}>
-        <div class='flex flex-col w-full h-screen pt-20'>
+        <div class='flex flex-col w-full py-20'>
             <Tabs/>
-            <div class='bg-base-200 h-screen w-full overflow-y-scroll !rounded-t-none'>
+            <div class='bg-base-200 h-full w-full !rounded-t-none'> <!--overflow-y-scroll-->
                 <slot/>
             </div>
         </div>
-        <div>
+        <!-- <div>
             <div class='h-screen bg-base-200'>
 
             </div>
-        </div>
+        </div> -->
     </div>
     <div class='flex flex-1 justify-start pt-20'>
         <Assignments/>
