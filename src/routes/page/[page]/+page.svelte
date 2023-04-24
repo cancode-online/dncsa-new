@@ -12,7 +12,7 @@
 <AuthGuard>
 
     <div slot='noauth' class='w-screen h-screen flex justify-center'>
-        <Login />
+        <Login redirect={''} />
     </div>
 
     <svelte:fragment slot='auth'>

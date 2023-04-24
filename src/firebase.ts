@@ -165,7 +165,6 @@ export const signUpWithEmail = async (
 			await updateProfile(auth.currentUser, { displayName: firstName + ' ' + lastName });
 
 			alert('Successfully signed up', 'success');
-			goto('/');
 		})
 		.catch(() => {
 			alert('Failed to sign up. Try again', 'error');
@@ -180,11 +179,10 @@ export const signInWithEmail = (email: string, password: string) => {
 		signInWithEmailAndPassword(auth, email, password)
 			.then(() => {
 				resolve('Successfully logged in');
-				goto('/');
 			})
 			.catch(() => {
-				reject('Failed to log in. Try again');
 				alert('Failed to log in. Try again', 'error');
+				reject('Failed to log in. Try again');
 			});
 	});
 };
@@ -194,16 +192,20 @@ export const signInWithGoogle = () => {
 	const auth = getAuthApp();
 	const provider = new GoogleAuthProvider();
 
+	return new Promise((resolve, reject) => {
 	signInWithPopup(auth, provider)
 		.then((result) => {
 			alert('Successsfully logged in', 'success');
 			const user = result.user;
 			createUserDocument(user);
-			goto('/');
+
+			resolve('Successfully logged in');
 		})
 		.catch(() => {
 			alert('Failed to log in. Try again', 'error');
+			reject('Failed to log in. Try again');
 		});
+	});
 };
 
 // Log in with GitHub function
@@ -211,16 +213,20 @@ export const signInWithGithub = () => {
 	const auth = getAuthApp();
 	const provider = new GithubAuthProvider();
 
+	return new Promise((resolve, reject) => {
 	signInWithPopup(auth, provider)
 		.then((result) => {
 			alert('Successsfully logged in', 'success');
 			const user = result.user;
 			createUserDocument(user);
-			goto('/');
+			
+			resolve('Successfully logged in');
 		})
 		.catch(() => {
+			reject('Failed to log in. Try again');
 			alert('Failed to log in. Try again', 'error');
 		});
+	});
 };
 
 // Log in with GitHub function
@@ -228,14 +234,18 @@ export const signInWithFacebook = () => {
 	const auth = getAuthApp();
 	const provider = new FacebookAuthProvider();
 
+	return new Promise((resolve, reject) => {
 	signInWithPopup(auth, provider)
 		.then((result) => {
 			alert('Successsfully logged in', 'success');
 			const user = result.user;
 			createUserDocument(user);
-			goto('/');
+			
+			resolve('Successfully logged in');
 		})
 		.catch(() => {
+			reject('Failed to log in. Try again');
 			alert('Failed to log in. Try again', 'error');
 		});
+	});
 };

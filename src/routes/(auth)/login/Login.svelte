@@ -6,6 +6,8 @@
 		signInWithFacebook
 	} from '$firebase';
 
+	import { goto } from '$app/navigation';
+
 	import { fly, fade } from 'svelte/transition';
 
 	import LucideGithub from '~icons/lucide/github';
@@ -14,6 +16,8 @@
 
 	import { z } from 'zod';
 
+	export let redirect = '/';
+
 	let email: string = '';
 	const emailSchema = z.string().email();
 	let password: string = '';
@@ -21,9 +25,16 @@
 
 	async function post() {
 		try {
-		} catch {}
 
-		signInWithEmail(email, password);
+			signInWithEmail(email, password);
+			goto(redirect);
+
+		} catch {
+
+			return;
+
+		}
+
 	}
 
 	function validateEmail() {
@@ -59,6 +70,51 @@
 			return;
 		}
 	}
+
+	async function googleAuth() {
+
+try {
+
+	signInWithGoogle();
+	goto(redirect);
+
+} catch {
+
+	return;
+
+}
+
+}
+
+async function githubAuth() {
+
+try {
+
+	signInWithGithub()
+	goto(redirect);
+
+} catch {
+
+	return;
+
+}
+
+}
+
+async function facebookAuth() {
+
+try {
+
+	signInWithFacebook();
+	goto(redirect);
+
+} catch {
+
+	return;
+
+}
+
+}
 </script>
 
 <svelte:head>
@@ -122,7 +178,7 @@
 	<div class="flex flex-row justify-center gap-10 pt-2 pb-1">
 		<div class="tooltip tooltip-top tooltip-neutral" data-tip="GitHub">
 			<div class="input w-fit h-fit min-w-none p-0 border-none bg-base-200">
-				<button class="btn btn-ghost w-14 h-14 text-xl p-0" on:click={signInWithGithub}>
+				<button class="btn btn-ghost w-14 h-14 text-xl p-0" on:click={githubAuth}>
 					<LucideGithub />
 				</button>
 			</div>
@@ -130,7 +186,7 @@
 
 		<div class="tooltip tooltip-top tooltip-neutral" data-tip="Google">
 			<div class="input w-fit h-fit min-w-none p-0 border-none bg-base-200">
-				<button class="btn btn-ghost w-14 h-14 text-xl p-0" on:click={signInWithGoogle}>
+				<button class="btn btn-ghost w-14 h-14 text-xl p-0" on:click={googleAuth}>
 					<MingcuteGoogleFill />
 				</button>
 			</div>
@@ -138,7 +194,7 @@
 
 		<div class="tooltip tooltip-top tooltip-neutral" data-tip="Meta">
 			<div class="input w-fit h-fit min-w-none p-0 border-none bg-base-200">
-				<button class="btn btn-ghost w-14 h-14 text-xl p-0" on:click={signInWithFacebook}>
+				<button class="btn btn-ghost w-14 h-14 text-xl p-0" on:click={facebookAuth}>
 					<BiMeta />
 				</button>
 			</div>
