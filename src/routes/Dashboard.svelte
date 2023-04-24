@@ -23,16 +23,18 @@ in:fade={{
     }}>
         <Timeline/>
     </div>
-    <div class='flex flex-col w-full max-w-2xl gap-4' in:fly={{
+    <div class='flex flex-col w-full max-w-2xl' in:fly={{
         x: 0,
         y: 100,
         duration: 400
     }} out:fade={{
         duration: 100
     }}>
-        <div class='flex flex-col w-full py-20'>
-            <Tabs/>
-            <div class='bg-base-200 h-full w-full !rounded-t-none overflow-x-hidden'> <!--overflow-y-scroll-->
+        <div class='flex flex-col w-full h-fit py-20 justify-start'>
+            <div class='bg-lime-500 w-full'>
+                <Tabs/>
+            </div>
+            <div class='bg-base-200 h-full w-full !rounded-t-none'>
                 <slot/>
             </div>
         </div>
@@ -52,15 +54,4 @@ in:fade={{
     div {
         border-radius: var(--rounded-btn, 0.5rem);
     }
-
-    .transition-container {
-		display: grid;
-		grid-template-rows: 1fr;
-		grid-template-columns: 1fr;
-	}
-
-	.transition-container > * {
-		grid-row: 1;
-		grid-column: 1;
-   }
 </style>

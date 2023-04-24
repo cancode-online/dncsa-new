@@ -11,11 +11,11 @@
 
 <AuthGuard>
 
-    <div slot='noauth' class='w-full h-full flex justify-center'>
+    <svelte:fragment slot='noauth'>
         <Login />
-    </div>
+    </svelte:fragment>
 
-    <div class='w-full' slot='auth'>
+    <svelte:fragment slot='auth'>
         {#key data}
             <div class='w-full' in:fly={{
                 y: 50,
@@ -38,6 +38,6 @@
                 </article>
             </div>
         {/key}
-    </div>
+    </svelte:fragment>
 
 </AuthGuard>

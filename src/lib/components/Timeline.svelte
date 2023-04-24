@@ -8,6 +8,7 @@
 	import LucideFileText from '~icons/lucide/file-text';
 	import LucideFolderOpen from '~icons/lucide/folder-open';
 	import LucideCalendar from '~icons/lucide/calendar';
+	import LucideHome from '~icons/lucide/home'
 
     let timeline = [];
 	let _folderMetadata;
@@ -31,7 +32,7 @@
 
 <div class="w-56 min-w-[14rem]">
 	<div
-		class="h-12 uppercase flex justify-start p-2 w-full bg-primary border-x-2 border-t-2 border-base-200 text-primary-content !rounded-b-none"
+		class="h-10 uppercase flex justify-start p-2 w-full bg-primary text-primary-content !rounded-b-none"
 	>
 		<div class="flex self-center w-fit gap-2">
 			<span class="self-center"><LucideCalendar /></span>
@@ -39,12 +40,20 @@
 		</div>
 	</div>
 	<div
-		class="no-scrollbar bg-base-300 border-2 border-base-200 max-h-[24rem] w-full p-1 gap-1 flex flex-col flex-nowrap overflow-y-scroll !rounded-t-none"
+		class="no-scrollbar bg-base-300 max-h-[24rem] w-full p-1 gap-1 flex flex-col flex-nowrap overflow-y-scroll !rounded-t-none"
 	>
+		<a href="/">
+			<button
+				class="btn btn-sm btn-ghost w-full uppercase flex gap-2 p-1"
+			>
+				<LucideHome />
+				<span class="flex-1 text-left">Home</span>
+			</button>
+		</a>
 		{#each timeline as folder, i}
 			<a href="/page/{_folderMetadata[folder].order[0]}">
 				<button
-					class="btn btn-sm btn-ghost w-full uppercase flex gap-2 p-2"
+					class="btn btn-sm btn-ghost w-full uppercase flex gap-2 p-1"
 				>
 					<LucideFiles />
 					<span class="flex-1 text-left">{_folderMetadata[folder].title}</span>
