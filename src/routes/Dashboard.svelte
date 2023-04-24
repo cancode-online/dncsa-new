@@ -32,7 +32,7 @@ in:fade={{
     }}>
         <div class='flex flex-col w-full py-20'>
             <Tabs/>
-            <div class='bg-base-200 h-full w-full !rounded-t-none'> <!--overflow-y-scroll-->
+            <div class='bg-base-200 h-full w-full !rounded-t-none overflow-x-hidden'> <!--overflow-y-scroll-->
                 <slot/>
             </div>
         </div>
