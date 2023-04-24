@@ -11,6 +11,7 @@ type: 'page'
 	import rmrHack2 from './java-code/rmr/rmr-hack-2.java?raw';
 	import rmrHack3 from './java-code/rmr/rmr-hack-3.java?raw';
 	import rmrHack4 from './java-code/rmr/rmr-hack-4.java?raw';
+	import rmrHack5 from './java-code/rmr/rmr-hack-5.java?raw';
 </script>
 
 # Hacks
@@ -26,3 +27,7 @@ type: 'page'
 # Hack 4
 
 <Runnable code={rmrHack4} lang={'java'} title={'rmr-hack-4.java'}/>
+
+# Hack 5
+
+<Runnable code={rmrHack5} lang={'java'} title={'rmr-hack-5.java'}/>

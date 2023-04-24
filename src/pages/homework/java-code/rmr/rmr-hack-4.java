@@ -12,8 +12,11 @@ public class Main {
                 int temp = 0;
                 if (arr[j] < arr[i]) {
 
-                    // write the swap code!
-                    ;
+                    // swapping
+                    temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+
                 }
             }
 
