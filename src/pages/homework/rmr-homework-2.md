@@ -8,8 +8,12 @@ type: 'page'
 
 <script>
 	import Runnable from '$components/Runnable.svelte';
-	// import classExample1 from './java-code/classExample1.java?raw';
+	import rmrHack2 from './java-code/rmr/rmr-hack-2.java?raw';
 
 </script>
 
 # Hacks
+
+# Hack 2
+
+<Runnable code={rmrHack2} lang={'java'} title={'rmr-hack-2.java'}/>

@@ -55,34 +55,36 @@
 
 </script>
 
-<div class="tabs bg-base-300 !rounded-b-none px-2 overflow-hidden">
+<div>
 	{#key tabsArray}
-		{#each tabsArray as tab, i}
-			<a
-				href={tab.slug}
-				class="mt-2 tab border-none tab-lifted !px-4 !py-0 {selectedTab === tab.slug
-					? 'tab-active'
-					: ''}"
-				in:fly={{
-					x: -200,
-					y: 0,
-					duration: 400,
-					delay: 200 + i * 25
-				}}
-				out:fly={{
-					y: 20,
-					duration: 200,
-					delay: 0
-				}}
-			>
-				<span>
-					{tab.metadata.title}
-				</span>
-			</a>
-		{/each}
+		<div class="tabs bg-base-300 !rounded-b-none px-2 overflow-hidden">
+			{#each tabsArray as tab, i}
+				<a
+					href={tab.slug}
+					class="mt-2 tab border-none tab-lifted !px-4 !py-0 {selectedTab === tab.slug
+						? 'tab-active'
+						: ''}"
+					in:fly={{
+						x: -200,
+						y: 0,
+						duration: 400,
+						delay: 200 + i * 25
+					}}
+					out:fly={{
+						y: 20,
+						duration: 200,
+						delay: 0
+					}}
+				>
+					<span>
+						{tab.metadata.title}
+					</span>
+				</a>
+			{/each}
+		</div>
 	{/key}
+	<div class='w-full h-1 bg-base-200'/>
 </div>
-<div class='w-full h-1 bg-base-200'/>
 
 <style lang="postcss">
 
