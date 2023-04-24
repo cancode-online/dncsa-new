@@ -46,4 +46,4 @@ type: 'page'
 
 >
 
-1. Temp
+1. Hack (Recursive Algorithm)
