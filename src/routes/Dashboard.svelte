@@ -30,13 +30,10 @@ in:fade={{
     }} out:fade={{
         duration: 100
     }}>
-        <div class='w-full h-screen pt-20'>
+        <div class='flex flex-col w-full h-screen pt-20'>
             <Tabs/>
             <div class='bg-base-200 h-screen w-full overflow-y-scroll !rounded-t-none'>
                 <slot/>
-            </div>
-            <div class='h-screen bg-base-200'>
-
             </div>
         </div>
         <div>

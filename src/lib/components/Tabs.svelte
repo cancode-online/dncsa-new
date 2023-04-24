@@ -1,28 +1,95 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import { getPages, getFolderMetadata } from '../utils/pages';
 
-	let tabsArray = [] as string[];
+	import { fly, fade } from 'svelte/transition';
 
-	tabsArray = ['unit-1', 'unit-2', 'unit-3', 'unit-4', 'unit-5'];
+	let tabsArray = [] as {}[];
+	let selectedTab = '';
+	let selectedFolder = '';
+
+	$: {
+
+		(async () => {
+
+			selectedTab = $page.url.pathname.split('/')[2] || '/';
+
+			let _pages = await getPages();
+			let _folderMetadata = await getFolderMetadata();
+
+
+			if (selectedTab != '/' && _pages[selectedTab].folder != selectedFolder) {
+
+				selectedFolder = _pages[selectedTab].folder;
+
+				let _folder = _folderMetadata[_pages[selectedTab].folder];
+				let _tabsArray = [];
+
+				for (let _page of _folder.order) {
+					_tabsArray.push({
+						slug: _page,
+						metadata: await _pages[_page].import().then((m) => { return m.metadata}),
+					});
+				}
+
+				tabsArray = _tabsArray;
+
+			}
+
+			if (selectedTab === '/') {
+
+				selectedFolder = '/';
+
+				tabsArray = [{
+					slug: '/',
+					metadata: {
+						title: 'Home',
+					}
+				}];
+
+			}
+			
+		})();
+
+	}
 
 </script>
 
-<div class="tabs bg-base-300 !rounded-b-none px-2">
-	{#each tabsArray as tab, i}
-		<a
-			href={`/page/${tab}`}
-			class="mt-2 tab border-none tab-lifted !px-4 !py-0 {$page.url.pathname.split('/')[2] === tab
-				? 'tab-active'
-				: ''}"
-		>
-			<span>
-				{tab}
-			</span>
-		</a>
-	{/each}
+<div class="tabs bg-base-300 !rounded-b-none px-2 overflow-hidden">
+	{#key tabsArray}
+		{#each tabsArray as tab, i}
+			<a
+				href={tab.slug}
+				class="mt-2 tab border-none tab-lifted !px-4 !py-0 {selectedTab === tab.slug
+					? 'tab-active'
+					: ''}"
+				in:fly={{
+					x: -200,
+					y: 0,
+					duration: 400,
+					delay: 200 + i * 25
+				}}
+				out:fly={{
+					y: 20,
+					duration: 200,
+					delay: 0
+				}}
+			>
+				<span>
+					{tab.metadata.title}
+				</span>
+			</a>
+		{/each}
+	{/key}
 </div>
+<div class='w-full h-1 bg-base-200'/>
 
 <style lang="postcss">
+
+	div {
+		border-radius: var(--rounded-btn, 0.5rem);
+    }
+
 	:global(.tab-active::after),
 	:global(.tab-active)::before {
 		background-image: radial-gradient(

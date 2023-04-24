@@ -35,14 +35,14 @@
 		try {
 			if (firstName.length > 0) firstNameSchema.parse(firstName);
 
-			document?.getElementById('first_name_box')?.classList.remove('input-error');
+			document?.getElementById('signup_first_name_box')?.classList.remove('input-error');
 			document
-				?.getElementById('first_name_box_tooltip')
+				?.getElementById('signup_first_name_box_tooltip')
 				?.classList.add('before:hidden', 'after:hidden');
 		} catch (error) {
-			document?.getElementById('first_name_box')?.classList.add('input-error');
+			document?.getElementById('signup_first_name_box')?.classList.add('input-error');
 			document
-				?.getElementById('first_name_box_tooltip')
+				?.getElementById('signup_first_name_box_tooltip')
 				?.classList.remove('before:hidden', 'after:hidden');
 
 			return;
@@ -53,14 +53,14 @@
 		try {
 			if (lastName.length > 0) firstNameSchema.parse(lastName);
 
-			document?.getElementById('last_name_box')?.classList.remove('input-error');
+			document?.getElementById('signup_last_name_box')?.classList.remove('input-error');
 			document
-				?.getElementById('last_name_box_tooltip')
+				?.getElementById('signup_last_name_box_tooltip')
 				?.classList.add('before:hidden', 'after:hidden');
 		} catch (error) {
-			document?.getElementById('last_name_box')?.classList.add('input-error');
+			document?.getElementById('signup_ast_name_box')?.classList.add('input-error');
 			document
-				?.getElementById('last_name_box_tooltip')
+				?.getElementById('signup_last_name_box_tooltip')
 				?.classList.remove('before:hidden', 'after:hidden');
 
 			return;
@@ -71,12 +71,12 @@
 		try {
 			if (email.length > 0) emailSchema.parse(email);
 
-			document?.getElementById('email_box')?.classList.remove('input-error');
-			document?.getElementById('email_box_tooltip')?.classList.add('before:hidden', 'after:hidden');
+			document?.getElementById('signup_email_box')?.classList.remove('input-error');
+			document?.getElementById('signup_email_box_tooltip')?.classList.add('before:hidden', 'after:hidden');
 		} catch (error) {
-			document?.getElementById('email_box')?.classList.add('input-error');
+			document?.getElementById('signup_email_box')?.classList.add('input-error');
 			document
-				?.getElementById('email_box_tooltip')
+				?.getElementById('signup_email_box_tooltip')
 				?.classList.remove('before:hidden', 'after:hidden');
 
 			return;
@@ -89,14 +89,14 @@
 		try {
 			if (password.length > 0) passwordSchema.parse(password);
 
-			document?.getElementById('password_box')?.classList.remove('input-error');
+			document?.getElementById('signup_password_box')?.classList.remove('input-error');
 			document
-				?.getElementById('password_box_tooltip')
+				?.getElementById('signup_password_box_tooltip')
 				?.classList.add('before:hidden', 'after:hidden');
 		} catch (error) {
 			document?.getElementById('password_box')?.classList.add('input-error');
 			document
-				?.getElementById('password_box_tooltip')
+				?.getElementById('signup_password_box_tooltip')
 				?.classList.remove('before:hidden', 'after:hidden');
 
 			return;
@@ -105,14 +105,14 @@
 
 	function validateConfirmPassword() {
 		if (confirmPassword === password) {
-			document?.getElementById('confirm_password_box')?.classList.remove('input-error');
+			document?.getElementById('signup_confirm_password_box')?.classList.remove('input-error');
 			document
-				?.getElementById('confirm_password_box_tooltip')
+				?.getElementById('signup_confirm_password_box_tooltip')
 				?.classList.add('before:hidden', 'after:hidden');
 		} else {
-			document?.getElementById('confirm_password_box')?.classList.add('input-error');
+			document?.getElementById('signup_confirm_password_box')?.classList.add('input-error');
 			document
-				?.getElementById('confirm_password_box_tooltip')
+				?.getElementById('signup_confirm_password_box_tooltip')
 				?.classList.remove('before:hidden', 'after:hidden');
 
 			return;
@@ -139,7 +139,7 @@
 	<!-- Email and Password Box -->
 	<form method="POST" class="flex flex-col gap-4 w-full">
 		<div
-			id="first_name_box_tooltip"
+			id="signup_first_name_box_tooltip"
 			class="tooltip tooltip-error tooltip-open tooltip-right w-full normal-case after:hidden before:hidden"
 			data-tip="Too short"
 		>
@@ -149,8 +149,8 @@
 				type="text"
 				placeholder="First Name"
 				class="input w-full max-w-xs bg-base-200 placeholder:text-base-content/30"
-				name="first_name_box"
-				id="first_name_box"
+				name="signup_first_name_box"
+				id="signup_first_name_box"
 			/>
 		</div>
 		<div
@@ -164,12 +164,12 @@
 				type="text"
 				placeholder="Last Name"
 				class="input w-full max-w-xs bg-base-200 placeholder:text-base-content/30"
-				name="last_name_box"
-				id="last_name_box"
+				name="signup_last_name_box"
+				id="signup_last_name_box"
 			/>
 		</div>
 		<div
-			id="email_box_tooltip"
+			id="signup_email_box_tooltip"
 			class="tooltip tooltip-error tooltip-open tooltip-right w-full normal-case after:hidden before:hidden"
 			data-tip="Invalid email"
 		>
@@ -179,8 +179,8 @@
 				type="text"
 				placeholder="Email"
 				class="input w-full max-w-xs bg-base-200 placeholder:text-base-content/30"
-				name="email_box"
-				id="email_box"
+				name="signup_email_box"
+				id="signup_email_box"
 			/>
 		</div>
 		<div
@@ -194,12 +194,12 @@
 				type="password"
 				placeholder="Password"
 				class="input w-full max-w-xs bg-base-200 placeholder:text-base-content/30"
-				name="password_box"
-				id="password_box"
+				name="signup_password_box"
+				id="signup_password_box"
 			/>
 		</div>
 		<div
-			id="confirm_password_box_tooltip"
+			id="signup_confirm_password_box_tooltip"
 			class="tooltip tooltip-error tooltip-open tooltip-right w-full normal-case after:hidden before:hidden"
 			data-tip="Password does not match"
 		>
@@ -209,8 +209,8 @@
 				type="password"
 				placeholder="Confirm Password"
 				class="input w-full max-w-xs bg-base-200 placeholder:text-base-content/30"
-				name="confirm_password_box"
-				id="confirm_password_box"
+				name="signup_confirm_password_box"
+				id="signup_confirm_password_box"
 			/>
 		</div>
 		<!-- Submit Button -->

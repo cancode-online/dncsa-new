@@ -13,7 +13,7 @@
 
 {:else if $authenticated === true}
 
-	<div class='w-full' in:fly={{
+	<div class='w-full p-2' in:fly={{
 		y: 50,
 		duration: 400,
 		delay: 100

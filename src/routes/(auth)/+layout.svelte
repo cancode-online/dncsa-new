@@ -13,7 +13,7 @@
 
 <AuthGuard>
 
-    <div slot='noauth' class="flex w-screen h-screen bg-base-100 justify-around gap-8">
+    <div slot='noauth' class="absolute left-0 top-0 flex w-screen h-screen bg-base-100 justify-around gap-8">
         <div
         class="w-1/2 flex justify-end flex-1 h-full"
         in:fly={{

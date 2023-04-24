@@ -30,12 +30,12 @@
 		try {
 			if (email.length > 0) emailSchema.parse(email);
 
-			document?.getElementById('email_box')?.classList.remove('input-error');
-			document?.getElementById('email_box_tooltip')?.classList.add('before:hidden', 'after:hidden');
+			document?.getElementById('login_email_box')?.classList.remove('input-error');
+			document?.getElementById('login_email_box_tooltip')?.classList.add('before:hidden', 'after:hidden');
 		} catch (error) {
-			document?.getElementById('email_box')?.classList.add('input-error');
+			document?.getElementById('login_email_box')?.classList.add('input-error');
 			document
-				?.getElementById('email_box_tooltip')
+				?.getElementById('login_email_box_tooltip')
 				?.classList.remove('before:hidden', 'after:hidden');
 
 			return;
@@ -46,14 +46,14 @@
 		try {
 			if (password.length > 0) passwordSchema.parse(password);
 
-			document?.getElementById('password_box')?.classList.remove('input-error');
+			document?.getElementById('login_password_box')?.classList.remove('input-error');
 			document
-				?.getElementById('password_box_tooltip')
+				?.getElementById('login_password_box_tooltip')
 				?.classList.add('before:hidden', 'after:hidden');
 		} catch (error) {
 			document?.getElementById('password_box')?.classList.add('input-error');
 			document
-				?.getElementById('password_box_tooltip')
+				?.getElementById('login_password_box_tooltip')
 				?.classList.remove('before:hidden', 'after:hidden');
 
 			return;
@@ -80,7 +80,7 @@
 	<!-- Email and Password Box -->
 	<form method="POST">
 		<div
-			id="email_box_tooltip"
+			id="login_email_box_tooltip"
 			class="tooltip tooltip-error tooltip-open tooltip-right w-full normal-case after:hidden before:hidden"
 			data-tip="Invalid email"
 		>
@@ -90,12 +90,12 @@
 				type="text"
 				placeholder="Email"
 				class="input w-full max-w-xs bg-base-200 placeholder:text-base-content/30"
-				name="email_box"
-				id="email_box"
+				name="login_email_box"
+				id="login_email_box"
 			/>
 		</div>
 		<div
-			id="password_box_tooltip"
+			id="login_password_box_tooltip"
 			class="tooltip tooltip-error tooltip-open tooltip-right w-full normal-case after:hidden before:hidden"
 			data-tip="Too short"
 		>
@@ -105,8 +105,8 @@
 				type="password"
 				placeholder="Password"
 				class="input w-full max-w-xs my-4 bg-base-200 placeholder:text-base-content/30"
-				name="password_box"
-				id="password_box"
+				name="login_password_box"
+				id="login_password_box"
 			/>
 		</div>
 		<!-- Submit Button -->
