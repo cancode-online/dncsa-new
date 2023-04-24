@@ -8,6 +8,7 @@ type: 'page'
 
 <script>
 	import Runnable from '$components/Runnable.svelte';
+	import rmrHack1 from './java-code/rmr/rmr-hack-1.java?raw';
 	import rmrHack2 from './java-code/rmr/rmr-hack-2.java?raw';
 	import rmrHack3 from './java-code/rmr/rmr-hack-3.java?raw';
 	import rmrHack4 from './java-code/rmr/rmr-hack-4.java?raw';
@@ -17,7 +18,9 @@ type: 'page'
 	import rmrHack8 from './java-code/rmr/rmr-hack-8.java?raw';
 </script>
 
-# Hacks
+# Hacks 1
+
+<Runnable code={rmrHack1} lang={'java'} title={'rmr-hack-1.java'}/>
 
 # Hack 2
 
