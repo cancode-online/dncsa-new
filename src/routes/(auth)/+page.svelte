@@ -12,7 +12,6 @@
 	<Login />
 
 {:else if $authenticated === true}
-
 	<div class='w-full p-2' in:fly={{
 		y: 50,
 		duration: 400,
@@ -24,5 +23,4 @@
 		<a href='/page/unit-5'>Default landing page</a>
 
 	</div>
-
 {/if}
