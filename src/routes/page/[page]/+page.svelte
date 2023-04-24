@@ -11,9 +11,9 @@
 
 <AuthGuard>
 
-    <svelte:fragment slot='noauth'>
+    <div slot='noauth' class='w-screen h-screen flex justify-center'>
         <Login />
-    </svelte:fragment>
+    </div>
 
     <svelte:fragment slot='auth'>
         {#key data}
