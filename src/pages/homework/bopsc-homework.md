@@ -1,7 +1,7 @@
 ---
-title: BopsC Homework 1
+title: BopsC Homework
 date: '2023-04-24'
-summary: 'Hacks for lessons presented by RMR team'
+summary: 'Hacks for lessons presented by BopsC team'
 tags: ['homework']
 type: 'page'
 ---
