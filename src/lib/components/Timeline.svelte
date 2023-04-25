@@ -28,6 +28,10 @@
 
 	})();
 
+	let currentPage = $page.url.pathname.split('/')[2] || '/';
+	$: currentPage = $page.url.pathname.split('/')[2] || '/';
+
+
 </script>
 
 <div class="w-56 min-w-[14rem]">
@@ -44,7 +48,7 @@
 	>
 		<a href="/">
 			<button
-				class="btn btn-sm btn-ghost w-full uppercase flex gap-2 p-1"
+				class="btn btn-sm btn-ghost w-full uppercase flex gap-2 p-1 { currentPage === '/' ? 'active-timeline-button' : '' }"
 			>
 				<LucideHome />
 				<span class="flex-1 text-left">Home</span>
@@ -53,9 +57,15 @@
 		{#each timeline as folder, i}
 			<a href="/page/{_folderMetadata[folder].order[0]}">
 				<button
-					class="btn btn-sm btn-ghost w-full uppercase flex gap-2 p-1"
+					class="btn btn-sm btn-ghost w-full uppercase flex gap-2 p-1 { _folderMetadata[folder].order.includes(currentPage) ? 'active-timeline-button' : '' }"
 				>
-					<LucideFiles />
+					{#if _folderMetadata[folder].type === 'page'}
+						<LucideFileText />
+					{:else if _folderMetadata[folder].type === 'unit'}
+						<LucideFolderOpen />
+					{:else}
+						<LucideFiles />
+					{/if}
 					<span class="flex-1 text-left">{_folderMetadata[folder].title}</span>
 				</button>
 			</a>

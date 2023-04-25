@@ -25,7 +25,7 @@
                 duration: 100
             }}>
                 <article
-                    class="prose dark:prose-invert m-0 p-2 self-center min-w-0 max-w-none h-full w-full"
+                    class="prose dark:prose-invert m-0 p-4 self-center min-w-0 max-w-none h-full w-full"
                 >
                     <div class="m-0">
                         <h4 class="m-0 inline">{data.title}</h4>

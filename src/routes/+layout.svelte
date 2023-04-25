@@ -81,8 +81,10 @@
 		in:fly={{
 			x: 0,
 			y: -100,
-			duration: 500
+			duration: 1000,
+			delay: 100,
 		}}
+		class='z-10'
 	>
 		<NavigationBar />
 	</div>
