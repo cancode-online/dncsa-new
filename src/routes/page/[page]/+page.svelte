@@ -37,10 +37,10 @@
 							<div class='badge badge-primary self-center m-0 p-1 h-fit'>
 								{#if data.type === 'assignment'}
 									Assignment
+								{:else if data.type === 'reading'}
+									Reading
 								{:else if data.type === 'announcement'}
-									Assignment
-								{:else if data.type === 'event'}
-									Assignment
+									Announcement
 								{:else}
 									Info
 								{/if}

@@ -31,7 +31,7 @@
 	$: currentPage = $page.url.pathname.split('/')[2] || '/';
 </script>
 
-<div class="w-56 min-w-[14rem]">
+<div class="w-48">
 	<div
 		class="h-10 uppercase flex justify-start p-2 w-full bg-primary text-primary-content !rounded-b-none"
 	>
