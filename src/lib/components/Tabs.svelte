@@ -58,7 +58,6 @@
 			let _pages = await getPages();
 			let _folderMetadata = await getFolderMetadata();
 
-
 			if (selectedTab != '/' && _pages[selectedTab].folder != selectedFolder) {
 
 				selectedFolder = _pages[selectedTab].folder;
@@ -71,13 +70,13 @@
 						slug: _page,
 						metadata: await _pages[_page].import().then((m) => { return m.metadata}),
 					});
+
+					console.log()
 				}
 
 				tabsArray = _tabsArray;
 
-			}
-
-			if (selectedTab === '/') {
+			} else if (selectedTab === '/') {
 
 				selectedFolder = '/';
 
@@ -89,6 +88,9 @@
 				}];
 
 			}
+
+			console.log(_pages)
+			console.log(_folderMetadata)
 			
 		})();
 

@@ -1,17 +1,27 @@
----
+<!-- ---
 title: Anatomy of Java
 date: '2022-08-15'
-summary: 'A progressive journey through Java's anatomy starting with the classic "Hello, World!" example.'
+summary: 'A progressive journey through Java's anatomy starting with the classic Hello, World! example.'
 tags: []
+type: 'page'
+--- -->
+
+---
+title: Unit 9
+date: '2023-04-21'
+summary: 'Lesson on topics covered in AP CSA Unit 9 (Inheritance)'
+tags: ['lesson', 'Unit 9']
 type: 'page'
 ---
 
+
+something
+<!-- 
+
 <script>
 	import Runnable from '$components/Runnable.svelte';
-	// import classExample1 from './java-code/classExample1.java?raw';
+	// import HelloStatic from './code/HelloStatic.java?raw';
 </script>
-
-<!-- <Runnable code={classExample1} lang={'java'} title={'hello-world.java'}/> -->
 
 ## Hello, World!
 This article shows the basic language structures and constructs of Java (aka anatomy).  In async order, it is critical to understand these examples and learn vocab for OOP and Creating Objects: 
@@ -29,6 +39,8 @@ The key terms in HelloStatic introduction:
 - "method call" is the means in which we run the defined code
 
 
+<!-- 
+<Runnable code={HelloStatic} lang={'java'} title={'hello-world.java'}/> -->
 
 ```java
 // Define Static Method within a Class
@@ -133,4 +145,4 @@ Additional requirements (Pick something)
 2. Show how setters/mutators can be used to make the data in the Object dynamically change
 3. Adapt a Class from example: Person: Name and Age, Dessert: Name and Cost
 4. Build your own, use inspiration from examples and start building something educational in your PBL project.  Now is a time to consider if you are going to be following tutorials are building your own project.
-
+ -->
