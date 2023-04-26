@@ -1,7 +1,6 @@
 <script lang="ts">
 
 	import { page } from '$app/stores';
-	import { pages, folderMetadata } from '$stores/pages';
 	import { getFolderMetadata } from '$utils/pages';
 
 	import LucideFiles from '~icons/lucide/files';
