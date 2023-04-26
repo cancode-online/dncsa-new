@@ -8,4 +8,4 @@ export const pages = writable<any>(null) as Writable<any>; // Contains page impo
 export const folderMetadata = writable<any>(null) as Writable<any>; // Contains folder metadata
 
 export const cachedPages = writable<any>(null) as Writable<any>;
-export const toBeCached= writable<any>(null) as Writable<any>;
+export const toBeCached = writable<any>(null) as Writable<any>;

@@ -71,7 +71,6 @@
 
 		if (typeof unsubscribe === 'function') unsubscribe();
 	});
-
 </script>
 
 <Alerts />
@@ -82,9 +81,9 @@
 			x: 0,
 			y: -100,
 			duration: 1000,
-			delay: 100,
+			delay: 100
 		}}
-		class='z-10'
+		class="z-10"
 	>
 		<NavigationBar />
 	</div>

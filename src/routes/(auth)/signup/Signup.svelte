@@ -30,17 +30,12 @@
 
 	async function post() {
 		try {
-
 			signUpWithEmail(email, password, firstName, lastName);
 
 			goto(redirect);
-
 		} catch {
-
 			return;
-
 		}
-
 	}
 
 	function validateFirstName() {
@@ -84,7 +79,9 @@
 			if (email.length > 0) emailSchema.parse(email);
 
 			document?.getElementById('signup_email_box')?.classList.remove('input-error');
-			document?.getElementById('signup_email_box_tooltip')?.classList.add('before:hidden', 'after:hidden');
+			document
+				?.getElementById('signup_email_box_tooltip')
+				?.classList.add('before:hidden', 'after:hidden');
 		} catch (error) {
 			document?.getElementById('signup_email_box')?.classList.add('input-error');
 			document
@@ -132,48 +129,30 @@
 	}
 
 	async function googleAuth() {
-
 		try {
-
 			signInWithGoogle();
 			goto(redirect);
-
 		} catch {
-
 			return;
-
 		}
-
 	}
 
 	async function githubAuth() {
-
 		try {
-
-			signInWithGithub()
+			signInWithGithub();
 			goto(redirect);
-
 		} catch {
-
 			return;
-
 		}
-
 	}
 
 	async function facebookAuth() {
-
 		try {
-
 			signInWithFacebook();
 			goto(redirect);
-
 		} catch {
-
 			return;
-
-	}
-
+		}
 	}
 </script>
 
