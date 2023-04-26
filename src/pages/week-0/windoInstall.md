@@ -1,19 +1,10 @@
 ---
-title: 
-date: ''
-summary: ''
+title: Windows VS Code and Kernels with Anaconda
+date: '2022-08-15'
+summary: 'Guide to get Anaconda and Jupyter Notebooks to work with VS Code on Windows (Focus was IJava kernel).'
 tags: []
 type: 'page'
 ---
-
-# Windows VS Code and Kernels with Anaconda
-> Guide to get Anaconda and Jupyter Notebooks to work with VS Code on Windows (Focus was IJava kernel).
-- toc: true
-- layout: default
-- image: /images/anaconda.png
-- permalink: /techtalk/windows-install
-- type: student
-- week: 0
 
 ## Installing and Setting Up VS Code
 > This guide was created by Anthony Vo and Sahil Samar as they were having problems with VS Code and IPython.  This was related to conflicting Tool dependencies that were introduced to their machines.  

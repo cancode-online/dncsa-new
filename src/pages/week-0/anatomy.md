@@ -8,10 +8,10 @@ type: 'page'
 
 <script>
 	import Runnable from '$components/Runnable.svelte';
-	import classExample1 from './java-code/classExample1.java?raw';
+	// import classExample1 from './java-code/classExample1.java?raw';
 </script>
 
-<Runnable code={classExample1} lang={'java'} title={'hello-world.java'}/>
+<!-- <Runnable code={classExample1} lang={'java'} title={'hello-world.java'}/> -->
 
 ## Hello, World!
 This article shows the basic language structures and constructs of Java (aka anatomy).  In async order, it is critical to understand these examples and learn vocab for OOP and Creating Objects: 

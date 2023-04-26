@@ -1,3 +1,11 @@
+---
+title: 
+date: ''
+summary: ''
+tags: []
+type: 'page'
+---
+
 # Primitive Data Types
 > An introduction to primitive types using input, output, and finishing with a grading calculator.
 
