@@ -6,14 +6,15 @@ export async function load({ params }: { params: { page: string } }) {
 
 	try {
 		const post = await _pages[page].import();
-		const { title, date, summary } = post.metadata;
+		const { title, date, summary, type } = post.metadata;
 		const content = post.default;
 
 		return {
 			content,
 			title,
 			summary,
-			date
+			date,
+			type
 		};
 	} catch (e) {
 		return {

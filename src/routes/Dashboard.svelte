@@ -4,6 +4,8 @@
 	import Tabs from '$/lib/components/Tabs.svelte';
 
 	import { fade, fly } from 'svelte/transition';
+	import { authenticated } from '$/firebase';
+
 </script>
 
 <div
@@ -40,18 +42,11 @@
 		}}
 	>
 		<div class="flex flex-col w-full h-fit py-20 justify-start">
-			<div class="bg-lime-500 w-full">
+			<div class="w-full">
 				<Tabs />
 			</div>
-			<div class="bg-base-200 h-full w-full !rounded-t-none">
-				<slot />
-			</div>
+			<slot />
 		</div>
-		<!-- <div>
-            <div class='h-screen bg-base-200'>
-
-            </div>
-        </div> -->
 	</div>
 	<div class="flex flex-1 justify-start pt-20">
 		<Assignments />
