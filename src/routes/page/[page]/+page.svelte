@@ -3,6 +3,7 @@
 
 	import AuthGuard from '$lib/components/AuthGuard.svelte';
 	import Login from '$routes/(auth)/login/Login.svelte';
+	import Assignments from '$/lib/components/Assignments.svelte';
 
 	export let data: any;
 </script>
@@ -14,9 +15,9 @@
 
 	<svelte:fragment slot='auth'>
 		{#key data}
-			<div class="flex flex-col h-full w-full !rounded-t-none gap-4">
+			<div class="flex flex-col h-full w-full gap-4">
 
-				<div class="w-full bg-base-200 h-fit">
+				<div class="w-full bg-base-200 h-fit !rounded-t-none">
 					<article
 						class="prose dark:prose-invert m-0 p-4 self-center min-w-0 max-w-none h-full w-full"
 						in:fly={{
@@ -28,10 +29,26 @@
 							duration: 100
 						}}
 					>
-						<div class="m-0">
-							<h4 class="m-0 inline">{data.title}</h4>
-							<p class="m-0 inline">- {new Date(data.date).toLocaleDateString('en-us')}</p>
+						<div class="m-0 mb-1 flex justify-between">
+							<div class='flex gap-2'>
+								<h4 class="m-0 h-fit self-center">{data.title}</h4>
+								<p class="m-0 h-fit self-center">- {new Date(data.date).toLocaleDateString('en-us')}</p>
+							</div>
+							<div class='badge badge-primary self-center m-0 p-1 h-fit'>
+								{#if data.type === 'assignment'}
+									Assignment
+								{:else if data.type === 'announcement'}
+									Assignment
+								{:else if data.type === 'event'}
+									Assignment
+								{:else}
+									Info
+								{/if}
+							</div>
 						</div>
+						<p class='italic m-0 mb-2 text-sm'>
+							"{data.summary}"
+						</p>
 						<hr class="mt-0" />
 						<div class="m-0">
 							<svelte:component this={data.content} />
@@ -40,7 +57,7 @@
 				</div>
 
 				{#if data.type === 'assignment'}
-					<div class='bg-red-500 h-screen'>
+					<div class='bg-base-200 h-screen'>
 						
 					</div>
 				{/if}
@@ -49,3 +66,9 @@
 		{/key}
 	</svelte:fragment>
 </AuthGuard>
+
+<style lang="postcss">
+	div {
+		border-radius: var(--rounded-btn, 0.5rem);
+	}
+</style>
