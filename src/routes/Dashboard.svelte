@@ -4,7 +4,6 @@
 	import Tabs from '$/lib/components/Tabs.svelte';
 
 	import { fade, fly } from 'svelte/transition';
-	import { authenticated } from '$/firebase';
 
 </script>
 
