@@ -23,7 +23,8 @@ type: 'page'
 | Allie X | [Link](https://xiaoa0.github.io/fastpages2/2023/04/25/cancode.html) | 2.7 | all hacks complete, outputs |
 | Rohan G, Shreya | [Link](https://shreya-ahujaa.github.io/fastpages/2023/04/25/cancodehacks.html) | 2.7 | all hacks complete, outputs working |
 | Linda Liu | [Link](https://lindaliu1202.github.io/lindaliu_blog/2023/04/26/unit5&9&10.html) | 2.7 | everything complete, outputs are there
-| Nathan, Rohit, Jun | [Link](https://rohitd3.github.io/rohitfastpages/java/2023/04/26/labhacks.html) | 2.8 | everything complete, outputs are there obvious effor
+| Nathan, Rohit, Jun | [Link](https://rohitd3.github.io/rohitfastpages/java/2023/04/26/labhacks.html) | 2.8 | everything complete, outputs are there obvious effort
+| Saathvika | [Link]() | 2.7 | everything complete, outputs are there 
 
 
 
