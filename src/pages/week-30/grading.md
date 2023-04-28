@@ -22,6 +22,7 @@ type: 'page'
 | Rebecca S | [Link](https://rebecca-123.github.io/blog/apr/cancode/2023/04/19/cancode.html) | 3 | extra work, a lot of effort, good hob |
 | Allie X | [Link](https://xiaoa0.github.io/fastpages2/2023/04/25/cancode.html) | 2.7 | all hacks complete, outputs |
 | Rohan G, Shreya | [Link](https://shreya-ahujaa.github.io/fastpages/2023/04/25/cancodehacks.html) | 2.7 | all hacks complete, outputs working |
+| Linda Liu | [Link](https://lindaliu1202.github.io/lindaliu_blog/2023/04/26/unit5&9&10.html) | 2.7 | all hacks complete, outputs working |
 
 
 
