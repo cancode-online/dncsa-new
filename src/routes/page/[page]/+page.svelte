@@ -100,7 +100,7 @@
 												Missing
 											</span>
 										</td> 
-										<td>Tristan Copley</td> 
+										<td>Copley, Tristan</td> 
 										<td>9/3/21</td> 
 										<td>0/3</td> 
 										<td>
