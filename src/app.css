@@ -10,6 +10,14 @@ body {
 	@apply font-mono;
 }
 
+.transition-container {
+	display: grid;
+}
+
+.transition-container > * {
+	grid-area: 1 / 1 / 2 / 2;
+}
+
 .fira {
 	font-family: 'Fira Code', monospace !important;
 }

@@ -1,102 +1,69 @@
 <script lang="ts">
-	import '$/app.css';
-
-	import AuthGuard from '$/lib/components/AuthGuard.svelte';
-	import prismLight from '$lib/prism/prism-light.txt?raw';
-	import prismDark from '$lib/prism/prism-dark.txt?raw';
-
-	import NavigationBar from '$/lib/components/navbar/NavigationBar.svelte';
-	import Alerts from '$components/Alerts.svelte';
-	import Dashboard from './Dashboard.svelte';
-
-	import { fly } from 'svelte/transition';
-
+	import '../app.css';
+	import NavigationBar from '$components/navbar/NavigationBar.svelte';
 	import { authenticated } from '$firebase';
 
-	import { codeTheme, layoutTheme } from '$stores/theme';
-	import { onMount, onDestroy } from 'svelte';
-	import { browser } from '$app/environment';
+	import { fly, fade } from 'svelte/transition';
+	import Login from '$/old_routes/(auth)/login/Login.svelte';
 
-	onMount(() => {
-		document.documentElement.setAttribute('data-theme', $layoutTheme);
+	let _authenticated = false;
+	let _loading = true;
 
-		if ($codeTheme === 'light') {
-			if (document && document.getElementById('theme-switch-moon')) {
-				document.getElementById('theme-switch-moon')?.classList.remove('swap-off');
-				document.getElementById('theme-switch-moon')?.classList.add('swap-on');
-
-				if (document.getElementById('theme-switch-sun')) {
-					document.getElementById('theme-switch-sun')?.classList.remove('swap-on');
-					document.getElementById('theme-switch-sun')?.classList.add('swap-off');
-				}
-			}
-
-			document.body.classList.remove('dark');
-			document.documentElement.style.setProperty('color-scheme', 'light');
-		} else {
-			if (document && document.getElementById('theme-switch-sun')) {
-				document.getElementById('theme-switch-sun')?.classList.add('swap-on');
-				document.getElementById('theme-switch-sun')?.classList.remove('swap-off');
-
-				if (document.getElementById('theme-switch-moon')) {
-					document.getElementById('theme-switch-moon')?.classList.add('swap-off');
-					document.getElementById('theme-switch-moon')?.classList.remove('swap-on');
-				}
-			}
-
-			document.body.classList.add('dark');
-			document.documentElement.style.setProperty('color-scheme', 'dark');
-		}
+	authenticated.subscribe((state) => {
+		_authenticated = state || false;
 	});
 
-	let unsubscribe: () => void;
+	setTimeout(() => {
+		_loading = false;
+	}, 3000); // ms
 
-	onMount(async () => {
-		const prismCSS = document.createElement('style');
-		prismCSS.id = 'prism-css';
-		prismCSS.textContent = prismDark;
-		document.head.appendChild(prismCSS);
-
-		unsubscribe = codeTheme.subscribe((value) => {
-			const prismCSS = document.getElementById('prism-css');
-			if (prismCSS) prismCSS.textContent = value === 'dark' ? prismLight : prismDark;
-		});
-	});
-
-	onDestroy(() => {
-		if (browser) {
-			const prismCSS = document.getElementById('prism-css');
-			if (prismCSS) prismCSS.remove();
-		}
-
-		if (typeof unsubscribe === 'function') unsubscribe();
-	});
+	// Could possibly use $authentication but I'm not sure if that is optimal or not
 </script>
 
-<Alerts />
+<div class="transition-container w-full h-full">
+	{#if _loading}
+		<div>Loading...</div>
+	{:else}
+		<div
+			in:fly={{
+				x: 0,
+				y: -100,
+				duration: 1000,
+				delay: 100
+			}}
+		>
+			<NavigationBar />
+			<!-- Should be absolutely positioned top-0 -->
+		</div>
 
-{#if $authenticated === true || $authenticated === false}
-	<div
-		in:fly={{
-			x: 0,
-			y: -100,
-			duration: 1000,
-			delay: 100
-		}}
-		class="z-10"
-	>
-		<NavigationBar />
-	</div>
-{/if}
+		{#if _authenticated}
+			<div
+				class="bg-red-500 w-96 h-96"
+				in:fly={{
+					x: 0,
+					y: -100,
+					duration: 1000,
+					delay: 100
+				}}
+				out:fly={{
+					x: 0,
+					y: -100,
+					duration: 1000,
+					delay: 100
+				}}
+			>
+				Authenticated
+			</div>
 
-<AuthGuard>
-	<div slot="noauth">
-		<slot />
-	</div>
-
-	<div slot="auth">
-		<Dashboard>
-			<slot />
-		</Dashboard>
-	</div>
-</AuthGuard>
+			<!-- <Dashboard>
+            <slot />
+        </Dashboard> -->
+		{:else}
+			<div
+				class="bg-blue-500 w-full h-full flex justify-center"
+			>
+				<Login />
+			</div>
+		{/if}
+	{/if}
+</div>
