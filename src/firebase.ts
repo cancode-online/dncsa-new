@@ -17,7 +17,6 @@ import {
 	updateProfile,
 	FacebookAuthProvider
 } from 'firebase/auth';
-import { goto } from '$app/navigation';
 import { alert } from '$stores/alerts';
 
 const APP = initializeApp({
@@ -31,14 +30,13 @@ const APP = initializeApp({
 	measurementId: 'G-TVV87SBYMV'
 });
 
-export const authenticated = writable(undefined) as Writable<boolean | undefined>;
 export const getAuthApp = () => {
 	return getAuth(APP);
 };
 export const database = () => {
 	return getFirestore(APP);
 };
-
+export const authenticated = writable(undefined) as Writable<boolean | undefined>;
 export const admin = writable(false);
 export const user = writable(null) as Writable<User | null>;
 

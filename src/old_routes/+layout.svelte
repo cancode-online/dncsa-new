@@ -7,7 +7,7 @@
 
 	import NavigationBar from '$/lib/components/navbar/NavigationBar.svelte';
 	import Alerts from '$components/Alerts.svelte';
-	import Dashboard from './Dashboard.svelte';
+	import Dashboard from '../routes/Dashboard.svelte';
 
 	import { fly } from 'svelte/transition';
 
