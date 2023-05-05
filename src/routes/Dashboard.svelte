@@ -12,7 +12,7 @@
 
 <div class="flex justify-center gap-4 p-4">
 	
-	<div class="flex flex-1 justify-end pt-16 bg-red-500" in:fly={{
+	<div class="flex flex-1 justify-end pt-16" in:fly={{
 		y: 100,
 		duration: 800,
 		delay: 200,
@@ -31,7 +31,7 @@
 		<slot maxWidth={pageMaxWidth} />
 	</div>
 
-	<div class="flex flex-1 justify-start pt-16 bg-red-500" in:fly={{
+	<div class="flex flex-1 justify-start pt-16" in:fly={{
 		y: 100,
 		duration: 800,
 		delay: 200,

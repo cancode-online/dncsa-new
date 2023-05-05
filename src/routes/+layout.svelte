@@ -46,7 +46,7 @@
 			<div
 				class="bg-blue-500 w-full h-screen flex justify-center"
 			>
-				<Login />
+				<Login/>
 			</div>
 		{/if}
 	{/if}
