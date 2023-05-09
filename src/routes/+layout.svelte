@@ -49,6 +49,7 @@
 				}}
 			>
 				<NavigationBar />
+
 			</div>
 
 			<!-- {#if _authenticated}
