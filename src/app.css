@@ -22,10 +22,10 @@ body {
 	font-family: 'Fira Code', monospace !important;
 }
 
-.b-300 {
+/* .b-300 {
 	@apply btn btn-sm btn-ghost hover:bg-base-300 cursor-default hover:border-base-200 no-animation bg-base-300 border-base-200 border-2 flex box-border;
-}
-
+} */
+  
 /* pre {
 	@apply !border-none !shadow-none !rounded-sm !font-normal !text-sm !my-2;
 }
