@@ -1,31 +1,18 @@
 import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/kit/vite';
-import { mdsvex } from 'mdsvex';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	extensions: ['.svelte', '.md', '.svx', '.svexy', '.svelte.md', '.mdx'],
+	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
+	// for more information about preprocessors
+	preprocess: vitePreprocess(),
+
 	kit: {
-		adapter: adapter(),
-		alias: {
-			$: 'src',
-			$lib: 'src/lib',
-			$components: 'src/lib/components',
-			$routes: 'src/routes',
-			$stores: 'src/lib/stores',
-			$types: 'src/app.d.ts',
-			$utils: 'src/lib/utils',
-			$files: 'src/files',
-			$firebase: 'src/firebase.ts',
-			$pages: 'src/pages'
-		}
-	},
-	preprocess: [
-		vitePreprocess(),
-		mdsvex({
-			extensions: ['.md', '.svx', '.svexy', '.svelte.md', '.mdx']
-		})
-	]
+		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
+		// If your environment is not supported or you settled on a specific environment, switch out the adapter.
+		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
+		adapter: adapter()
+	}
 };
 
 export default config;
