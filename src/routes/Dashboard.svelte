@@ -27,7 +27,18 @@
 		<Timeline />
 	</div>
 
-	<div class="flex w-full max-w-2xl pt-16 bg-blue-500" bind:clientWidth={pageMaxWidth}>
+	<div class="flex w-full max-w-2xl pt-16 bg-blue-500" bind:clientWidth={pageMaxWidth} in:fly={{
+		y: 100,
+		duration: 800,
+		delay: 200,
+		easing: backOut
+	}}
+	out:fly={{
+		y: 100,
+		duration: 600,
+		delay: 0,
+		easing: backIn
+	}}>
 		<slot maxWidth={pageMaxWidth} />
 	</div>
 
