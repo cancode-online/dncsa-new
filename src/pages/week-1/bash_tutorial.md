@@ -1,12 +1,10 @@
-# Bash and Installation Checks
-> A brief overview of Bash, on your way to becoming a Linux expert.  When a computer boots up, a kernel (MacOS, Windows, Linux) is started.  This kernel provides a shell that allows user to interact with a most basic set of commands.  Typically, the casual user will not interact with the shell using a Desktop User Interface.  To activate the shell directly, users will run a "terminal", "command", "powershell" through the Desktop, VS Code or by activating "console" while on a cloud computer like AWS.
-
-- toc: true
-- comments: true
-- permalink: /techtalk/bash
-- image: /images/bash.jpeg
-- type: pbl
-- week: 1
+---
+title: Bash and Installation Checks
+date: '2022-08-22'
+summary: 'A brief overview of Bash, on your way to becoming a Linux expert.  When a computer boots up, a kernel (MacOS, Windows, Linux) is started.  This kernel provides a shell that allows user to interact with a most basic set of commands.  Typically, the casual user will not interact with the shell using a Desktop User Interface.  To activate the shell directly, users will run a "terminal", "command", "powershell" through the Desktop, VS Code or by activating "console" while on a cloud computer like AWS.'
+tags: []
+type: 'page'
+---
 
 ## Prerequisites for Bash on Jupyter
 > Being able to find a Bash Reference.  Here is a [Bash Cheat Sheet](https://www.pcwdld.com/bash-cheat-sheet)

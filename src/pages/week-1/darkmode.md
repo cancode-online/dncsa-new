@@ -1,14 +1,10 @@
-# Fastpages Darkmode
-> An implementation of the darkmode for GitHub Fastpages.
-
-- toc: true
-- branch: master
-- badges: true
-- comments: true
-- author: Vunsh Mehta
-- image: /images/fastpages_dark.png
-- type: pbl
-- week: 1
+---
+title: Fastpages Darkmode
+date: '2022-08-22'
+summary: 'An implementation of the darkmode for GitHub Fastpages.'
+tags: []
+type: 'page'
+---
 
 ### Hey bloggers!
 If you are on this page, chances are you are interested in implementing **dark mode** into your website. What you see now is an example of Dark Mode being used on a Github fastpages build. It is a very simple addition that can help personalize your site.

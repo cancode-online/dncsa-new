@@ -1,24 +1,7 @@
-# Console Games
-> These console games show many elements from College Board's Units
-
-- title: Console Games
-- toc: true
-- badges: false
-- image: /images/using_java_objects.png
-- author: Vunsh Mehta
-- categories: [1.A, C3.1, C4.6]
-- type: ap
-- week: 2
-
-## Console Game Menu
-> College Boards Units #1, #3, and #4 and Free Response Methods and Control Structures are built into these labs.  Of course, these games are very popular in beginning programming.  They are here for reference, as they were shared by a student.
-
-
-```java
 import java.util.Scanner; //library for user input
 import java.lang.Math; //library for random numbers
 
-public class ConsoleGame {
+class ConsoleGame {
     public final String DEFAULT = "\u001B[0m";  // Default Terminal Color
     
     public ConsoleGame() {
@@ -362,15 +345,11 @@ public class ConsoleGame {
     static public void main(String[] args)  {  
         new ConsoleGame(); // starting Menu object
     }
-
-
 }
-ConsoleGame.main(null);
 
-
-```
-
-# Hacks
-> The next step with these games is to consider OOP in more detail.
-- Make RPS, Tic-Tack-Toe, and Higher Lower into different objects.  In Jupyter, this would have dependency cells.
-- Build a Data Structures for the Games, in order to simplify the Control Flow logic, particularly T-T-T.
+// Judge0 Activation (pretend it's not here)
+class Main {
+    public static void main(String[] args) {
+        ConsoleGame.main(null);
+    }
+}

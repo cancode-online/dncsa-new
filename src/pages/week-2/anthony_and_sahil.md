@@ -1,14 +1,16 @@
-# Anthony and Sahil: A Reflection on Computer Science
-> An article detailing our motivations and accomplishments in computer science. More focused on stories and learning processes than Bria's tips
+---
+title: 'Anthony and Sahil: A Reflection on Computer Science'
+date: '2022-08-22'
+summary: "An article detailing our motivations and accomplishments in computer science. More focused on stories and learning processes than Bria's tips"
+tags: []
+type: 'page'
+---
 
-- title: Anthony and Sahil's Reflections
-- toc: true
-- comments: true
-- image: /images/pig.PNG
-- permalink: /collegeboard/anthony-and-sahil
-- tags: [collegeboard]
-- type: human
-- week: 2
+<script>
+	import Runnable from '$components/Runnable.svelte';
+	import HeadsTails from './code/HeadsTails.py?raw';
+    import HeadsTailsNew from './code/HeadsTailsNew.py?raw';
+</script>
 
 ### Anthony: Computer Science Before APCSA
 
@@ -22,82 +24,9 @@ In elementary school, I used Scratch to create a plethora of games. During the s
 
 I took more computer science classes in middle school with the two GTT classes. The classes still worked a lot with Scratch, but in 8th grade, I learned more about HTML, CSS, JavaScript, and Python. Those classes didn't result in the best programs, but it provided a solid foundation for problem solving and syntax that I continue to build off of today. Below are a few programs that I made in eighth grade (updated to conform to modern Python standards).
 
+<Runnable code={HeadsTails} lang={'python'} title={'HeadsTails.py'}/>
 
-```python
-"""Anthony Vo
-11-14-17
-coinflip.py
-To practice using random numbers"""
-
-#Imports random module
-import random
-
-#Initializes variables
-numberOfHeads = 0
-numberOfTails = 0
-
-#Flips coins
-for number in range(20):
-    coinSide = random.randrange(2)
-    if coinSide == 0:
-        numberOfHeads = numberOfHeads + 1
-        print("Heads")
-    else:
-        numberOfTails = numberOfTails + 1
-        print("Tails")
-
-#Gives result
-print(f"Overall, heads was flipped {numberOfHeads} times while tails was flipped {numberOfTails} times.")
-
-```
-
-    Tails
-    Tails
-    Tails
-    Tails
-    Tails
-    Heads
-    Heads
-    Tails
-    Tails
-    Tails
-    Tails
-    Tails
-    Tails
-    Tails
-    Tails
-    Heads
-    Heads
-    Tails
-    Heads
-    Tails
-    Overall, heads was flipped 5 times while tails was flipped 15 times.
-
-
-
-```python
-"""Anthony Vo
-11-14-17
-fortunecookies.py
-To practice using random numbers"""
-
-#Imports random module
-import random
-
-#Gives messages
-whichMessage = random.randrange(5)
-if whichMessage == 0:
-    print("You will soon have indigestion due to that fortune cookie.")
-elif whichMessage == 1:
-    print("You will buy more Kung Pao Chicken in the future.")
-elif whichMessage == 2:
-    print("Following this retaurant's Facebook page will make you prosperous.")
-elif whichMessage == 3:
-    print("If you go to that fake Chinese restaurant Panda Express, you will become poor.")
-else:
-    print("Not eating Chinese cuisine will cause you to have many unlucky days.")
-
-```
+<Runnable code={HeadsTailsNew} lang={'java'} title={'HeadsTailsNew.py'}/>
 
     Following this retaurant's Facebook page will make you prosperous.
 
