@@ -16,7 +16,7 @@
 
     <div class='bg-lime-500 min-h-[40rem]'>
         {#key currentPage}
-            <MarkdownPage page={"unit-5"} />
+            <MarkdownPage webpage={"unit-5"} />
         {/key}
     </div>
 
