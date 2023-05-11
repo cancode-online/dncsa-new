@@ -1,14 +1,15 @@
-# Boolean Expressions and If Statements
-> Focus on Ifs, Switch, Expressions and how to build control structures in Java.
+---
+title: Boolean Expressions and If Statements
+date: '2022-09-5'
+summary: 'Focus on Ifs, Switch, Expressions and how to build control structures in Java.'
+tags: []
+type: 'page'
+---
 
-- title: Boolean Expressions and If Statements
-- toc: true
-- categories: [1.B]
-- image: /images/boolean.png
-- permalink: /unit/3
-- categories: [C4.6]
-- type: ap
-- week: 3
+<script>
+	import Runnable from '$components/Runnable.svelte';
+	import Expressions from './code/Expressions.java?raw';
+</script>
 
 ## Expression, Assignments, and Condition Statements
 All of the Units have video series.  We have access to information and content for College Board and Code.org.  Below are two sample videos, it is up to you to determine the detail or brevity that you will need according to your experience.
@@ -18,40 +19,7 @@ All of the Units have video series.  We have access to information and content f
 ### Introduction to Boolean expression
 A Boolean expression is a logical statement that can be evaluated to True or False.  A Boolean expression may be composed of a combination of the Boolean constants true or false.
 
-
-```java
-// All of the boolean expressions below evaluate to true
-
-if (true) {
-    System.out.println("True code block");
-}
-
-if (true && !false) {
-    System.out.println("True and Not False code block");
-}
-
-if (true || false) {
-    System.out.println("True or False code block");
-}
-
-if ((true && !false) && (true || false)) {
-    System.out.println("Confusing code block");
-}
-
-if (!((false || !true) || (false && true))) {
-    System.out.println("De Morgan's law in my head of confusing code block");
-}
-
-// Can any of the above expression be simplified?  What would they simplify to?  Are any of these expressions useful?
-
-```
-
-    True code block
-    True and Not False code block
-    True or False code block
-    Confusing code block
-    De Morgan's law of confusing code block
-
+<Runnable code={Expressions} lang={'java'} title={'Expressions.java'}/>
 
  ## Hacks
 Build your own Jupyter Notebook lesson on ifs
