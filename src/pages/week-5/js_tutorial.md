@@ -1,15 +1,10 @@
-# JavaScript Tutorial
-> Quick launch into Variables, Functions, Arrays, IJavaScript HTML, using Jupyter Notebooks,
-
-- layout: default
-- badges: false
-- permalink: /techtalk/javascript
-- image: /images/javascript.png
-- categories: [C4.0]
-- type: pbl
-- week: 5
-
-{% include nav_frontend.html %}
+---
+title: JavaScript Tutorial
+date: '2022-09-19'
+summary: 'Quick launch into Variables, Functions, Arrays, IJavaScript HTML, using Jupyter Notebooks,'
+tags: []
+type: 'page'
+---
 
 ## JavaScript references
 > JavaScript is the most important language you need to learn as a frontend developer. It's a great first language for web developers to learn.
@@ -28,12 +23,7 @@ Output to console using the classic programming introduction using a "Hello, Wor
 - The console.log <mark>command outputs the parameter to the console</mark>, so you can see it in this Jupyter document.
 - Note, in a Web Application, console.log is used for debugging and is not visible from the browser via HTML.  It is used behind the scenes, when using Inspect->Console from the browser.
 
-
-```javascript
-console.log("Hello, World!");
-```
-
-    Hello, World!
+<Runnable code={Hello} lang={'js'} title={'Hello.js'}/>
 
 
 ### console.log output showing use of variable
@@ -41,38 +31,23 @@ This second example is a <mark>sequence of code</mark>, two or more lines forms 
 - The variable "var msg =" is used to capture the data
 - The console.log(msg) outputs to console
 
-
-```javascript
-var msg = "Hello, World!";
-console.log(msg);
-```
-
-    Hello, World!
-
+<Runnable code={VarHello} lang={'java'} title={'VarHello.js'}/>
 
 ### console.log output showing use of a function
 This example passes the previously defined variable "msg" to the newly defined "function logIt(output)".
 - There are two steps in the code, the <mark>definition of the function and the call to the function</mark>.
-    - "function logIt(output) {}" and everything between curly braces is the definitions of the function.
+    - "function logIt(output)" and everything between curly braces is the definitions of the function.
     - "logIt(msg)" is the call to the function, this actually activates the function.  If you remove this line you will not receive any output to console.
 - Since the variable "msg" was defined in previous cell, it is used a parameter when calling the logMessage function.
 
-
-```javascript
-function logIt(output) {
-    console.log(output);
-}
-logIt(msg);
-```
-
-    Hello, World!
-
+<Runnable code={LogItHello} lang={'java'} title={'LogItHello.js'} historical={VarHello}/>
 
 ### Showing reuse of a function
 Now that a function is defined, it can be called from any of the subsequent cell in the Jupyter notebook.  A function/method, is a process of creating a <mark>procedural abstraction</mark>. This a programming practice to promote reuse versus coding the same thing over and over.
 - First call sends a different string message
 - Second call sends a number
 
+<Runnable code={ReuseLogIt} lang={'java'} title={'ReuseLogIt.js'} historical={}/>
 
 ```javascript
 console.log("Reuse of logIT")
@@ -88,6 +63,7 @@ logIt(2022)
 ### Dynamic or Loosely typed language (string, number)
 <mark>JavaScript is a loosely typed language</mark>, meaning you don't have to specify what type of information will be stored in a variable in advance.  The variable type is determined at runtime.  This is similar to Python and most interpretive languages.  Java which is a compiled language is strongly typed, thus you will see string, integer, double, and object in the source code. In JavaScript, the "typeof" keyword returns the type.
 
+<Runnable code={Expressions} lang={'java'} title={'Expressions.java'}/>
 
 ```javascript
 function logItType(output) {
@@ -111,6 +87,7 @@ JavaScript functions have special properties and syntax is shown in many ways.  
 - <mark>Definition of a prototype allow for the definition of a method associated with the function</mark> , the "Person.prototype.toJSON" allows the collection of data to be expressed in a json/string versus JavaScript object.
 - <mark>Instance of a function</mark>, the "var teacher = new Person("Mr M", "jm1021", 1977)" line makes a variable "teacher" which is an object representation of "function Person".
 
+<Runnable code={Expressions} lang={'java'} title={'Expressions.java'}/>
 
 ```javascript
 // define a function to hold data for a Person
@@ -155,6 +132,7 @@ Many key elements are shown again.  New elements include...
 - <mark>Building an Array</mark>, "var students" is an array of many persons
 - Building a Classroom, this show <mark>forEach iteration</mark> through an array and <mark>.push adding</mark> to an array.  These are key concepts in all programming languages.
 
+<Runnable code={Expressions} lang={'java'} title={'Expressions.java'}/>
 
 ```javascript
 // define a student Array of Person(s)
@@ -223,6 +201,7 @@ This example builds a <mark>Classroom method _toHTML</mark> which is passed to t
 
 [Reference](http://n-riesco.github.io/ijavascript/doc/custom.ipynb.html?ref=morioh.com&utm_source=morioh.com)
 
+<Runnable code={Expressions} lang={'java'} title={'Expressions.java'}/>
 
 ```javascript
 // define an HTML conversion "method" associated with Classroom
@@ -304,6 +283,8 @@ setTimeout(function() {
 > Objective of JavaScript is to produce frontend code.  Working in Jupyter Notebooks could help in the process of visualizing design with short and interactive feedback.  However, my hope is that you move to Fastpages and play with Frontend code in that environment and do the REAL thing.  Here is my suggestion.
 
 > Design UI screens that are prototypes for your project.  Design at least one screen with data from a structure (like Person data above),  that is used to dynamically create HTML. As an alternative to HTML text method above, look at Jokes post and usage createElement...
+
+<Runnable code={Expressions} lang={'java'} title={'Expressions.java'}/>
 
 ```javascript
 const resultContainer = document.getElementById("result");
