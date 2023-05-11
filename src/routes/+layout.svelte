@@ -6,7 +6,7 @@
 
 	import { fly, fade } from 'svelte/transition';
   	import Dashboard from './Dashboard.svelte';
-	import Login from '$/old_routes/(auth)/login/Login.svelte';
+	import AuthForm from '\$/lib/components/AuthForm.svelte';
 
 	let _authenticated = false;
 	let _loading = true;
@@ -46,7 +46,7 @@
 			<div
 				class="bg-blue-500 w-full h-screen flex justify-center"
 			>
-				<Login/>
+				<AuthForm/>
 			</div>
 		{/if}
 	{/if}
