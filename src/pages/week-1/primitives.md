@@ -20,7 +20,7 @@ College Board focus is on primitive types of int, double, and boolean.  In unit1
 ### Data Types
 Now is a good time to understand data types.  There are primitive types in Java, but you should know there are [Wrapper Classes](https://www.youtube.com/watch?v=kog78g2fvqU).  Java likes everything to be a class.  String is a Non-Primitive data type that is a Class in Java.
 
-![img](images/data_types.png)
+![img](../../../static/pages_images/data_types.png)
 
 <Runnable code={DefinePrimitives} lang={'java'} title={'DefinePrimitives.java'}/>
 

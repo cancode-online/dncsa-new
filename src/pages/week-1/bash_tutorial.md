@@ -15,7 +15,7 @@ type: 'page'
 - python -m bash_kernel.install
 
 Selecting a kernel in "code --project--" or "jupyter notebook --file.ipynb--" that have bash in options.
-![](images/kernels.png)
+![](../../../static/pages_images/kernels.png)
 
 
 ## Prerequisites for Project Directory
