@@ -8,7 +8,7 @@
 </script>
 
 {#if $admin}
-    <div class='bg-red-500 w-64 h-64'>
+    <div class='bg-red-500'>
         <Table {webpage} />
     </div>
 {:else}

@@ -2,41 +2,91 @@
 
     export let webpage = '';
 
+    let webpage_metadata = {
+        due_start: '2021-10-10',
+        due_end: '2021-10-10',
+        grade_total: 1,
+    }
+
+    let table_data = [
+        {
+            first_name: 'Cy',
+            last_name: 'Ganderton',
+            date: '2021-10-10',
+            grade: '0.3/1'
+
+        }
+    ]
+
 </script>
 
-<div class="overflow-x-auto">
-    <table class="table table-zebra w-full">
+<div class="overflow-x-auto w-full h-full">
+    <table class="table table-zebra w-full text-sm !rounded-none">
       <!-- head -->
       <thead>
         <tr>
-          <th></th>
+          <th>#</th>
+          <th>Status</th>
           <th>Name</th>
-          <th>Job</th>
-          <th>Favorite Color</th>
+          <th>Date</th>
+          <th>Grade</th>
+          <th>Details</th>
         </tr>
       </thead>
       <tbody>
-        <!-- row 1 -->
-        <tr>
-          <th>1</th>
-          <td>Cy Ganderton</td>
-          <td>Quality Control Specialist</td>
-          <td>Blue</td>
-        </tr>
-        <!-- row 2 -->
-        <tr>
-          <th>2</th>
-          <td>Hart Hagerty</td>
-          <td>Desktop Support Technician</td>
-          <td>Purple</td>
-        </tr>
-        <!-- row 3 -->
-        <tr>
-          <th>3</th>
-          <td>Brice Swyre</td>
-          <td>Tax Accountant</td>
-          <td>Red</td>
-        </tr>
+        {#each table_data as row, i}
+          <tr>
+            <td>
+              {i}
+            </td>
+            <td class='font-bold'>
+                {#if webpage_metadata.due_start < row.date && row.date < webpage_metadata.due_end}
+                  <span class="text-success">Completed</span>
+                {:else if row.date < webpage_metadata.due_start}
+                  <span class="text-error">Missing</span>
+                {:else if webpage_metadata.due_end < row.date}
+                  <span class="text-warning">Late</span>
+                {:else}
+                  <span class="text-info">Not Started</span>
+                {/if}
+            </td>
+            <td>{row.first_name} {row.last_name}</td>
+            <td>{row.date}</td>
+            <td>{row.grade}</td>
+            <td>
+              <button class="btn btn-primary btn-sm">Details</button>
+            </td>
+          </tr>
+        {/each}
       </tbody>
     </table>
   </div>
+
+<style lang='postcss'>
+  
+  td, th {
+
+    @apply p-2 min-w-[2rem];
+
+  }
+
+  div {
+
+    border-radius: var(--rounded-btn, 0.5rem);
+
+  }
+
+  :where(.table *:first-child) :where(*:first-child) :where(th, td):first-child {
+    border-top-left-radius: 0.5rem/* 8px */;
+  }
+  :where(.table *:first-child) :where(*:first-child) :where(th, td):last-child {
+      border-top-right-radius: 0.5rem/* 8px */;
+  }
+  :where(.table *:last-child) :where(*:last-child) :where(th, td):first-child {
+      border-bottom-left-radius: 0.5rem/* 8px */;
+  }
+  :where(.table *:last-child) :where(*:last-child) :where(th, td):last-child {
+      border-bottom-right-radius: 0.5rem/* 8px */;
+  }
+
+</style>
