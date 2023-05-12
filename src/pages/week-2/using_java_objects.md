@@ -54,7 +54,7 @@ Using Objects
 
 Activity Page Start: [Code.org CSA1](https://studio.code.org/s/csa1-2022)
 
-![Visuals](../../../static/pages_images/code_org_painter.png)
+![Visuals](https://nighthawkcoders.github.io/APCSA/images/copied_from_nb/images/code_org_painter.png)
 
 
 ## Hacks
