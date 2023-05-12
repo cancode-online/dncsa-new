@@ -25,7 +25,19 @@ Navigate to [this site](https://code.visualstudio.com/download) and install VS C
 
 - Install Anaconda from their [website](https://www.anaconda.com/products/distribution). Follow the steps to install, and then open the Anaconda command prompt from your search bar.
 
-![image](../../../static/pages_images/anaconda_search.png)
+![image](../../../static/pages_
+then 
+    echo "Directory $project_dir does not exists... makinng directory $project_dir"
+    mkdir -p $project_dir
+fi
+echo "Directory $project_dir exists." 
+
+# Conditional block to git clone a project from project_repo
+if [ ! -d $project ]
+then
+    echo "Directory $project does not exists... cloning $project_repo"
+    cd $project_dir
+    git clone $project_repo/anaconda_search.png)
 
 Run the following commands:
 
