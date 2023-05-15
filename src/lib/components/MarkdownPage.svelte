@@ -3,7 +3,6 @@
 	import { getPages } from '$utils/pages';
 	import { onMount } from 'svelte';
 
-<<<<<<< HEAD
 	export let webpage;
 	let data = {};
 	export async function loadPageData(webpage) {
@@ -15,10 +14,6 @@
 			console.log('post:', post);
 			const { title, date, summary, type } = post.metadata;
 			const content = post.default;
-=======
-    export let maxWidth = -1;
-    export let webpage = '';
->>>>>>> 362453e09eb90237b8c5ab70b0735da13cd6bc40
 
 			data = {
 				content,
