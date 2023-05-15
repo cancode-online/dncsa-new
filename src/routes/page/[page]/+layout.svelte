@@ -1,6 +1,7 @@
 <script lang="ts">
 
     import MarkdownPage from '$/lib/components/MarkdownPage.svelte';
+    import Tabs from '$/lib/components/Tabs.svelte';
     import { page } from '$app/stores';
 
     let currentPage = '/';
@@ -10,8 +11,8 @@
 
 <div class='flex flex-col bg-blue-500 min-h-[20rem] w-full'>
 
-    <div class='flex bg-cyan-500 h-10'>
-        Tabs
+    <div class='w-full'>
+        <Tabs />
     </div>
 
     <div class='bg-lime-500 min-h-[40rem]'>
