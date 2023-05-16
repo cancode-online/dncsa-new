@@ -34,6 +34,7 @@
       const auth = getAuthApp();
       const db = database();
       const docRef = doc(db, "users", auth.currentUser.uid);
+      console.log(auth.currentUser?.displayName)
       const docSnap = await getDoc(docRef);
       const document = docSnap.data();
 
@@ -91,7 +92,7 @@
 
 
             <div class="form-control w-full">
-                <span class="label-text pb-2">First Name</span>
+                <span class="label-text pb-2">Last Name</span>
                 <input type="text" placeholder="Type here" class="input input-bordered w-full" bind:value={last_name_input}/>
             </div>
 
