@@ -15,7 +15,6 @@ type: 'page'
     import bookstuff from './java-code/bookstuff.java?raw';
 	import gettersetter from './java-code/gettersetter.java?raw';
 	import staticexample from './java-code/staticexample.java?raw';
-
 </script>
 
 # Unit 5: Java Classes
