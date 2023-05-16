@@ -39,7 +39,7 @@
 	}
 </script>
 
-<div class="relative w-full my-2 ">
+<div class="relative w-full my-2">
 	<div class="min-h-12">
 		<pre class="!m-0 language-js dynamic-code-snip-input"><code
 				class="!text-base-content language-js">{@html prismCode}</code
@@ -52,10 +52,7 @@
 				class="!text-base-content language-js">{@html output}</code
 			></pre>
 	</div>
-	<button
-		class="btn btn-primary btn-sm absolute bottom-0 right-0 m-2"
-		on:click={execute}
-	>
+	<button class="btn btn-primary btn-sm absolute bottom-0 right-0 m-2" on:click={execute}>
 		<span class="uppercase">{button}</span>
 	</button>
 	<code
@@ -65,13 +62,12 @@
 </div>
 
 <style lang="postcss">
-
-	div, pre {
-        border-radius: var(--rounded-btn, 0.5rem);
-    }
+	div,
+	pre {
+		border-radius: var(--rounded-btn, 0.5rem);
+	}
 
 	.dynamic-code-snip-input {
 		border-radius: var(--rounded-btn, 0.5rem) var(--rounded-btn, 0.5rem) 0 0 !important;
 	}
-
 </style>

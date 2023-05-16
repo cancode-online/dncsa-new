@@ -6,7 +6,6 @@
 	$: if ($authenticated === true) {
 		window.location.href = '/';
 	}
-	
 </script>
 
 <Signup />

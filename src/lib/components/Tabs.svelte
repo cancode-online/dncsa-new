@@ -11,16 +11,14 @@
 	let selectedFolder = '';
 
 	authenticated.subscribe(async (value) => {
-
 		selectedTab = $page.url.pathname.split('/')[2] || '/';
 
-		console.log(selectedTab)
+		console.log(selectedTab);
 
 		let _pages = await getPages();
 		let _folderMetadata = await getFolderMetadata();
 
 		if (selectedTab != '/' && _pages[selectedTab].folder != selectedFolder) {
-
 			selectedFolder = _pages[selectedTab].folder;
 
 			let _folder = _folderMetadata[_pages[selectedTab].folder];
@@ -29,37 +27,35 @@
 			for (let _page of _folder.order) {
 				_tabsArray.push({
 					slug: _page,
-					metadata: await _pages[_page].import().then((m) => { return m.metadata}),
+					metadata: await _pages[_page].import().then((m) => {
+						return m.metadata;
+					})
 				});
 			}
 
 			tabsArray = _tabsArray;
-
 		} else {
-			
 			selectedFolder = '/';
 
-			tabsArray = [{
-				slug: '/',
-				metadata: {
-					title: 'Home',
+			tabsArray = [
+				{
+					slug: '/',
+					metadata: {
+						title: 'Home'
+					}
 				}
-			}];
+			];
 		}
-		
 	});
 
 	$: {
-
 		(async () => {
-
 			selectedTab = $page.url.pathname.split('/')[2] || '/';
 
 			let _pages = await getPages();
 			let _folderMetadata = await getFolderMetadata();
 
 			if (selectedTab != '/' && _pages[selectedTab].folder != selectedFolder) {
-
 				selectedFolder = _pages[selectedTab].folder;
 
 				let _folder = _folderMetadata[_pages[selectedTab].folder];
@@ -68,37 +64,34 @@
 				for (let _page of _folder.order) {
 					_tabsArray.push({
 						slug: _page,
-						metadata: await _pages[_page].import().then((m) => { return m.metadata}),
+						metadata: await _pages[_page].import().then((m) => {
+							return m.metadata;
+						})
 					});
 
 					console.log()
 				}
 
 				tabsArray = _tabsArray;
-
-			} else if (selectedTab === '/') {
-
-				selectedFolder = '/';
-
-				tabsArray = [{
-					slug: '/',
-					metadata: {
-						title: 'Home',
-					}
-				}];
-
 			}
 
-			console.log(_pages)
-			console.log(_folderMetadata)
-			
+			if (selectedTab === '/') {
+				selectedFolder = '/';
+
+				tabsArray = [
+					{
+						slug: '/',
+						metadata: {
+							title: 'Home'
+						}
+					}
+				];
+			}
 		})();
-
 	}
-
 </script>
 
-<div class='flex flex-col w-full relative h-10 p-0 m-0 bg-base-300 !rounded-b-none'>
+<div class="flex flex-col w-full relative h-10 p-0 m-0 bg-base-300 !rounded-b-none">
 	{#key tabsArray}
 		<div class="absolute left-0 bottom-0 tabs flex !rounded-b-none px-2 overflow-hidden">
 			{#each tabsArray as tab, i}
@@ -129,10 +122,9 @@
 </div>
 
 <style lang="postcss">
-
 	div {
 		border-radius: var(--rounded-btn, 0.5rem);
-    }
+	}
 
 	:global(.tab-active::after),
 	:global(.tab-active)::before {

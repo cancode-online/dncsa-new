@@ -193,18 +193,18 @@ export const signInWithGoogle = () => {
 	const provider = new GoogleAuthProvider();
 
 	return new Promise((resolve, reject) => {
-	signInWithPopup(auth, provider)
-		.then((result) => {
-			alert('Successsfully logged in', 'success');
-			const user = result.user;
-			createUserDocument(user);
+		signInWithPopup(auth, provider)
+			.then((result) => {
+				alert('Successsfully logged in', 'success');
+				const user = result.user;
+				createUserDocument(user);
 
-			resolve('Successfully logged in');
-		})
-		.catch(() => {
-			alert('Failed to log in. Try again', 'error');
-			reject('Failed to log in. Try again');
-		});
+				resolve('Successfully logged in');
+			})
+			.catch(() => {
+				alert('Failed to log in. Try again', 'error');
+				reject('Failed to log in. Try again');
+			});
 	});
 };
 
@@ -214,18 +214,18 @@ export const signInWithGithub = () => {
 	const provider = new GithubAuthProvider();
 
 	return new Promise((resolve, reject) => {
-	signInWithPopup(auth, provider)
-		.then((result) => {
-			alert('Successsfully logged in', 'success');
-			const user = result.user;
-			createUserDocument(user);
-			
-			resolve('Successfully logged in');
-		})
-		.catch(() => {
-			reject('Failed to log in. Try again');
-			alert('Failed to log in. Try again', 'error');
-		});
+		signInWithPopup(auth, provider)
+			.then((result) => {
+				alert('Successsfully logged in', 'success');
+				const user = result.user;
+				createUserDocument(user);
+
+				resolve('Successfully logged in');
+			})
+			.catch(() => {
+				reject('Failed to log in. Try again');
+				alert('Failed to log in. Try again', 'error');
+			});
 	});
 };
 
@@ -235,17 +235,17 @@ export const signInWithFacebook = () => {
 	const provider = new FacebookAuthProvider();
 
 	return new Promise((resolve, reject) => {
-	signInWithPopup(auth, provider)
-		.then((result) => {
-			alert('Successsfully logged in', 'success');
-			const user = result.user;
-			createUserDocument(user);
-			
-			resolve('Successfully logged in');
-		})
-		.catch(() => {
-			reject('Failed to log in. Try again');
-			alert('Failed to log in. Try again', 'error');
-		});
+		signInWithPopup(auth, provider)
+			.then((result) => {
+				alert('Successsfully logged in', 'success');
+				const user = result.user;
+				createUserDocument(user);
+
+				resolve('Successfully logged in');
+			})
+			.catch(() => {
+				reject('Failed to log in. Try again');
+				alert('Failed to log in. Try again', 'error');
+			});
 	});
 };

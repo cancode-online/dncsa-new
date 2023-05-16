@@ -25,16 +25,11 @@
 
 	async function post() {
 		try {
-
 			signInWithEmail(email, password);
 			goto(redirect);
-
 		} catch {
-
 			return;
-
 		}
-
 	}
 
 	function validateEmail() {
@@ -42,7 +37,9 @@
 			if (email.length > 0) emailSchema.parse(email);
 
 			document?.getElementById('login_email_box')?.classList.remove('input-error');
-			document?.getElementById('login_email_box_tooltip')?.classList.add('before:hidden', 'after:hidden');
+			document
+				?.getElementById('login_email_box_tooltip')
+				?.classList.add('before:hidden', 'after:hidden');
 		} catch (error) {
 			document?.getElementById('login_email_box')?.classList.add('input-error');
 			document
@@ -72,49 +69,31 @@
 	}
 
 	async function googleAuth() {
+		try {
+			signInWithGoogle();
+			goto(redirect);
+		} catch {
+			return;
+		}
+	}
 
-try {
+	async function githubAuth() {
+		try {
+			signInWithGithub();
+			goto(redirect);
+		} catch {
+			return;
+		}
+	}
 
-	signInWithGoogle();
-	goto(redirect);
-
-} catch {
-
-	return;
-
-}
-
-}
-
-async function githubAuth() {
-
-try {
-
-	signInWithGithub()
-	goto(redirect);
-
-} catch {
-
-	return;
-
-}
-
-}
-
-async function facebookAuth() {
-
-try {
-
-	signInWithFacebook();
-	goto(redirect);
-
-} catch {
-
-	return;
-
-}
-
-}
+	async function facebookAuth() {
+		try {
+			signInWithFacebook();
+			goto(redirect);
+		} catch {
+			return;
+		}
+	}
 </script>
 
 <svelte:head>
