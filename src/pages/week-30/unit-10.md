@@ -8,8 +8,8 @@ type: 'page'
 
 <script>
 	import Runnable from '$components/Runnable.svelte';
-	import examplecode from './java-code/examplecode.java?raw';
-    import binarySearch from './java-code/binarySearch.java?raw';
+	import examplecode from './code/examplecode.java?raw';
+    import binarySearch from './code/binarySearch.java?raw';
 </script>
 
 ## Lesson Overview

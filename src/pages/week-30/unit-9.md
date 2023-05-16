@@ -8,8 +8,8 @@ type: 'page'
 
 <script>
 	import Runnable from '$components/Runnable.svelte';
-	import unit9super from './java-code/unit9super.java?raw';
-  import unit9polymorphism from './java-code/unit9polymorphism.java?raw';
+	import unit9super from './code/unit9super.java?raw';
+  import unit9polymorphism from './code/unit9polymorphism.java?raw';
 </script>
 
 # Unit 9 - Inheritance
