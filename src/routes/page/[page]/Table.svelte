@@ -3,27 +3,38 @@
     export let webpage = '';
 
     let webpage_metadata = {
-        due_start: '2021-10-10',
-        due_end: '2021-10-10',
-        grade_total: 1,
-    }
+      due_start: '2021-10-10',
+      due_end: '2021-10-10',
+      grade_total: 1,
+    };
 
     let table_data = [
-        {
-            first_name: 'Cy',
-            last_name: 'Ganderton',
-            date: '2021-10-10',
-            grade: '0.3/1'
-
-        }
-    ]
+      {
+        first_name: 'Cy',
+        last_name: 'Ganderton',
+        date: '2021-10-10',
+        grade: '0.3/1'
+      },
+      {
+        first_name: 'Thomas',
+        last_name: 'Garvey',
+        date: '2021-10-10',
+        grade: '0.3/1'
+      },
+      {
+        first_name: 'Akhil',
+        last_name: 'STINK',
+        date: '2021-10-10',
+        grade: '0.3/1'
+      },
+    ];
 
 </script>
 
 <div class="overflow-x-auto w-full h-full">
     <table class="table table-zebra w-full text-sm !rounded-none">
       <!-- head -->
-      <thead>
+      <thead class='font-bold'>
         <tr>
           <th>#</th>
           <th>Status</th>
@@ -54,7 +65,7 @@
             <td>{row.date}</td>
             <td>{row.grade}</td>
             <td>
-              <button class="btn btn-primary btn-sm">Details</button>
+              <button class="btn btn-primary btn-sm text-xs p-1 px-2">Details</button>
             </td>
           </tr>
         {/each}
@@ -70,6 +81,10 @@
 
   }
 
+  th {
+    @apply bg-neutral text-neutral-content;
+  }
+
   div {
 
     border-radius: var(--rounded-btn, 0.5rem);
@@ -77,16 +92,16 @@
   }
 
   :where(.table *:first-child) :where(*:first-child) :where(th, td):first-child {
-    border-top-left-radius: 0.5rem/* 8px */;
+    border-top-left-radius: var(--rounded-btn, 0.5rem);
   }
   :where(.table *:first-child) :where(*:first-child) :where(th, td):last-child {
-      border-top-right-radius: 0.5rem/* 8px */;
+      border-top-right-radius: var(--rounded-btn, 0.5rem);
   }
   :where(.table *:last-child) :where(*:last-child) :where(th, td):first-child {
-      border-bottom-left-radius: 0.5rem/* 8px */;
+      border-bottom-left-radius: var(--rounded-btn, 0.5rem);
   }
   :where(.table *:last-child) :where(*:last-child) :where(th, td):last-child {
-      border-bottom-right-radius: 0.5rem/* 8px */;
+      border-bottom-right-radius: var(--rounded-btn, 0.5rem);
   }
 
 </style>

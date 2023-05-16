@@ -65,90 +65,40 @@ export const logOut = () => {
 	);
 };
 
-const createUserDocument = async (user) => {
-	const auth = getAuthApp();
+const createUserDocument = async (user, firstName, lastName) => {
+    const auth = getAuthApp();
+  
+    if (!auth?.currentUser) return;
+  
+    const db = database();
+    const docRef = doc(db, 'users', auth.currentUser.uid);
+    const docSnap = await getDoc(docRef);
+    const document = docSnap.data();
+  
+    const docCollection = collection(db, 'users');
+  
+    if (!document) {
+          
+        if (user.displayName) {
+        
+        firstName = user.displayName.split(' ')[0] || '';
+        lastName = user.displayName.split(' ')[1] || '';
+    
+        }
 
-	if (!auth?.currentUser) return;
+      await setDoc(docRef, {
+        admin: true,
+        first_name: firstName,
+        last_name: lastName,
+        verified_info: false,
+        grade: {
+          earned: 0,
+          total: 0
+        }
 
-	const db = database();
-	const docRef = doc(db, 'users', auth.currentUser.uid);
-	const docSnap = await getDoc(docRef);
-	const document = docSnap.data();
-
-	const docCollection = collection(db, 'users');
-
-	if (!document) {
-		let new_tag = 0;
-
-		for (let i = 0; i < 5; i++) {
-			new_tag = Math.floor(Math.random() * 10000);
-
-			const q = query(
-				docCollection,
-				where('display_name', '==', user.displayName),
-				where('usertag', '==', new_tag)
-			);
-			const querySnapshot = await getDocs(q);
-
-			// querySnapshot.forEach((doc) => {
-			//  // doc.data() is never undefined for query doc snapshots
-			//  console.log(doc.id, " => ", doc.data());
-			// });
-		}
-
-		await setDoc(docRef, {
-			badges: {
-				0: {
-					color: '#ff00ff',
-					icon: 'trophy',
-					text: 'Week 47'
-				}
-			},
-			display_name: user.displayName,
-			forum_posts: {
-				0: {
-					'/forums/Lz1wtjw2Dy5qckFNNLfK': true
-				}
-			},
-			friends: {
-				0: {
-					user: doc(db, 'users', 'cancode-bot')
-				}
-			},
-			liked: {},
-			notifications: {
-				0: {
-					origin: {
-						type: 'temp',
-						url: 'temp',
-						text: 'temp',
-						title: 'temp'
-					}
-				}
-			},
-			playground_data: {
-				code: "console.log('something');",
-				uuid: '2Fy7BX2bYM7PVs8tJX4b',
-				preferred_theme: 'default'
-			},
-			problem_data: {
-				0: {
-					code: 'let a = 0;',
-					submission: {
-						passed: true,
-						runtime: 12039,
-						submittedAt: 'March 22, 2023 at 3:17:42 PM UTC-7'
-					}
-				}
-			},
-			server_list: {
-				0: doc(db, 'servers', 'welcome-to-cancode')
-			},
-			username: user.displayName.replace(/[^a-zA-Z0-9]/g, '').toLowerCase(),
-			usertag: new_tag
-		});
-	}
-};
+      });
+    }
+  };
 
 // Sign up with Email/Password function
 export const signUpWithEmail = async (
