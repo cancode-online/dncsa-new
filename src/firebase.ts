@@ -88,6 +88,7 @@ const createUserDocument = async (user, firstName, lastName) => {
         admin: true,
         first_name: firstName,
         last_name: lastName,
+        verified_info: false,
         grade: {
           earned: 0,
           total: 0
