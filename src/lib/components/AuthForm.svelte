@@ -1,7 +1,7 @@
 <script lang='ts'>
     import { page } from '$app/stores';
-    import Signup from '\$/old_routes/(auth)/signup/Signup.svelte';
-    import Login from '\$/old_routes/(auth)/login/Login.svelte';
+    import Login from '\$/routes/login/Login.svelte';
+    import Signup from '\$/routes/signup/Signup.svelte';
 
     let current_page = '/';
     $: current_page = $page.url.pathname;
