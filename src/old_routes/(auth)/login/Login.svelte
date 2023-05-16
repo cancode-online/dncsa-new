@@ -173,7 +173,7 @@
 
 		<div class="tooltip tooltip-top tooltip-neutral" data-tip="Meta">
 			<div class="input w-fit h-fit min-w-none p-0 border-none bg-base-200">
-				<button class="btn btn-ghost w-14 h-14 text-xl p-0" on:click={facebookAuth}>
+				<button class="btn btn-disabled w-14 h-14 text-xl p-0" on:click={facebookAuth}>
 					<BiMeta />
 				</button>
 			</div>
