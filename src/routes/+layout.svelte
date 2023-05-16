@@ -49,16 +49,7 @@
 	{/if}
 
 	{#if _authenticated}
-		<div
-		in:fly={{
-			x: 0,
-			y: 100,
-			duration: 300,
-			delay: 1000,
-		}}
-		>
 		<VerifyPopup/>
-	  </div>
 	{/if}
 	
   </div>

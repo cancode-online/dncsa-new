@@ -73,9 +73,9 @@
   {#if modalVisible === true && !verified}
 
 
-  <div class="w-screen h-screen flex flex-col justify-center z-100 backdrop-blur-sm" in:fade={{ duration: 1000, delay: 500 }} out:fade={{ duration: 500, delay: 750 }}>
+  <div class="w-screen h-screen flex flex-col justify-center z-100 backdrop-blur-sm" in:fade={{ duration: 250, delay: 500 }} out:fade={{ duration: 250, delay: 750 }}>
 
-  <div class="absolute self-center"out:fly={{x: 0, y: 100, duration: 300, delay: 100 }}>
+  <div class="absolute self-center" in:fly={{x: 0, y: 100, duration: 300, delay: 100 }} out:fly={{x: 0, y: 100, duration: 300, delay: 100 }}>
 
     <div id="my-modal" class="self-center flex flex-col justify-center items-center modal-box modal-open gap-4 w-full py-10 px-8">
       
