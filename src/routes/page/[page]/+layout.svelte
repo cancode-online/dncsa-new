@@ -1,5 +1,4 @@
 <script lang="ts">
-
     import MarkdownPage from '$/lib/components/MarkdownPage.svelte';
     import Tabs from '$/lib/components/Tabs.svelte';
     import { page } from '$app/stores';
