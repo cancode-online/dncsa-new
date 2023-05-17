@@ -20,12 +20,15 @@ specifiers:
   prettier: ^2.8.0
   prettier-plugin-svelte: ^2.8.1
   prismjs: ^1.29.0
+  stackedit-js: ^1.0.7
   svelte: ^3.54.0
   svelte-check: ^3.0.1
   tailwindcss: ^3.3.1
+  tiny-markdown-editor: ^0.1.5
   tslib: ^2.4.1
   typescript: ^5.0.0
   unplugin-icons: ^0.16.1
+  uuid: ^9.0.0
   vite: ^4.2.0
   vitest: ^0.25.3
   zod: ^3.21.4
@@ -37,6 +40,9 @@ dependencies:
   firebase: 9.19.1
   mdsvex: 0.10.6_svelte@3.58.0
   prismjs: 1.29.0
+  stackedit-js: 1.0.7
+  tiny-markdown-editor: 0.1.5
+  uuid: 9.0.0
   zod: 3.21.4
 
 devDependencies:
@@ -1391,6 +1397,11 @@ packages:
     engines: {node: '>= 0.6'}
     dev: true
 
+  /core-js/3.30.2:
+    resolution: {integrity: sha512-uBJiDmwqsbJCWHAwjrx3cvjbMXP7xD72Dmsn5LOJpiRmE3WbBbN5rCqQ2Qh6Ek6/eOrjlWngEynBWo4VxerQhg==}
+    requiresBuild: true
+    dev: false
+
   /cross-spawn/7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
     engines: {node: '>= 8'}
@@ -2625,6 +2636,11 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /stackedit-js/1.0.7:
+    resolution: {integrity: sha512-FG2MNncXlSEscwBa3Ih6Xl1zrbeJ8/vgbrbzwwLvkdgFIMCRZQzpFpqxSW2o/1AvxguhXrt2dml/Z/I1m5eoLg==}
+    engines: {node: '>= 8.0.0', npm: '>= 5.0.0'}
+    dev: false
+
   /streamsearch/1.1.0:
     resolution: {integrity: sha512-Mcc5wHehp9aXz1ax6bZUyY5afg9u2rv5cqQI3mRrYkGC8rW2hM02jWuwjtL++LS5qinSyhj2QfLyNsuc+VsExg==}
     engines: {node: '>=10.0.0'}
@@ -2835,6 +2851,12 @@ packages:
       globrex: 0.1.2
     dev: true
 
+  /tiny-markdown-editor/0.1.5:
+    resolution: {integrity: sha512-Vws5CYSI0Z2P6x+vSig22P5fDCX/bvteDtNmzX0TyNlGbw11jO42jNAgAhp4aCjO1keSlL+T7KkG4BtbnKmZ5w==}
+    dependencies:
+      core-js: 3.30.2
+    dev: false
+
   /tinybench/2.4.0:
     resolution: {integrity: sha512-iyziEiyFxX4kyxSp+MtY1oCH/lvjH3PxFN8PGCDeqcZWAJ/i+9y+nL85w99PxVzrIvew/GSkSbDYtiGVa85Afg==}
     dev: true
@@ -2975,6 +2997,11 @@ packages:
 
   /util-deprecate/1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
+
+  /uuid/9.0.0:
+    resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}
+    hasBin: true
+    dev: false
 
   /vfile-message/2.0.4:
     resolution: {integrity: sha512-DjssxRGkMvifUOJre00juHoP9DPWuzjxKuMDrhNbk2TdaYYBNMStsNhEOt3idrtI12VQYM/1+iM0KOzXi4pxwQ==}
