@@ -8,13 +8,14 @@ type: 'page'
 
 <script>
 	import Runnable from '$components/Runnable.svelte';
-	import classExample1 from './java-code/classExample1.java?raw';
-	import unit9super from './java-code/unit9super.java?raw';
-    import unit9polymorphism from './java-code/unit9polymorphism.java?raw';
-	import hellofoo from './java-code/hellofoo.java?raw';
-    import bookstuff from './java-code/bookstuff.java?raw';
-	import gettersetter from './java-code/gettersetter.java?raw';
-	import staticexample from './java-code/staticexample.java?raw';
+	import classExample1 from './code/classExample1.java?raw';
+	import unit9super from './code/unit9super.java?raw';
+    import unit9polymorphism from './code/unit9polymorphism.java?raw';
+	import hellofoo from './code/hellofoo.java?raw';
+    import bookstuff from './code/bookstuff.java?raw';
+	import gettersetter from './code/gettersetter.java?raw';
+	import staticexample from './code/staticexample.java?raw';
+
 </script>
 
 # Unit 5: Java Classes

@@ -65,7 +65,7 @@ export const logOut = () => {
 	);
 };
 
-const createUserDocument = async (user, firstName, lastName) => {
+const createUserDocument = async (firstName, lastName) => {
     const auth = getAuthApp();
   
     if (!auth?.currentUser) return;
@@ -78,27 +78,21 @@ const createUserDocument = async (user, firstName, lastName) => {
     const docCollection = collection(db, 'users');
   
     if (!document) {
-          
-        if (user.displayName) {
-        
-        firstName = user.displayName.split(' ')[0] || '';
-        lastName = user.displayName.split(' ')[1] || '';
-    
-        }
-
-      await setDoc(docRef, {
-        admin: true,
-        first_name: firstName,
-        last_name: lastName,
+      const userData = {
+        admin: false,
+        first_name: firstName || '', // Ensure empty string if no value provided
+        last_name: lastName || '', // Ensure empty string if no value provided
         verified_info: false,
         grade: {
           earned: 0,
           total: 0
         }
-
-      });
+      };
+  
+      await setDoc(docRef, userData);
     }
   };
+  
 
 // Sign up with Email/Password function
 export const signUpWithEmail = async (
@@ -112,6 +106,7 @@ export const signUpWithEmail = async (
 		.then(async () => {
 			const auth = getAuthApp();
 			await updateProfile(auth.currentUser, { displayName: firstName + ' ' + lastName });
+            createUserDocument(firstName, lastName)
 
 			alert('Successfully signed up', 'success');
 		})
@@ -146,8 +141,8 @@ export const signInWithGoogle = () => {
 			.then((result) => {
 				alert('Successsfully logged in', 'success');
 				const user = result.user;
-				createUserDocument(user);
-
+                const [firstName, lastName] = user.displayName.split(' ');
+                createUserDocument(firstName, lastName);
 				resolve('Successfully logged in');
 			})
 			.catch(() => {
@@ -167,7 +162,8 @@ export const signInWithGithub = () => {
 			.then((result) => {
 				alert('Successsfully logged in', 'success');
 				const user = result.user;
-				createUserDocument(user);
+                const [firstName, lastName] = user.displayName.split(' ');
+                createUserDocument(firstName, lastName);
 
 				resolve('Successfully logged in');
 			})
@@ -188,7 +184,8 @@ export const signInWithFacebook = () => {
 			.then((result) => {
 				alert('Successsfully logged in', 'success');
 				const user = result.user;
-				createUserDocument(user);
+                const [firstName, lastName] = user.displayName.split(' ');
+                createUserDocument(firstName, lastName);
 
 				resolve('Successfully logged in');
 			})
