@@ -1,6 +1,6 @@
 <script lang='ts'>
 
-    import MarkdownEditor from '$components/MarkdownEditor.svelte';
+    //import MarkdownEditor from '$components/MarkdownEditor.svelte';
     import { admin } from '$firebase';
     import Table from './Table.svelte';
 
@@ -19,7 +19,7 @@
 {:else}
     {#if webpage_has_frq}
         <div class='bg-blue-500 w-full h-full'>
-          <MarkdownEditor value='3' />
+          <!-- <MarkdownEditor value='3' /> -->
         </div>
     {:else}
         <div class='bg-blue-500 w-64 h-64'>
