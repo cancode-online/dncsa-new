@@ -8,10 +8,6 @@
 </script>
 
 <div class="flex flex-col bg-blue-500 min-h-[20rem] w-full">
-	<div class="w-full">
-		<Tabs />
-	</div>
-
 	<div class="bg-lime-500 min-h-[40rem]">
 		{#key currentPage}
 			<MarkdownPage webpage={currentPage} />
