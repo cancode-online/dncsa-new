@@ -9,20 +9,6 @@
 	import LucideHome from '~icons/lucide/home';
 	
     let _folderMetadata;
-    let directories = [
-        {
-            name: "Week 30",
-            type: "week",
-            date: "2021-09-01",
-            slug: "unit-5",
-        },
-        {
-            name: "Week 10",
-            type: "week",
-            date: "2020-04-21",
-            slug: "foo"
-        }
-    ];
     let timeline = [];
     function sortFunction(a,b){  
         var dateA = new Date(a.date).getTime();
@@ -34,9 +20,9 @@
 		for (let folder in _folderMetadata) {
         timeline.push(_folderMetadata[folder]);
 }
-        timeline.forEach((value) => {
-        console.log(value.date);
-        });
+        // timeline.forEach((value) => {
+        // console.log(value.date);
+        // });
         timeline.sort(sortFunction);
         console.log(timeline);
         timeline = timeline;
