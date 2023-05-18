@@ -12,7 +12,7 @@
 
 </script>
 
-{#if false} <!--$admin-->
+{#if $admin} <!--$admin-->
     <div class='bg-red-500'>
         <Table {webpage} />
     </div>
