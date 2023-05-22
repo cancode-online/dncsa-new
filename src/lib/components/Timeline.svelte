@@ -1,16 +1,32 @@
 <script lang='ts'>
-    import LucideCalendar from '~icons/lucide/calendar';
-    import LucideFiles from '~icons/lucide/files';
-
-    let directories = [
-        {
-            name: "Week 30",
-            type: "week",
-            date: "2021-09-01",
-            slug: "fibonacci-sequence-assignment"
-        }
-    ];
+    import { page } from '$app/stores';
+	import { getFolderMetadata } from '$utils/pages';
     
+    import LucideFiles from '~icons/lucide/files';
+	import LucideFileText from '~icons/lucide/file-text';
+	import LucideFolderOpen from '~icons/lucide/folder-open';
+	import LucideCalendar from '~icons/lucide/calendar';
+	import LucideHome from '~icons/lucide/home';
+	
+    let _folderMetadata;
+    let timeline = [];
+    function sortFunction(a,b){  
+        var dateA = new Date(a.date).getTime();
+        var dateB = new Date(b.date).getTime();
+        return dateA > dateB ? 1 : -1;  
+}; 
+    (async () => {
+		_folderMetadata = await getFolderMetadata();
+		for (let folder in _folderMetadata) {
+        timeline.push(_folderMetadata[folder]);
+}
+        // timeline.forEach((value) => {
+        // console.log(value.date);
+        // });
+        timeline.sort(sortFunction);
+        console.log(timeline);
+        timeline = timeline;
+})();
 </script>
 
 <div class='bg-base-200 w-56 h-fit flex flex-col p-1 gap-1'>
@@ -20,13 +36,13 @@
         </div>
         <span class='self-center'>Timeline</span>
     </div>
-    {#each directories as directory}
-        <a href="/page/{directory.slug}">
+    {#each timeline as page}
+        <a href="/page/{page.order[0]}">
             <div class='btn btn-ghost btn-sm flex justify-start px-2 gap-2'>
                 <div>
                     <LucideFiles/>
                 </div>
-                <span class='self-center'> {directory.name} </span>
+                <span class='self-center'> {page.title} </span>
             </div>
         </a>
     {/each}
