@@ -69,7 +69,7 @@
 				<slot />
 			</Dashboard>
 		{:else}
-			<div class="bg-blue-500 w-full h-screen flex justify-center">
+			<div class="bg-base-100 w-full h-screen flex justify-center">
 				<AuthForm />
 			</div>
 		{/if}
