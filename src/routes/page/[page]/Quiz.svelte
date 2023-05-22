@@ -50,7 +50,7 @@
 
 </script>
 
-<div class='flex flex-col bg-base-300 p-2'>
+<div class='flex flex-col bg-base-200 p-2'>
     
     <div class='w-full h-fit min-h-[8rem] flex flex-col p-2'>
         <div class='text-xs pb-2 opacity-50'>
@@ -68,7 +68,7 @@
             <button on:click={()=>{
                 selected_answers[current_question] = i;
                 selected_answers = selected_answers;
-            }} class='{selected_answers[current_question] === i ? "bg-primary hover:bg-primary" : ""} normal-case text-left min-h-8 btn btn-neutral hover:bg-base-200 border-0 bg-base-100 p-2 no-animation hover:text-base-content active:bg-primary active:text-primary-content text-base-content'>
+            }} class='{selected_answers[current_question] === i ? "bg-primary hover:bg-primary text-primary-content hover:text-primary-content" : ""} normal-case text-left min-h-8 btn btn-neutral hover:bg-base-300 border-0 bg-base-100 p-2 no-animation text-base-content'>
                 <span class='w-full'>{i}: {answer}</span>
             </button>
         {/each}
@@ -80,7 +80,7 @@
             </button>
         </div>
         <div class='h-full flex justify-center self-center'>
-            <span class='self-center'>{current_question} of {questions.length}</span>
+            <span class='self-center opacity-50'>{current_question+1} of {questions.length}</span>
         </div>
         <div>   
             <button class='btn btn-square btn-neutral' on:click={()=>{
