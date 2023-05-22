@@ -1,5 +1,5 @@
 <script lang="ts">
-	import * as TinyMDE from 'tiny-markdown-editor/dist/tiny-mde.min.js';
+	import * as TinyMDE from 'tiny-markdown-editor';
 	import { onMount } from 'svelte';
 	import { v4 as uuidv4 } from 'uuid';
 	import 'tiny-markdown-editor/dist/tiny-mde.min.css';

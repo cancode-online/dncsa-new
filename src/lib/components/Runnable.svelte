@@ -2,6 +2,7 @@
 	export let code = "print('Hello World')";
 	export let lang = 'python';
 	export let title = '';
+	export let historical = [] as String[];
 
 	import { executeCode } from '$utils/executeCode';
 
@@ -21,7 +22,16 @@
 	async function execute() {
 		button = 'Running...';
 		output = `<span class='opacity-40 select-none'>Running...</span>`;
-		const data = await executeCode(code, lang);
+
+		let final = code;
+
+		for (let i = historical.length - 1; i >= 0; i--) {
+
+			final = historical[i] + ' \n ' + final;
+
+		}
+
+		const data = await executeCode(final, lang);
 		let result = data.stdout || data.stderr || 'Compilation Error';
 
 		output = `> ${result.replace(/\n/g, '\n> ')}`;

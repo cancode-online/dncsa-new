@@ -68,6 +68,8 @@
 							return m.metadata;
 						})
 					});
+
+					console.log()
 				}
 
 				tabsArray = _tabsArray;
