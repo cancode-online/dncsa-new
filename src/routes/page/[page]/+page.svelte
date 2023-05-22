@@ -7,7 +7,7 @@
 
     export let webpage = '';
 
-    let webpage_has_frq = false;
+    let type = 'frq_assignment';
 
 </script>
 
@@ -16,13 +16,17 @@
         <Table {webpage} />
     </div>
 {:else}
-    {#if webpage_has_frq}
+    {#if type === 'frq_assignment'}
         <div class='bg-blue-500 w-full h-full'>
           <!-- <MarkdownEditor value='3' /> -->
         </div>
-    {:else}
+    {:else if type === 'quiz_assignment'}
         <div class='bg-blue-500 w-full h-64'>
             <Quiz {webpage} />
         </div>
+    {:else }
+        <span>
+            empty
+        </span>
     {/if}
 {/if}
