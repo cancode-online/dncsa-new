@@ -1,5 +1,8 @@
 <script lang='ts'>
 
+    import LucideArrowRight from '~icons/lucide/arrow-right'
+    import LucideArrowLeft from '~icons/lucide/arrow-left'
+
     export let webpage = '';
 
     let questions = [
@@ -65,7 +68,7 @@
             <button on:click={()=>{
                 selected_answers[current_question] = i;
                 selected_answers = selected_answers;
-            }} class='normal-case text-left min-h-8 btn btn-neutral hover:bg-base-200 border-0 bg-base-100 p-2 no-animation hover:text-base-content active:bg-primary active:text-primary-content text-base-content'>
+            }} class='{selected_answers[current_question] === i ? "bg-primary hover:bg-primary" : ""} normal-case text-left min-h-8 btn btn-neutral hover:bg-base-200 border-0 bg-base-100 p-2 no-animation hover:text-base-content active:bg-primary active:text-primary-content text-base-content'>
                 <span class='w-full'>{i}: {answer}</span>
             </button>
         {/each}
@@ -76,16 +79,19 @@
                 Submit
             </button>
         </div>
+        <div class='h-full flex justify-center self-center'>
+            <span class='self-center'>{current_question} of {questions.length}</span>
+        </div>
         <div>   
             <button class='btn btn-square btn-neutral' on:click={()=>{
                 current_question--; current_question = Math.max(0, Math.min(questions.length, current_question));
             }}>
-                L
+                <LucideArrowLeft/>
             </button>
             <button class='btn btn-square btn-neutral' on:click={()=>{
                 current_question++; current_question = Math.max(0, Math.min(questions.length, current_question));
             }}>
-                R
+                <LucideArrowRight/>
             </button>
         </div>
     </div>
