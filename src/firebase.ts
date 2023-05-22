@@ -42,10 +42,23 @@ export const admin = writable(false);
 export const user = writable(null) as Writable<User | null>;
 
 // Listen for authentication state to change => updates authenticated store
-onAuthStateChanged(getAuth(APP), (User) => {
+onAuthStateChanged(getAuth(APP), async (User) => {
 	if (User) {
+
+		const db = database();
+		const docRef = doc(db, 'users', User.uid);
+		const docSnap = await getDoc(docRef);
+		const document = docSnap.data();
+
 		authenticated.set(true);
-		admin.set(true); // Check if admin
+		
+		if (document.admin === true){
+			admin.set(true);
+		}
+		else {
+			admin.set(false);
+		}
+		
 		user.set(User);
 	} else {
 		authenticated.set(false);
