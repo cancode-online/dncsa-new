@@ -4,10 +4,14 @@
     import { admin } from '$firebase';
     import Table from './Table.svelte';
     import Quiz from './Quiz.svelte';
+    import { database } from '\$/firebase';
+    import { doc, getDoc, collection, setDoc } from "firebase/firestore";
 
     export let webpage = '';
 
-    let type = 'frq_assignment';
+
+
+    let type = 'quiz_assignment';
 
 </script>
 
