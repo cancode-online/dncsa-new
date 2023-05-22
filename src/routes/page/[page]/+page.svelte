@@ -7,7 +7,7 @@
 
     export let webpage = '';
 
-    let type = 'frq_assignment';
+    let type = 'quiz_assignment';
 
 </script>
 

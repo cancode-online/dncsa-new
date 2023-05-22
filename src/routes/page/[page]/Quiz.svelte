@@ -27,6 +27,23 @@
         -1
     ];
     let current_question = 0;
+    let can_submit = false;
+
+    $: {
+
+        let all_answered = true;
+
+        for(let i = 0; i < selected_answers.length; i++) {
+
+            if (selected_answers[i] === -1) {
+                all_answered = false;
+            }
+
+        }
+
+        can_submit = all_answered ? true : false;
+
+    }
 
 </script>
 
@@ -45,14 +62,17 @@
     </div>
     <div class='flex flex-col gap-2'>
         {#each questions[current_question].answers as answer, i}
-            <button class='normal-case text-left min-h-8 btn btn-neutral hover:bg-base-200 border-0 bg-base-100 p-2 no-animation hover:text-base-content active:bg-primary active:text-primary-content text-base-content'>
+            <button on:click={()=>{
+                selected_answers[current_question] = i;
+                selected_answers = selected_answers;
+            }} class='normal-case text-left min-h-8 btn btn-neutral hover:bg-base-200 border-0 bg-base-100 p-2 no-animation hover:text-base-content active:bg-primary active:text-primary-content text-base-content'>
                 <span class='w-full'>{i}: {answer}</span>
             </button>
         {/each}
     </div>
     <div class='w-full h-fit flex justify-between py-2 pt-4 gap-2'>
         <div>
-            <button class='btn btn-disabled btn-primary'>
+            <button class='btn {can_submit ? "" : "btn-disabled"} btn-primary'>
                 Submit
             </button>
         </div>
