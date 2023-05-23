@@ -1,4 +1,5 @@
 # "Pull Request Guide"
+
 > "In depth guide to smart and safe contributing"
 
 - toc: true
@@ -9,15 +10,15 @@
 - categories: [guide, github]
 - hide: false
 
-
 # What is a Pull Request?
 
 A pull request is a method of submitting contributions to an open development project. It occurs when a developer asks for changes committed to an external repository to be considered for inclusion in a project's main repository after the peer review. Pull requests are used by teams and organizations using the shared repository model. The idea behind a pull request is that someone forks an existing repository, makes changes to it, and then sends a pull request asking to merge their changes into the original repository. The pull request shows the differences of the content from both branches. The changes are not merged until a reviewer(s) approves the pull request.
 
 # Why is it important?
 
-Pull requests are vital to our success in tri 3 of CSA. With teams being sa big as 13 people. Committing every change to a singular repository is confusing and potentially harmful. In order to stay organized and ensure projects are developed efficiently and effectively, we use pull requests. 
+Pull requests are vital to our success in tri 3 of CSA. With teams being sa big as 13 people. Committing every change to a singular repository is confusing and potentially harmful. In order to stay organized and ensure projects are developed efficiently and effectively, we use pull requests.
 Benefits to using pull requests:
+
 - Allows for peer review of code, a crucial step in the development process
 - Allows for a more organized workflow
 - Ensures requirements are being met on each commit
@@ -27,13 +28,14 @@ Benefits to using pull requests:
 - Many Github bots and tools to assist with pull requests
 
 # How to make a pull request
+
 ## As a developer
 
 ### Step 1: Fork the repository
 
-Forking a repository is creating a copy of the repository under your own account. This allows you to make changes to the repository without affecting the original repository. To fork a repository, click the fork button in the top right corner of the repository page. This will create a copy of the repository under your account. 
+Forking a repository is creating a copy of the repository under your own account. This allows you to make changes to the repository without affecting the original repository. To fork a repository, click the fork button in the top right corner of the repository page. This will create a copy of the repository under your account.
 
-*If the fork button is grayed out, you do not have permission to fork the repository. Contact the repository owner to request access. See "as a maintainer" to learn how to setup repository for pull requests.*
+_If the fork button is grayed out, you do not have permission to fork the repository. Contact the repository owner to request access. See "as a maintainer" to learn how to setup repository for pull requests._
 
 ### Step 2: Clone the forked repository
 
@@ -53,7 +55,7 @@ Your browser should open to a page like this. Verify the branches and repositori
 
 <a href="https://ibb.co/QkYz2kf"><img src="https://i.ibb.co/bFNqSFP/image-2023-03-09-101442218.png" alt="image-2023-03-09-101442218" border="0"></a>
 
-*Note: If you are still working on the pull request, you can click **convert to draft** to prevent the pull request from being merged. You can also add commits to your pull request later or edit the changes.*
+_Note: If you are still working on the pull request, you can click **convert to draft** to prevent the pull request from being merged. You can also add commits to your pull request later or edit the changes._
 
 ### Step 5: Wait for review
 
@@ -65,17 +67,15 @@ Once you have created a pull request, you must wait for a maintainer to review y
 
 In order to allow for pull requests, you must enable the repository for pull request. To ensure forking is allowed, navigate to the settings tab of the repository. Then click **manage access**. Then click **allow members to create forks**.
 
-### Step 2: Setup maintainers 
+### Step 2: Setup maintainers
 
-Before you can merge pull requests, you must add maintainers to the repository. Add members to the repository you trust to review and merge pull requests. To add a maintainer, navigate to the settings tab of the repository. If adding individual members, give them **write** access. If adding a team, give them **maintain** access. 
-
+Before you can merge pull requests, you must add maintainers to the repository. Add members to the repository you trust to review and merge pull requests. To add a maintainer, navigate to the settings tab of the repository. If adding individual members, give them **write** access. If adding a team, give them **maintain** access.
 
 ## Good Practices
 
 > Create and follow a contributing guide for best results
 > Follow code guidelines specified by class
 > Be descriptive
-
 
 # Resources
 
@@ -87,7 +87,3 @@ Before you can merge pull requests, you must add maintainers to the repository. 
 - [Github Docs: About branches](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-branches)
 - [Github Docs: About issues](https://docs.github.com/en/github/managing-your-work-on-github/about-issues)
 - [Github Docs: About code reviews](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-request-reviews)
-
-
-
-

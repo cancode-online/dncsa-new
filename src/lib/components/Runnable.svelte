@@ -26,9 +26,7 @@
 		let final = code;
 
 		for (let i = historical.length - 1; i >= 0; i--) {
-
 			final = historical[i] + ' \n ' + final;
-
 		}
 
 		const data = await executeCode(final, lang);

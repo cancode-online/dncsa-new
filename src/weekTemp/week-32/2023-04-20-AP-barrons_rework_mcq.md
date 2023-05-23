@@ -1,12 +1,14 @@
 # Book and Library
-> This FRQ was created from looking at a Barrons 2011 MCQ.  Book class, Library and Simulation
+
+> This FRQ was created from looking at a Barrons 2011 MCQ. Book class, Library and Simulation
 
 - toc: true
 - categories: []
 - type: ap
 - week: 32
 
-##  Extend Book Class
+## Extend Book Class
+
 > Consider inheritance hierarchy, in which Novel and Textbook are subclasses of Book
 
 ```
@@ -21,10 +23,10 @@
 ---------------        ---------------
 ```
 
-
 ## Perform these actions, answer questions, adjust code.
 
-### class Book (Part 1)  Close Book Test
+### class Book (Part 1) Close Book Test
+
 1. Define 1 argument constructor using title
 2. Define toString method for id and title
 3. Generate unique id for each object
@@ -32,21 +34,22 @@
 5. Define tester method that initializes at least 2 books, outputs id and title, and provides a count of books in library.
 
 ### extended Classes (Part 2) Try to use alternate forms of loops and techniques for construction.
+
 1. Ensure Novel and Textbook run the Constructor from Book.
-2. Create instance variables unique to Novel has Author, Textbook has publishing company.  New items are not required by Constructor.  
-3. Make Getters and Setters for all new items.  For instance, be able to set items not required by constructor.
-4. Add a time when book entered the library.  This should be same for Parent and Subclasses.  
+2. Create instance variables unique to Novel has Author, Textbook has publishing company. New items are not required by Constructor.
+3. Make Getters and Setters for all new items. For instance, be able to set items not required by constructor.
+4. Add a time when book entered the library. This should be same for Parent and Subclasses.
 5. Define tester method to test all items.
 
 ### Simulation (Part 3)
+
 1. Build a Tester Method that does a Simulation.
 2. Define a default method in Book that returns "current shelfLife" from date/time of construction. (Hint, think about capturing time in sorts)
-3. Define shelfLife expiration methods as needed in TextBook and Novel. 
-    - A TextBook has a fixed shelf life based on the date/time of constructor.  (Hint, simulation 3 yrs as 3000 milliseconds)
-    - A Novel has a computed shelf life of expiration, the simulation should extend shelf life if a certain number of return stamps where placed in the book.  (Hint, 3 return stamps renews for an extra year)
+3. Define shelfLife expiration methods as needed in TextBook and Novel.
+   - A TextBook has a fixed shelf life based on the date/time of constructor. (Hint, simulation 3 yrs as 3000 milliseconds)
+   - A Novel has a computed shelf life of expiration, the simulation should extend shelf life if a certain number of return stamps where placed in the book. (Hint, 3 return stamps renews for an extra year)
 4. Use a sleep in Java to assist with simulation
 5. Make a method that determines if book has shelf life remaining, try to have title and on/off status in output.
-
 
 ```Java
 // Book and Library Data Structure
@@ -75,7 +78,7 @@ class Book {
     }
 
     /////////////////////////// Part 1 Methods ///////////////////////////////
-    
+
     /* getter for id */
     public int getId() {
         return this.id;
@@ -86,7 +89,7 @@ class Book {
         return Book.library.size();
     }
 
-    /* returns an Immutable List of books 
+    /* returns an Immutable List of books
      * we don't want anyone changing this list outside of provided public methods
      * unmodifiable means ... this could create everything to break (unique id, simulation, etc)
      * if any attempt occurs to modify the returned list, whether direct or via its iterator
@@ -110,8 +113,8 @@ class Book {
             );
     }
 
-    /* Part 1.5, Define tester method that initializes at least 2 books, 
-                 outputs id and title, 
+    /* Part 1.5, Define tester method that initializes at least 2 books,
+                 outputs id and title,
                  and provides a count of books in library,
                  Part 2/3 now covertly tests adding to libary.
                  and tests printLibary
@@ -166,13 +169,13 @@ class Book {
     /* prints "active" books in library */
     public static void printLibrary() {
         // Here are save books, but where could this process go if I want a library of books across subclasses
-        System.out.println("Active books");   
+        System.out.println("Active books");
         for (Book book: Book.library) {
             if (book.hasShelfLife())  // Active book check
                 System.out.println(book);
         }
     }
-    
+
 }
 Book.main(null);
 ```
@@ -188,8 +191,6 @@ Book.main(null);
     3.REPL.$JShell$12$Book@2dbb3ccc: Lion, Witch, and a Wardrobe, Shelf Life 1.0
     Libary Book Count: 3
 
-
-
 ```Java
 // Novel customizations to Book
 class Novel extends Book {
@@ -199,7 +200,7 @@ class Novel extends Book {
     // Two argument, not according to requirements but is convenient
     public Novel(String title, String author) {
         super(title);  // Part 2.1 Ensure Novel and Textbook run the Constructor from Book.
-        this.author = author;  
+        this.author = author;
         super.setShelfLife(1);  // adds 1 year to default age
     }
 
@@ -224,12 +225,12 @@ class Novel extends Book {
     }
 
     @Override
-    public String toString() {      
+    public String toString() {
         return(super.toString() + ", " + this.author);
     }
 
     /* Part 2.5 for Novel, Define tester method to test all items,
-        adds 2 novels, 
+        adds 2 novels,
         shows book count before and after,
         prints items in library
     */
@@ -254,7 +255,7 @@ Novel.main(null);
 
 class CheckOut extends TimerTask {
     public void run() {
-       System.out.println("Hello World!"); 
+       System.out.println("Hello World!");
     }
 }
 ```
@@ -263,8 +264,6 @@ class CheckOut extends TimerTask {
     4.REPL.$JShell$14$Novel@4ccda4b1: The Da Vincii Code, Shelf Life 2.0, Dan Brown
     5.REPL.$JShell$14$Novel@69053962: Prinde and Prejudice, Shelf Life 2.0, Jane Austen
     Libary Book Count: 5
-
-
 
 ```Java
 // TextBook customizations to Book
@@ -280,7 +279,7 @@ class TextBook extends Book {
     // Two argument for ease of use
     public TextBook(String title, String publisher) {
         this(title);  // call to single arg constructor
-        this.setPublisher(publisher);  
+        this.setPublisher(publisher);
     }
 
     ///// 2.3 Make Getters and Setters for all new items. /////
@@ -293,13 +292,13 @@ class TextBook extends Book {
     }
 
     @Override
-    public String toString() {      
+    public String toString() {
         return(super.toString() + ", " + this.getPublisher());
     }
 
     /* Part 2.5 for TextBook, Define tester method to test all items,
         as an extra uses 2D array for static content
-        adds 2 textbooks from 2D array, 
+        adds 2 textbooks from 2D array,
         uses single arg constructor and setter to initialize,
         prints book as it is added
         shows book count at end
@@ -312,12 +311,12 @@ class TextBook extends Book {
         String [][] books = {
             { "e=MC^2 a Biography",
               "Pan Books"},                        // row 0
-  
+
             { "The Practice of Programming",
               "Addison-Wesley Professional Computing" }              // row 1
         };
 
-        // One by One "Consturction" using single arguement constructor 
+        // One by One "Consturction" using single arguement constructor
         for (int i = 0; i < books.length; i++) {  // loop over 2D array
             // extract data from 2D array
             String title = books[i][0];
@@ -343,14 +342,12 @@ TextBook.main(null);
     7.REPL.$JShell$17$TextBook@e1ec1e6: The Practice of Programming, Shelf Life 3.0, Addison-Wesley Professional Computing
     Libary Book Count: 7
 
-
-
 ```Java
 // Library Simulation
 public class LibraryManager
 {
     // Part 3.1, Build a Tester Method that does a Simulation.
-    public static void main(String[] args) throws InterruptedException {  
+    public static void main(String[] args) throws InterruptedException {
         int years = 5; // Simulation years
         // Sleep in loop creates delay for simulation
         for (int i = 0; i < years; i++) {
@@ -364,7 +361,7 @@ public class LibraryManager
             }
 
         }
-        
+
     }
 }
 LibraryManager.main(null);
@@ -379,26 +376,24 @@ LibraryManager.main(null);
     5.REPL.$JShell$14$Novel@69053962: Prinde and Prejudice, Shelf Life 2.0, Jane Austen
     6.REPL.$JShell$17$TextBook@1d2c35d2: e=MC^2 a Biography, Shelf Life 3.0, Pan Books
     7.REPL.$JShell$17$TextBook@e1ec1e6: The Practice of Programming, Shelf Life 3.0, Addison-Wesley Professional Computing
-    
+
     Year: 1
     Active books
     4.REPL.$JShell$14$Novel@4ccda4b1: The Da Vincii Code, Shelf Life 1.0, Dan Brown
     5.REPL.$JShell$14$Novel@69053962: Prinde and Prejudice, Shelf Life 3.0, Jane Austen
     6.REPL.$JShell$17$TextBook@1d2c35d2: e=MC^2 a Biography, Shelf Life 2.0, Pan Books
     7.REPL.$JShell$17$TextBook@e1ec1e6: The Practice of Programming, Shelf Life 2.0, Addison-Wesley Professional Computing
-    
+
     Year: 2
     Active books
     5.REPL.$JShell$14$Novel@69053962: Prinde and Prejudice, Shelf Life 4.0, Jane Austen
     6.REPL.$JShell$17$TextBook@1d2c35d2: e=MC^2 a Biography, Shelf Life 1.0, Pan Books
     7.REPL.$JShell$17$TextBook@e1ec1e6: The Practice of Programming, Shelf Life 1.0, Addison-Wesley Professional Computing
-    
+
     Year: 3
     Active books
     5.REPL.$JShell$14$Novel@69053962: Prinde and Prejudice, Shelf Life 5.0, Jane Austen
-    
+
     Year: 4
     Active books
     5.REPL.$JShell$14$Novel@69053962: Prinde and Prejudice, Shelf Life 4.0, Jane Austen
-    
-

@@ -1,5 +1,6 @@
 # Collectable Types and Collections
-> This is a deeper review on data structures specific to Java.  Many of these Data Structures are referred to as Collections.   Using Collections requires deeper understand of Objects and the Generic Type.
+
+> This is a deeper review on data structures specific to Java. Many of these Data Structures are referred to as Collections. Using Collections requires deeper understand of Objects and the Generic Type.
 
 - title: Collectable Types and Collections
 - toc: true
@@ -8,21 +9,22 @@
 - type: ap
 - week: 26
 
-##  Arrays, ArrayList, 2D Arrays
-Most "Data Structures" conversations begin with Arrays, which are built into most Computer Programming Languages. College Board has CSA Units 6-8 which discuss Arrays, ArrayLists, and 2-Dimensional Arrays.  
+## Arrays, ArrayList, 2D Arrays
+
+Most "Data Structures" conversations begin with Arrays, which are built into most Computer Programming Languages. College Board has CSA Units 6-8 which discuss Arrays, ArrayLists, and 2-Dimensional Arrays.
 
 Arrays, 2D Arrays, and ArrayLists are important data structures in computer science, and they are the subject of two FRQs in each AP Computer Science A exam. Here are some types of FRQs that may focus on these topics:
-1. ***Array/ArrayList implementation***: You may be asked to implement an Array or ArrayList, including methods to add, remove, and access elements.
-2. ***Array/ArrayList traversal***: You may be given an Array or ArrayList and asked to traverse it, perform operations on each element, and/or modify the array or list.
-3. ***Array/ArrayList searching and sorting***: You may be asked to implement or modify code to search for an element in an array or list, or to sort the elements of an array or list.
-4. ***2D Arrays or Multi-dimensional arrays***: You may be asked to implement or modify code that uses a multi-dimensional array, and to perform operations on elements of the array.
-5. ***ArrayList vs. Array***: You may be asked to compare and contrast the characteristics of ArrayLists and Arrays, and to explain when it is appropriate to use one data structure over the other.
-6. ***Big-O complexity***: You may be asked to analyze the time and space complexity of algorithms that use Arrays or ArrayLists, and to compare the efficiency of different algorithms.
 
-
+1. **_Array/ArrayList implementation_**: You may be asked to implement an Array or ArrayList, including methods to add, remove, and access elements.
+2. **_Array/ArrayList traversal_**: You may be given an Array or ArrayList and asked to traverse it, perform operations on each element, and/or modify the array or list.
+3. **_Array/ArrayList searching and sorting_**: You may be asked to implement or modify code to search for an element in an array or list, or to sort the elements of an array or list.
+4. **_2D Arrays or Multi-dimensional arrays_**: You may be asked to implement or modify code that uses a multi-dimensional array, and to perform operations on elements of the array.
+5. **_ArrayList vs. Array_**: You may be asked to compare and contrast the characteristics of ArrayLists and Arrays, and to explain when it is appropriate to use one data structure over the other.
+6. **_Big-O complexity_**: You may be asked to analyze the time and space complexity of algorithms that use Arrays or ArrayLists, and to compare the efficiency of different algorithms.
 
 ## Collection Framework in Java
-A deeper dive into Data Structures continues with **Linked Lists (LL)** which are the foundation for **Stacks** and **Queues**, which we have used.   Java has implemented a Collection framework that has established common methods to assist in using many of these Data Structures.
+
+A deeper dive into Data Structures continues with **Linked Lists (LL)** which are the foundation for **Stacks** and **Queues**, which we have used. Java has implemented a Collection framework that has established common methods to assist in using many of these Data Structures.
 
 ```java
 Queue<String> queue = new LinkedList<>();  // Queue interface uses LL implementation
@@ -31,8 +33,7 @@ queue.add("Jane");
 queue.add("Bob");
 ```
 
-***[Deeper reference from Geeks](https://www.geeksforgeeks.org/collections-in-java-2/)***
-
+**_[Deeper reference from Geeks](https://www.geeksforgeeks.org/collections-in-java-2/)_**
 
 ```Java
 Queue<String> queue = new LinkedList<>();  // Queue interface uses LL implementation
@@ -54,11 +55,11 @@ for (Object a : arr) // Type is Object from convertion
     System.out.println(a);
 ```
 
-### Collectable.  The purpose of this "class" is to show how we can combine any Data Type into a super class.  In fact, this is what many Computer Languages do, is they make general methods and properties for all Data within the language.
-- This class is abstract, meaning it is not used unless extended.
-- The keyword interface is used to ensure people specify "interface" in their implementation.  This can be used for things like sorting and searching information within the class.
-- ***Every object in Java is inherited from Data Type "Object"***.  This is shown in toString() method @Overrides below.  The toString() method has a prototype implementation in "Object".  Each extended class that @Overrides toString() and can be used to create a string representation of its "Object".
+### Collectable. The purpose of this "class" is to show how we can combine any Data Type into a super class. In fact, this is what many Computer Languages do, is they make general methods and properties for all Data within the language.
 
+- This class is abstract, meaning it is not used unless extended.
+- The keyword interface is used to ensure people specify "interface" in their implementation. This can be used for things like sorting and searching information within the class.
+- **_Every object in Java is inherited from Data Type "Object"_**. This is shown in toString() method @Overrides below. The toString() method has a prototype implementation in "Object". Each extended class that @Overrides toString() and can be used to create a string representation of its "Object".
 
 ```Java
 /* This is wrapper class...
@@ -88,7 +89,7 @@ public abstract class Collectable implements Comparable <Collectable> {
 	public void setType(String type) {
 		this.type = type;
 	}
-	
+
 	// this method is used to establish key order
 	public abstract String toString();
 
@@ -106,7 +107,7 @@ public abstract class Collectable implements Comparable <Collectable> {
 		if (objs.length > 0) {
 			Collectable obj = objs[0];	// Look at properties of 1st element
 			System.out.println(
-					obj.getMasterType() + ": " + 
+					obj.getMasterType() + ": " +
 					obj.getType() +
 					" listed by " +
 					obj.getKey());
@@ -121,11 +122,11 @@ public abstract class Collectable implements Comparable <Collectable> {
 }
 ```
 
-### Alphabet.  This class is used to store the alphabet.
-- Extends Collectable.
-- ***Implements interface KeyType*** which is used in toString method of Alphabet object
-- ***Overrides methods*** in abstract class Collectable, which includes class Object.
+### Alphabet. This class is used to store the alphabet.
 
+- Extends Collectable.
+- **_Implements interface KeyType_** which is used in toString method of Alphabet object
+- **_Overrides methods_** in abstract class Collectable, which includes class Object.
 
 ```Java
 public class Alphabet extends Collectable {
@@ -137,7 +138,7 @@ public class Alphabet extends Collectable {
 
 	// Instance data
 	private final char letter;
-	
+
 	/*
 	 * single letter object
 	 */
@@ -173,11 +174,11 @@ public class Alphabet extends Collectable {
 		for (int i = 0; i < Alphabet.size; i++)
 		{
 			alphabet[i] = new Alphabet( (char)('A' + i) );
-		} 	
+		}
 		return alphabet;
 	}
-	
-	/* 
+
+	/*
 	 * main to test Animal class
 	 */
 	public static void main(String[] args)
@@ -193,7 +194,7 @@ public class Alphabet extends Collectable {
 		Alphabet.setOrder(KeyType.letter);
 		Alphabet.print(objs);
 	}
-	
+
 }
 Alphabet.main(null);
 ```
@@ -226,7 +227,7 @@ Alphabet.main(null);
     Alphabet: X
     Alphabet: Y
     Alphabet: Z
-    
+
     class [LREPL.$JShell$22C$Alphabet; 26
     Collectable: Alphabet listed by letter
     A
@@ -255,14 +256,12 @@ Alphabet.main(null);
     X
     Y
     Z
-    
 
+### Animal. This class is used to store properties on Animals.
 
-### Animal.  This class is used to store properties on Animals.
 - Extends Collectable.
 - Implements interface KeyType with more keys than 1st example, as this Class has more attributes.
 - Overrides methods in abstract Collectable, notice that this has more variations of Display.
-
 
 ```Java
 /*
@@ -293,7 +292,7 @@ public class Animal extends Collectable {
 	/* 'Collectable' requires getKey to help enforce KeyTypes usage */
 	@Override
 	protected KeyTypes getKey() { return Animal.key; }
-	
+
 	/* 'Collectable' requires toString override
 	 * toString provides data based off of Static Key setting
 	 */
@@ -312,7 +311,7 @@ public class Animal extends Collectable {
 			output += super.getType() + ": " + this.name + ", " + this.color + ", " + this.age;
 		}
 		return output;
-		
+
 	}
 
 	// Test data initializer
@@ -326,9 +325,9 @@ public class Animal extends Collectable {
 				new Animal("Dog", 14, "Brown")
 		};
 	}
-	
+
 	/* main to test Animal class
-	 * 
+	 *
 	 */
 	public static void main(String[] args)
 	{
@@ -360,7 +359,7 @@ Animal.main(null);
     Animal: Cat, Black, 10
     Animal: Kitty, Calico, 1
     Animal: Dog, Brown, 14
-    
+
     Animal: Cat, Black, 10
     Animal: Dog, Brown, 14
     Animal: Kitty, Calico, 1
@@ -368,13 +367,12 @@ Animal.main(null);
     Animal: Pig, Pink, 3
     Animal: Robin, Red, 7
 
+### Cupcake. This class is used to store properties of Cupcakes.
 
-### Cupcake.  This class is used to store properties of Cupcakes.
 - Extends Collectable.
 - Implements interface, very similar to previous example.
 - Overrides methods in abstract Collectable.
 - Though Animals and Cupcakes are very different in real word, properties and management look very similar.
-
 
 ```Java
 public class Cupcake extends Collectable {
@@ -405,7 +403,7 @@ public class Cupcake extends Collectable {
 	 * toString provides data based off of Static Key setting
 	 */
 	@Override
-	public String toString() {		
+	public String toString() {
 		String output="";
 		if (KeyType.flavor.equals(this.getKey())) {
 			output += this.flavor;
@@ -434,7 +432,7 @@ public class Cupcake extends Collectable {
 			    new Cupcake("Brown", 12, "Chocolate"),
 		};
 	}
-	
+
 	public static void main(String[] args)
 	{
 		// Inheritance Hierarchy
@@ -452,7 +450,7 @@ public class Cupcake extends Collectable {
 		for (Cupcake cupcake : cupcakes)
 			System.out.println(cupcake);
 	}
-	
+
 }
 Cupcake.main(null);
 ```
@@ -468,7 +466,7 @@ Cupcake.main(null);
     Cupcake: Strawberry, Pink, 10
     Cupcake: Vanilla, Tan, 11
     Cupcake: Chocolate, Brown, 12
-    
+
     Cupcake: Apple, Green, 7
     Cupcake: Blackberry, Purple, 9
     Cupcake: Blueberry, Blue, 8
@@ -479,13 +477,11 @@ Cupcake.main(null);
     Cupcake: Strawberry, Pink, 10
     Cupcake: Vanilla, Tan, 11
 
-
 ### Hack Helpers
 
-Below is a starter Queue and a Linked List implementation.  This implements Generic type and implements Iterable to support Java ForEach (enhanced For) loops.
+Below is a starter Queue and a Linked List implementation. This implements Generic type and implements Iterable to support Java ForEach (enhanced For) loops.
 
-In my experience, building your own Data Structures can help you to understand fundamentals of a Computer Language.  To use a Data Structure you will need data.  The developer working with LL, Stacks, and Queues needs to can learn how to manage different Data Types, this helps you learn about the Java Data Type `Object` as a generic form of an instance of a class and the `Generic type <T>` as generic for of a Data Type within a class definition.
-
+In my experience, building your own Data Structures can help you to understand fundamentals of a Computer Language. To use a Data Structure you will need data. The developer working with LL, Stacks, and Queues needs to can learn how to manage different Data Types, this helps you learn about the Java Data Type `Object` as a generic form of an instance of a class and the `Generic type <T>` as generic for of a Data Type within a class definition.
 
 ```Java
 /**
@@ -497,7 +493,7 @@ In my experience, building your own Data Structures can help you to understand f
  {
      private T data;
      private LinkedList<T> prevNode, nextNode;
- 
+
      /**
       *  Constructs a new element
       *
@@ -510,7 +506,7 @@ In my experience, building your own Data Structures can help you to understand f
          this.setPrevNode(node);
          this.setNextNode(null);
      }
- 
+
      /**
       *  Clone an object,
       *
@@ -522,7 +518,7 @@ In my experience, building your own Data Structures can help you to understand f
          this.setPrevNode(node.prevNode);
          this.setNextNode(node.nextNode);
      }
- 
+
      /**
       *  Setter for T data in DoubleLinkedNode object
       *
@@ -532,7 +528,7 @@ In my experience, building your own Data Structures can help you to understand f
      {
          this.data = data;
      }
- 
+
      /**
       *  Returns T data for this element
       *
@@ -542,7 +538,7 @@ In my experience, building your own Data Structures can help you to understand f
      {
          return this.data;
      }
- 
+
      /**
       *  Setter for prevNode in DoubleLinkedNode object
       *
@@ -552,7 +548,7 @@ In my experience, building your own Data Structures can help you to understand f
      {
          this.prevNode = node;
      }
- 
+
      /**
       *  Setter for nextNode in DoubleLinkedNode object
       *
@@ -562,8 +558,8 @@ In my experience, building your own Data Structures can help you to understand f
      {
          this.nextNode = node;
      }
- 
- 
+
+
      /**
       *  Returns reference to previous object in list
       *
@@ -573,7 +569,7 @@ In my experience, building your own Data Structures can help you to understand f
      {
          return this.prevNode;
      }
- 
+
      /**
       *  Returns reference to next object in list
       *
@@ -583,10 +579,9 @@ In my experience, building your own Data Structures can help you to understand f
      {
          return this.nextNode;
      }
- 
+
  }
 ```
-
 
 ```Java
 
@@ -667,7 +662,7 @@ public class Queue<T> implements Iterable<T> {
 
     /** Add a list of Objects
      * Paramter is a serise of Data Objects to be added to Queue
-     * 
+     *
      */
     public void addList(T[]... seriesOfObjects) {  //accepts multiple generic T lists
         for (T[] objects: seriesOfObjects)
@@ -731,7 +726,7 @@ public class Queue<T> implements Iterable<T> {
 
     /** Print Queue
      * Prints which by usage validates iterable and getters
-     * 
+     *
      */
     public void print() {
         System.out.print(this.getName() + " " + this.getCount() +": ");
@@ -739,10 +734,9 @@ public class Queue<T> implements Iterable<T> {
             System.out.print("" + obj + " ");
         System.out.println();
     }
-    
+
 }
 ```
-
 
 ```Java
 /**
@@ -756,14 +750,14 @@ class QueueTester {
         String[] words = new String[] { "seven", "slimy", "snakes", "sallying", "slowly", "slithered", "southward"};
         Queue qWords = new Queue("Words", words);
         qWords.print();
-        
-        
+
+
         // Create iterable Queue of Integers
         Integer[] numbers = new Integer[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
         Queue qNums = new Queue("Integers", numbers );
         qNums.print();
 
-       
+
         // Create iterable Queue of NCS Collectable
         Animal.setOrder(Animal.KeyType.name);
         Alphabet.setOrder(Alphabet.KeyType.letter);
@@ -794,66 +788,68 @@ class QueueTester {
 QueueTester.main(null);
 ```
 
-    Words 7: seven slimy snakes sallying slowly slithered southward 
-    Integers 10: 0 1 2 3 4 5 6 7 8 9 
-    Collectable 41: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Lion Pig Robin Cat Kitty Dog Red Velvet Orange Lemon Apple Blueberry Blackberry Strawberry Vanilla Chocolate 
-    Mixed 60: Start seven slimy snakes sallying slowly slithered southward 0 1 2 3 4 5 6 7 8 9 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Lion Pig Robin Cat Kitty Dog Red Velvet Orange Lemon Apple Blueberry Blackberry Strawberry Vanilla Chocolate End 
-
+    Words 7: seven slimy snakes sallying slowly slithered southward
+    Integers 10: 0 1 2 3 4 5 6 7 8 9
+    Collectable 41: A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Lion Pig Robin Cat Kitty Dog Red Velvet Orange Lemon Apple Blueberry Blackberry Strawberry Vanilla Chocolate
+    Mixed 60: Start seven slimy snakes sallying slowly slithered southward 0 1 2 3 4 5 6 7 8 9 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z Lion Pig Robin Cat Kitty Dog Red Velvet Orange Lemon Apple Blueberry Blackberry Strawberry Vanilla Chocolate End
 
 ### Hacks
+
 > Blog or illustrate understanding of the following.
 
-* Watch the college board video [Classes and Objects](https://apclassroom.collegeboard.org/8/home?apd=9qx7yzjoeg)
-* Blog and Define the details of a Class: Access modifier, constructor, modifiers/setters, getters, etc.
-* Build example code in jupyter notebook with Linked List, Queues, and Stacks.  
-* Show familiarity with managing data (aka nodes in LL) in these structures.  
-* Show familiarity with Generic data and ForEach loop support, similar to ArrayLists T.  Here is sample [Java Generic T and the Java Iterable interface by Geeks4Geeks](https://www.geeksforgeeks.org/java-implementing-iterator-and-iterable-interface/).
+- Watch the college board video [Classes and Objects](https://apclassroom.collegeboard.org/8/home?apd=9qx7yzjoeg)
+- Blog and Define the details of a Class: Access modifier, constructor, modifiers/setters, getters, etc.
+- Build example code in jupyter notebook with Linked List, Queues, and Stacks.
+- Show familiarity with managing data (aka nodes in LL) in these structures.
+- Show familiarity with Generic data and ForEach loop support, similar to ArrayLists T. Here is sample [Java Generic T and the Java Iterable interface by Geeks4Geeks](https://www.geeksforgeeks.org/java-implementing-iterator-and-iterable-interface/).
 
 ### Hacks: Code
-- Challenge #1, Add and Delete elements from Queue.  Working with the code that is given,  you will need to adjust Add and write Delete, to output from the Queue as follows. 
+
+- Challenge #1, Add and Delete elements from Queue. Working with the code that is given, you will need to adjust Add and write Delete, to output from the Queue as follows.
+
 ```text
 Enqueued data: seven
-Words count: 1, data: seven 
+Words count: 1, data: seven
 Enqueued data: slimy
-Words count: 2, data: seven slimy 
+Words count: 2, data: seven slimy
 Enqueued data: snakes
-Words count: 3, data: seven slimy snakes 
+Words count: 3, data: seven slimy snakes
 Enqueued data: sallying
-Words count: 4, data: seven slimy snakes sallying 
+Words count: 4, data: seven slimy snakes sallying
 Enqueued data: slowly
-Words count: 5, data: seven slimy snakes sallying slowly 
+Words count: 5, data: seven slimy snakes sallying slowly
 Enqueued data: slithered
-Words count: 6, data: seven slimy snakes sallying slowly slithered 
+Words count: 6, data: seven slimy snakes sallying slowly slithered
 Enqueued data: southward
-Words count: 7, data: seven slimy snakes sallying slowly slithered southward 
+Words count: 7, data: seven slimy snakes sallying slowly slithered southward
 Dequeued data: seven
-Words count: 6, data: slimy snakes sallying slowly slithered southward 
+Words count: 6, data: slimy snakes sallying slowly slithered southward
 Dequeued data: slimy
-Words count: 5, data: snakes sallying slowly slithered southward 
+Words count: 5, data: snakes sallying slowly slithered southward
 Dequeued data: snakes
-Words count: 4, data: sallying slowly slithered southward 
+Words count: 4, data: sallying slowly slithered southward
 Dequeued data: sallying
-Words count: 3, data: slowly slithered southward 
+Words count: 3, data: slowly slithered southward
 Dequeued data: slowly
-Words count: 2, data: slithered southward 
+Words count: 2, data: slithered southward
 Dequeued data: slithered
-Words count: 1, data: southward 
+Words count: 1, data: southward
 Dequeued data: southward
 Words count: 0, data: null
 ```
 
-- Challenge #2, perform a merge or combination of 2 Queue's that are ordered.  This is a foundation step for the algorithm used in Merge sorting.  IMO, this algorithm is easier if you "peek" at data at the head of the queue, prior to performing dequeue action.
+- Challenge #2, perform a merge or combination of 2 Queue's that are ordered. This is a foundation step for the algorithm used in Merge sorting. IMO, this algorithm is easier if you "peek" at data at the head of the queue, prior to performing dequeue action.
 
 ```text
 // Start with two ordered Queue's
 (1st Queue) 1 -> 4 -> 5 -> 8 -> nil
 (2nd Queue) 2 -> 3 -> 6 -> 7 -> nil
 
-// Finish with a 3rd Queue 
+// Finish with a 3rd Queue
 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 nil
 ```
 
-- Challenge #3, Shuffle the Queue.  Iterate through the Queue and change data with another random position in the queue.
+- Challenge #3, Shuffle the Queue. Iterate through the Queue and change data with another random position in the queue.
 
 ```text
 // Start with ordered Queue
@@ -862,7 +858,7 @@ Words count: 0, data: null
 2 -> 8 -> 6 -> 1 -> 3 -> 4 -> 7 -> 4 nil
 ```
 
-- Challenge #4, Build a Stack and use it to reverse the order of a Queue.  The Queue is a LIFO Data Structure, the Stack is a FIFO data structure, so code is similar but most everything is reversed.
+- Challenge #4, Build a Stack and use it to reverse the order of a Queue. The Queue is a LIFO Data Structure, the Stack is a FIFO data structure, so code is similar but most everything is reversed.
 
 ```text
 // Place elements into Queue
@@ -877,5 +873,4 @@ Words count: 0, data: null
 3 2 1
 ```
 
-- Advanced Challenge #5, Implement a Stack from your LL into a new Jupyter Notebook ...  Here is a former [solution](https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/utility/LinkedLists2/Stack.java)
-
+- Advanced Challenge #5, Implement a Stack from your LL into a new Jupyter Notebook ... Here is a former [solution](https://github.com/nighthawkcoders/nighthawk_csa/blob/master/src/main/java/com/nighthawk/csa/utility/LinkedLists2/Stack.java)

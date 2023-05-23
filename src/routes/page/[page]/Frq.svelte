@@ -1,6 +1,6 @@
-<script lang='ts'>
-  import MarkdownEditor from '$components/MarkdownEditor.svelte';
-  export let webpage = '';
+<script lang="ts">
+	import MarkdownEditor from '$components/MarkdownEditor.svelte';
+	export let webpage = '';
 </script>
 
-<MarkdownEditor value='3' />
+<MarkdownEditor value="3" />
