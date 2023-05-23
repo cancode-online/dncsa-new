@@ -2,10 +2,12 @@
 
     import Frq from './Frq.svelte';
     import { admin } from '$firebase';
+    import { page } from '$app/stores';
     import Table from './Table.svelte';
     import Quiz from './Quiz.svelte';
 
-    export let webpage = '';
+    let webpage = '/';
+	$: webpage = $page.params.page;
 
     let type = 'quiz_assignment';
 
