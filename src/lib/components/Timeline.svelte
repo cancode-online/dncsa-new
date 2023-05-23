@@ -34,7 +34,7 @@
         <div>
             <LucideCalendar/>
         </div>
-        <span class='self-center'>Timeline</span>
+        <span class='self-center normal-case'>Timeline</span>
     </div>
     {#each timeline as page}
         <a href="/page/{page.order[0]}">
@@ -42,7 +42,7 @@
                 <div>
                     <LucideFiles/>
                 </div>
-                <span class='self-center'> {page.title} </span>
+                <span class='self-center normal-case'> {page.title} </span>
             </div>
         </a>
     {/each}

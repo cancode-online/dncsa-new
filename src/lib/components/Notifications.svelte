@@ -29,7 +29,7 @@
             <div>
                 <LucideBell/>
             </div>
-            <span class='self-center'>Notifications</span>
+            <span class='self-center normal-case'>Notifications</span>
         </div>
     </div>
     
@@ -48,7 +48,7 @@
                         142 submissions
                     </span>
                     <a href='/page/{notification.slug}'>
-                        <button class='btn btn-sm btn-primary'>
+                        <button class='btn btn-sm btn-primary normal-case'>
                             GRADE
                         </button>
                     </a>

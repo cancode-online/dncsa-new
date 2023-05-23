@@ -7,8 +7,8 @@
 	$: currentPage = $page.params.page;
 </script>
 
-<div class="flex flex-col bg-blue-500 min-h-[20rem] w-full">
-	<div class="bg-lime-500 min-h-[40rem]">
+<div class="flex flex-col min-h-[20rem] w-full">
+	<div class="min-h-[40rem]">
 		{#key currentPage}
 			<MarkdownPage webpage={currentPage} />
 		{/key}

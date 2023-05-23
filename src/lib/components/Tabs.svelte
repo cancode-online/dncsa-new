@@ -91,7 +91,7 @@
 	}
 </script>
 
-<div class="flex flex-col w-full relative h-10 p-0 m-0 bg-base-300 !rounded-b-none">
+<div class="flex flex-col w-full relative h-12 p-0 m-0 bg-base-300 !rounded-b-none">
 	{#key tabsArray}
 		<div class="absolute left-0 bottom-0 tabs flex !rounded-b-none px-2 overflow-hidden">
 			{#each tabsArray as tab, i}

@@ -73,9 +73,9 @@
             </button>
         {/each}
     </div>
-    <div class='w-full h-fit flex justify-between py-2 pt-4 gap-2'>
+    <div class='w-full h-fit flex justify-between pt-2 gap-2'>
         <div>
-            <button class='btn {can_submit ? "" : "btn-disabled"} btn-primary'>
+            <button class='btn {can_submit ? "" : "btn-disabled"} btn-primary normal-case'>
                 Submit
             </button>
         </div>
