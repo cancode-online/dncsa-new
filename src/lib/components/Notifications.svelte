@@ -39,7 +39,7 @@
                     <span class='self-center text-sm whitespace-nowrap text-ellipsis overflow-hidden font-bold'>{notification.name}</span>
                     <span class='self-center text-sm whitespace-nowrap'>{notification.date}</span>
                 </div>
-                <div class='w-full text-sm'>
+                <div class='w-full text-sm opacity-50'>
                     {notification.summary}
                 </div>
                 <hr class='m-0'/>
