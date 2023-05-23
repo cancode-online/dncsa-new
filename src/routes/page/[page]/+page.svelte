@@ -6,12 +6,31 @@
     import Quiz from './Quiz.svelte';
     import { database } from '\$/firebase';
     import { doc, getDoc, collection, setDoc } from "firebase/firestore";
+	import { onMount } from 'svelte';
 
     export let webpage = '';
 
+    let type = "";
     
+    console.log("webpage" + webpage);
 
-    let type = 'quiz_assignment';
+    onMount(async () => {
+        console.log("onmount");
+        const db = database();
+
+        const docRef = doc(db, "pages", webpage);
+        const docSnap = await getDoc(docRef);
+        const document = docSnap.data();
+
+        if (document.type == 'quiz_assignment') {
+            type = 'quiz_assignment';
+        } else if (document.type == 'frq_assignment') {
+            type = 'frq_assignment';
+        }
+
+        console.log(document);
+        console.log(document.type);
+    });
 
 </script>
 
