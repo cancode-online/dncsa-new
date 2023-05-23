@@ -1,5 +1,8 @@
 <script lang='ts'>
 
+    import LucideArrowRight from '~icons/lucide/arrow-right'
+    import LucideArrowLeft from '~icons/lucide/arrow-left'
+
     export let webpage = '';
 
     let questions = [
@@ -27,10 +30,27 @@
         -1
     ];
     let current_question = 0;
+    let can_submit = false;
+
+    $: {
+
+        let all_answered = true;
+
+        for(let i = 0; i < selected_answers.length; i++) {
+
+            if (selected_answers[i] === -1) {
+                all_answered = false;
+            }
+
+        }
+
+        can_submit = all_answered ? true : false;
+
+    }
 
 </script>
 
-<div class='flex flex-col bg-base-300 p-2'>
+<div class='flex flex-col bg-base-200 p-2'>
     
     <div class='w-full h-fit min-h-[8rem] flex flex-col p-2'>
         <div class='text-xs pb-2 opacity-50'>
@@ -45,27 +65,33 @@
     </div>
     <div class='flex flex-col gap-2'>
         {#each questions[current_question].answers as answer, i}
-            <button class='normal-case text-left min-h-8 btn btn-neutral hover:bg-base-200 border-0 bg-base-100 p-2 no-animation hover:text-base-content active:bg-primary active:text-primary-content text-base-content'>
+            <button on:click={()=>{
+                selected_answers[current_question] = i;
+                selected_answers = selected_answers;
+            }} class='{selected_answers[current_question] === i ? "bg-primary hover:bg-primary text-primary-content hover:text-primary-content" : ""} normal-case text-left min-h-8 btn btn-neutral hover:bg-base-300 border-0 bg-base-100 p-2 no-animation text-base-content'>
                 <span class='w-full'>{i}: {answer}</span>
             </button>
         {/each}
     </div>
-    <div class='w-full h-fit flex justify-between py-2 pt-4 gap-2'>
+    <div class='w-full h-fit flex justify-between pt-2 gap-2'>
         <div>
-            <button class='btn btn-disabled btn-primary'>
+            <button class='btn {can_submit ? "" : "btn-disabled"} btn-primary normal-case'>
                 Submit
             </button>
+        </div>
+        <div class='h-full flex justify-center self-center'>
+            <span class='self-center opacity-50'>{current_question+1} of {questions.length}</span>
         </div>
         <div>   
             <button class='btn btn-square btn-neutral' on:click={()=>{
                 current_question--; current_question = Math.max(0, Math.min(questions.length, current_question));
             }}>
-                L
+                <LucideArrowLeft/>
             </button>
             <button class='btn btn-square btn-neutral' on:click={()=>{
                 current_question++; current_question = Math.max(0, Math.min(questions.length, current_question));
             }}>
-                R
+                <LucideArrowRight/>
             </button>
         </div>
     </div>

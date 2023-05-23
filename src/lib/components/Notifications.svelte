@@ -29,7 +29,7 @@
             <div>
                 <LucideBell/>
             </div>
-            <span class='self-center'>Notifications</span>
+            <span class='self-center normal-case'>Notifications</span>
         </div>
     </div>
     
@@ -39,7 +39,7 @@
                     <span class='self-center text-sm whitespace-nowrap text-ellipsis overflow-hidden font-bold'>{notification.name}</span>
                     <span class='self-center text-sm whitespace-nowrap'>{notification.date}</span>
                 </div>
-                <div class='w-full text-sm'>
+                <div class='w-full text-sm opacity-50'>
                     {notification.summary}
                 </div>
                 <hr class='m-0'/>
@@ -48,7 +48,7 @@
                         142 submissions
                     </span>
                     <a href='/page/{notification.slug}'>
-                        <button class='btn btn-sm btn-primary'>
+                        <button class='btn btn-sm btn-primary normal-case'>
                             GRADE
                         </button>
                     </a>

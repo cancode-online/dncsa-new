@@ -39,11 +39,11 @@
 			duration: 100
 		}}
 	>
-		<div class="flex flex-col w-full h-fit py-20 justify-start">
-			<div class="w-full">
+		<div class="flex flex-col w-full h-fit py-16 justify-start">
+			<div class="w-full p-1 bg-base-200 !rounded-b-none">
 				<Tabs />
 			</div>
-			<div bind:clientWidth={pageMaxWidth}>
+			<div class='!rounded-t-none' bind:clientWidth={pageMaxWidth}>
 				<slot maxWidth={pageMaxWidth} />
 			</div>
 		</div>
@@ -65,3 +65,11 @@
 	</div>
 
 </div>
+
+<style lang="postcss">
+
+    div {
+		border-radius: var(--rounded-btn, 0.5rem);
+	}
+
+</style>
