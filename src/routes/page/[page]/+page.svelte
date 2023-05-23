@@ -9,7 +9,7 @@
 
     export let webpage = '';
 
-
+    
 
     let type = 'quiz_assignment';
 
