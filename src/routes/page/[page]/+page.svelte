@@ -21,7 +21,7 @@
 	}
 </script>
 
-{#if true}
+{#if $admin}
 	<!--$admin-->
 	<div class="bg-base-200 h-12 !rounded-b-none flex justify-between p-2">
 		<div class="flex gap-2">
