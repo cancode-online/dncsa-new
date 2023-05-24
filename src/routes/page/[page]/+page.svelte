@@ -11,9 +11,8 @@
 	import { database, user } from '$/firebase';
 	import { doc, collection, setDoc, getDoc, getDocs } from 'firebase/firestore';
 
-
-    let webpage = '/';
-	  $: webpage = $page.params.page;
+	let webpage = '/';
+	$: webpage = $page.params.page;
 
 	let type = '';
 
@@ -37,7 +36,7 @@
 	}
 </script>
 
-{#if true}
+{#if $admin}
 	<!--$admin-->
 	<div class="bg-base-200 h-12 !rounded-b-none flex justify-between p-2">
 		<div class="flex gap-2">
