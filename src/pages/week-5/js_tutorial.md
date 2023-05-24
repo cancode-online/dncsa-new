@@ -21,55 +21,66 @@ type: 'page'
 </script>
 
 ## JavaScript references
+
 > JavaScript is the most important language you need to learn as a frontend developer. It's a great first language for web developers to learn.
 
-- [W3Schools](https://www.w3schools.com/js/)  - reference
+- [W3Schools](https://www.w3schools.com/js/) - reference
 
 - [feecodecamp.org](https://www.freecodecamp.org/) - pbl
 
 - [javascript30.com](https://javascript30.com/) - pbl
 
 ### console.log output
-Output to console using the classic programming introduction using a "Hello, World!" message.     
+
+Output to console using the classic programming introduction using a "Hello, World!" message.
+
 - The command or function is <mark>console.log()</mark>
 - "Hello, World" is a String literal. This is the referred to as <mark>Static text</mark>, as it does not change.
 - "Hello, World" is a parameter to the console.log command.
 - The console.log <mark>command outputs the parameter to the console</mark>, so you can see it in this Jupyter document.
-- Note, in a Web Application, console.log is used for debugging and is not visible from the browser via HTML.  It is used behind the scenes, when using Inspect->Console from the browser.
+- Note, in a Web Application, console.log is used for debugging and is not visible from the browser via HTML. It is used behind the scenes, when using Inspect->Console from the browser.
 
 <Runnable code={Hello} lang={'javascript'} title={'Hello.js'}/>
 
-
 ### console.log output showing use of variable
-This second example is a <mark>sequence of code</mark>, two or more lines forms a sequence.  This example defines a variable, then outputs the msg to terminal.  
+
+This second example is a <mark>sequence of code</mark>, two or more lines forms a sequence. This example defines a variable, then outputs the msg to terminal.
+
 - The variable "var msg =" is used to capture the data
 - The console.log(msg) outputs to console
 
 <Runnable code={VarHello} lang={'javascript'} title={'VarHello.js'}/>
 
 ### console.log output showing use of a function
+
 This example passes the previously defined variable "msg" to the newly defined "function logIt(output)".
+
 - There are two steps in the code, the <mark>definition of the function and the call to the function</mark>.
-    - "function logIt(output)" and everything between curly braces is the definitions of the function.
-    - "logIt(msg)" is the call to the function, this actually activates the function.  If you remove this line you will not receive any output to console.
+  - "function logIt(output)" and everything between curly braces is the definitions of the function.
+  - "logIt(msg)" is the call to the function, this actually activates the function. If you remove this line you will not receive any output to console.
 - Since the variable "msg" was defined in previous cell, it is used a parameter when calling the logMessage function.
 
 <Runnable code={LogItHello} lang={'javascript'} title={'LogItHello.js'} historical={[VarHello]}/>
 
 ### Showing reuse of a function
-Now that a function is defined, it can be called from any of the subsequent cell in the Jupyter notebook.  A function/method, is a process of creating a <mark>procedural abstraction</mark>. This a programming practice to promote reuse versus coding the same thing over and over.
+
+Now that a function is defined, it can be called from any of the subsequent cell in the Jupyter notebook. A function/method, is a process of creating a <mark>procedural abstraction</mark>. This a programming practice to promote reuse versus coding the same thing over and over.
+
 - First call sends a different string message
 - Second call sends a number
 
 <Runnable code={ReuseLogIt} lang={'javascript'} title={'ReuseLogIt.js'} historical={[VarHello, LogItHello]}/>
 
 ### Dynamic or Loosely typed language (string, number)
-<mark>JavaScript is a loosely typed language</mark>, meaning you don't have to specify what type of information will be stored in a variable in advance.  The variable type is determined at runtime.  This is similar to Python and most interpretive languages.  Java which is a compiled language is strongly typed, thus you will see string, integer, double, and object in the source code. In JavaScript, the "typeof" keyword returns the type.
+
+<mark>JavaScript is a loosely typed language</mark>, meaning you don't have to specify what type of information will be stored in a variable in advance. The variable type is determined at runtime. This is similar to Python and most interpretive languages. Java which is a compiled language is strongly typed, thus you will see string, integer, double, and object in the source code. In JavaScript, the "typeof" keyword returns the type.
 
 <Runnable code={TypeOf} lang={'javascript'} title={'TypeOf.js'}/>
 
 ### Build a Person Function/Class object and JSON
-JavaScript functions have special properties and syntax is shown in many ways.  In fact, a Class in JavaScript is a special function.  Jupyter Notebooks seems to be more friendly to "function" definitions versus "Class", thus this lesson uses "function" and "prototype" versus "Class".
+
+JavaScript functions have special properties and syntax is shown in many ways. In fact, a Class in JavaScript is a special function. Jupyter Notebooks seems to be more friendly to "function" definitions versus "Class", thus this lesson uses "function" and "prototype" versus "Class".
+
 - <mark>Definition of function allows for a collection of data</mark>, the "function Person" allows programmer to retain name, github id, and class of designation.
 - <mark>Definition of a prototype allow for the definition of a method associated with the function</mark> , the "Person.prototype.toJSON" allows the collection of data to be expressed in a json/string versus JavaScript object.
 - <mark>Instance of a function</mark>, the "var teacher = new Person("Mr M", "jm1021", 1977)" line makes a variable "teacher" which is an object representation of "function Person".
@@ -77,25 +88,30 @@ JavaScript functions have special properties and syntax is shown in many ways.  
 <Runnable code={Person} lang={'javascript'} title={'Person.js'} historical={[TypeOf]}/>
 
 ### Build a Classroom Array/List of Persons and JSON
-Many key elements are shown again.  New elements include...
+
+Many key elements are shown again. New elements include...
+
 - <mark>Building an Array</mark>, "var students" is an array of many persons
-- Building a Classroom, this show <mark>forEach iteration</mark> through an array and <mark>.push adding</mark> to an array.  These are key concepts in all programming languages.
+- Building a Classroom, this show <mark>forEach iteration</mark> through an array and <mark>.push adding</mark> to an array. These are key concepts in all programming languages.
 
 <Runnable code={StudentArray} lang={'javascript'} title={'StudentArray.js'} historical={[TypeOf, Person]}/>
 
 ### IJavaScript and Table formatting using toHTML method
-This example builds a <mark>Classroom method _toHTML</mark> which is passed to the IJavaScript interpreter $$.html which renders output similarly to a real website.  
-- JavaScript in the _toHTML method is broken into three parts...
-    - Style part is building CSS inline formatting
-    - Body part is constructing the Table Rows (tr), Table Headings (th), and Table Data (td).  The table data is obtained from a Classroom object.  The JavaScript for loop allows the construction of a new row of data for each index in the Array.
-    - Return part create the HTML fragment for rendering
-- The last line in the example <mark>$$.html is IJavaScript HTML interpreter</mark> and by passing the parameter of the _toHTML method it obtains HTML to render
+
+This example builds a <mark>Classroom method \_toHTML</mark> which is passed to the IJavaScript interpreter $$.html which renders output similarly to a real website.
+
+- JavaScript in the \_toHTML method is broken into three parts...
+  - Style part is building CSS inline formatting
+  - Body part is constructing the Table Rows (tr), Table Headings (th), and Table Data (td). The table data is obtained from a Classroom object. The JavaScript for loop allows the construction of a new row of data for each index in the Array.
+  - Return part create the HTML fragment for rendering
+- The last line in the example <mark>$$.html is IJavaScript HTML interpreter</mark> and by passing the parameter of the \_toHTML method it obtains HTML to render
 
 [Reference](http://n-riesco.github.io/ijavascript/doc/custom.ipynb.html?ref=morioh.com&utm_source=morioh.com)
 
 <Runnable code={ClassroomToHtml} lang={'javascript'} title={'ClassroomToHtml.js'} historical={[TypeOf, Person, StudentArray]}/>
 
 # Timer
+
 There are ways to setup a delay.
 
 [Reference](http://n-riesco.github.io/ijavascript/doc/async.ipynb.html?ref=morioh.com&utm_source=morioh.com)
@@ -103,30 +119,30 @@ There are ways to setup a delay.
 <Runnable code={Timer} lang={'javascript'} title={'Timer.js'}/>
 
 ## Hacks
-> Objective of JavaScript is to produce frontend code.  Working in Jupyter Notebooks could help in the process of visualizing design with short and interactive feedback.  However, my hope is that you move to Fastpages and play with Frontend code in that environment and do the REAL thing.  Here is my suggestion.
 
-> Design UI screens that are prototypes for your project.  Design at least one screen with data from a structure (like Person data above),  that is used to dynamically create HTML. As an alternative to HTML text method above, look at Jokes post and usage createElement...
+> Objective of JavaScript is to produce frontend code. Working in Jupyter Notebooks could help in the process of visualizing design with short and interactive feedback. However, my hope is that you move to Fastpages and play with Frontend code in that environment and do the REAL thing. Here is my suggestion.
+
+> Design UI screens that are prototypes for your project. Design at least one screen with data from a structure (like Person data above), that is used to dynamically create HTML. As an alternative to HTML text method above, look at Jokes post and usage createElement...
 
 ```js
-const resultContainer = document.getElementById("result");
+const resultContainer = document.getElementById('result');
 // ... build data table ....
 for (const row of data) {
-    // tr for each row
-    const tr = document.createElement("tr");
-    // td for each column
-    const joke = document.createElement("td");
-    const haha = document.createElement("td");
-    const boohoo = document.createElement("td");
-    // data is specific to the API
-    joke.innerHTML = row.joke;
-    haha.innerHTML = row.haha; 
-    boohoo.innerHTML = row.boohoo; 
-    // this build td's into tr
-    tr.appendChild(joke);
-    tr.appendChild(haha);
-    tr.appendChild(boohoo);
-    // add HTML to container
-    resultContainer.appendChild(tr);
+	// tr for each row
+	const tr = document.createElement('tr');
+	// td for each column
+	const joke = document.createElement('td');
+	const haha = document.createElement('td');
+	const boohoo = document.createElement('td');
+	// data is specific to the API
+	joke.innerHTML = row.joke;
+	haha.innerHTML = row.haha;
+	boohoo.innerHTML = row.boohoo;
+	// this build td's into tr
+	tr.appendChild(joke);
+	tr.appendChild(haha);
+	tr.appendChild(boohoo);
+	// add HTML to container
+	resultContainer.appendChild(tr);
 }
 ```
-

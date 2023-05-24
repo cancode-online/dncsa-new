@@ -69,7 +69,7 @@
 						})
 					});
 
-					console.log()
+					console.log();
 				}
 
 				tabsArray = _tabsArray;

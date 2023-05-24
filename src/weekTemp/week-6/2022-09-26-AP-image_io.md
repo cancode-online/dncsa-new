@@ -1,4 +1,5 @@
 # Arrays and Images
+
 > Provided code is to assist in changing Images.
 
 - title: Arrays and Images
@@ -11,8 +12,8 @@
 - week: 6
 
 ## Saving PNG to GIF
-Image IO read and Image IO write are focus of this code.  A key portion of working with Images, or any file, is to know location of the input and output directories.
 
+Image IO read and Image IO write are focus of this code. A key portion of working with Images, or any file, is to know location of the input and output directories.
 
 ```java
 import javax.imageio.ImageIO;
@@ -20,10 +21,10 @@ import java.io.File;
 import java.io.IOException;
 import java.awt.image.BufferedImage;
 
-public class ImageIOTest {    
+public class ImageIOTest {
 
     public static void main( String[] args ){
-       BufferedImage img = null;  // buffer type 
+       BufferedImage img = null;  // buffer type
         try {
             // Name of file and directories
             String name = "MonaLisa";
@@ -48,8 +49,8 @@ ImageIOTest.main(null);
 ```
 
 ## Image Scaling and ASCII Conversion
-In this example we print out a row of text for each row in the image. However, it seems as if the image is too tall. To address this problem, try to output a single character per block of pixels. In particular, average the grayscale values in a rectangular block that’s twice as tall as it is wide, and print out a single character for this block.
 
+In this example we print out a row of text for each row in the image. However, it seems as if the image is too tall. To address this problem, try to output a single character per block of pixels. In particular, average the grayscale values in a rectangular block that’s twice as tall as it is wide, and print out a single character for this block.
 
 ```java
 import java.awt.Color;
@@ -95,7 +96,7 @@ public class Pics {
         this.setStats();
     }
 
-    
+
     // An image contains metadata, namely size, width, and height
     public void setStats() {
         BufferedImage img;
@@ -129,11 +130,11 @@ public class Pics {
 
         return bi;
     }
-    
+
     // Scale or reduce to "scale" percentage provided
     public void resize(int scale) {
         BufferedImage img = null;
-        Image resizedImg = null;  
+        Image resizedImg = null;
 
         int width = (int) (this.width * (scale/100.0) + 0.5);
         int height = (int) (this.height * (scale/100.0) + 0.5);
@@ -152,11 +153,11 @@ public class Pics {
         } catch (IOException e) {
             return;
         }
-        
+
         this.inFile = this.resizedFile;  // use scaled file vs original file in Class
         this.setStats();
     }
-    
+
     // convert every pixel to an ascii character (ratio does not seem correct)
     public void convertToAscii() {
         BufferedImage img = null;
@@ -165,7 +166,7 @@ public class Pics {
 
         try {
             File file = new File(this.asciiFile);
-            Files.deleteIfExists(file.toPath()); 
+            Files.deleteIfExists(file.toPath());
         } catch (IOException e) {
             System.out.println("Delete File error: " + e);
         }
@@ -246,12 +247,12 @@ Pics.main(null);
 ```
 
 # Hacks
-> Continue to work with Classes, Arrays, and 2D arrays.  FYI, you may need to make a directory /tmp under notebook images.
+
+> Continue to work with Classes, Arrays, and 2D arrays. FYI, you may need to make a directory /tmp under notebook images.
 
 1. Look at comments above and see if there is better conversions for ASCII to reduce elongation and distortion.
 2. Try to convert images into Grey Scale, Red Scale, Blue Scale, and Green Scale.
 
 [Additional Image Code](https://github.com/nighthawkcoders/nighthawk_csa/tree/master/src/main/java/com/nighthawk/csa/starters/image)
-
 
 [Runtime using Thymeleaf](https://csa.nighthawkcodingsociety.com/starters/image)

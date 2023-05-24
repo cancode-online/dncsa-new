@@ -1,20 +1,21 @@
 # Abstract Fibonacci
-> The Fibonacci algorithm run two ways with abstraction.  At this point, with close observation, the Fib class could be used to capture a linear sequence and perhaps more.
+
+> The Fibonacci algorithm run two ways with abstraction. At this point, with close observation, the Fib class could be used to capture a linear sequence and perhaps more.
+
 - title: abstract class Fibonacci
 - toc: true
 - badges: false
 - image: /images/fibonacci.png
 - categories: [1.B, 4.C, 5.A, C4.8, C4.9]
 
-
 ```java
 /*
  * Creator: Nighthawk Coding Society
  * Mini Lab Name: Fibonacci sequence, featuring a Stream Algorithm
- * 
+ *
 */
 
-import java.util.ArrayList;  
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.stream.Stream;
 
@@ -93,7 +94,6 @@ abstract class Fibo {
 }
 ```
 
-
 ```java
 public class FiboFor extends Fibo {
 
@@ -140,8 +140,6 @@ FiboFor.main(null);
     fibonacci Sequence 7 = [0, 1, 1, 2, 3, 5, 8]
     fibonacci Sequence 8 = [0, 1, 1, 2, 3, 5, 8, 13]
 
-
-
 ```java
 public class FiboStream extends Fibo {
 
@@ -184,4 +182,3 @@ FiboStream.main(null);
     fibonacci Sequence 3 = [0, 1, 1]
     fibonacci Sequence 4 = [0, 1, 1, 2]
     fibonacci Sequence 5 = [0, 1, 1, 2, 3]
-
