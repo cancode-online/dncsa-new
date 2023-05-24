@@ -5,33 +5,39 @@
 	import Table from './Table.svelte';
 	import Quiz from './Quiz.svelte';
 	import Metadata from './Metadata.svelte';
+	import QuizEditor from './QuizEditor.svelte';
 
-    import { onMount } from 'svelte';
-    import { database, user } from '\$/firebase';
-    import { doc, collection, setDoc, getDoc, getDocs } from 'firebase/firestore';
+	import { onMount } from 'svelte';
+	import { database, user } from '$/firebase';
+	import { doc, collection, setDoc, getDoc, getDocs } from 'firebase/firestore';
+
 
     let webpage = '/';
-	$: webpage = $page.params.page;
+	  $: webpage = $page.params.page;
 
-    let type = '';
+	let type = '';
 
-    onMount( async () => {
+	onMount(async () => {
+		const db = database();
+		const pageDocRef = doc(db, 'pages' + '/' + webpage);
+		const pageDocSnapshot = await getDoc(pageDocRef);
+		const pageDocData = pageDocSnapshot.data();
 
-        const db = database();
-        const pageDocRef = doc(db, 'pages' + "/" + webpage);
-        const pageDocSnapshot = await getDoc(pageDocRef);
-        const pageDocData = pageDocSnapshot.data();
+		type = pageDocData?.type;
+	});
 
-        type = pageDocData?.type;
-    });
+	let showmetadata = false;
 
+	function viewMD() {
+		showmetadata = true;
+	}
 
 	function viewTable() {
 		showmetadata = false;
 	}
 </script>
 
-{#if $admin}
+{#if true}
 	<!--$admin-->
 	<div class="bg-base-200 h-12 !rounded-b-none flex justify-between p-2">
 		<div class="flex gap-2">
@@ -68,6 +74,7 @@
 	{:else}
 		<div class="bg-red-500">
 			<Metadata {webpage} />
+			<QuizEditor {webpage} />
 		</div>
 	{/if}
 {:else if type === 'frq_assignment'}
