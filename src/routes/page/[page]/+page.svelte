@@ -1,5 +1,9 @@
 <script lang='ts'>
 
+    import { onMount } from 'svelte';
+    import { database, user } from '\$/firebase';
+    import { doc, collection, setDoc, getDoc, getDocs } from 'firebase/firestore';
+
     import Frq from './Frq.svelte';
     import { admin } from '$firebase';
     import { page } from '$app/stores';
@@ -9,7 +13,17 @@
     let webpage = '/';
 	$: webpage = $page.params.page;
 
-    let type = 'quiz_assignment';
+    let type = '';
+
+    onMount( async () => {
+
+        const db = database();
+        const pageDocRef = doc(db, 'pages' + "/" + webpage);
+        const pageDocSnapshot = await getDoc(pageDocRef);
+        const pageDocData = pageDocSnapshot.data();
+
+        type = pageDocData?.type;
+    });
 
 </script>
 
