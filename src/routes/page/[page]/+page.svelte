@@ -11,8 +11,9 @@
 	import { database, user } from '$/firebase';
 	import { doc, collection, setDoc, getDoc, getDocs } from 'firebase/firestore';
 
-	let webpage = '/';
-	$: webpage = $page.params.page;
+
+    let webpage = '/';
+	  $: webpage = $page.params.page;
 
 	let type = '';
 
