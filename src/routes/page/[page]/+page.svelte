@@ -10,12 +10,6 @@
     import { database, user } from '\$/firebase';
     import { doc, collection, setDoc, getDoc, getDocs } from 'firebase/firestore';
 
-    import Frq from './Frq.svelte';
-    import { admin } from '$firebase';
-    import { page } from '$app/stores';
-    import Table from './Table.svelte';
-    import Quiz from './Quiz.svelte';
-
     let webpage = '/';
 	$: webpage = $page.params.page;
 
