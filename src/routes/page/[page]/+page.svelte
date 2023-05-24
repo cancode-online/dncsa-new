@@ -7,31 +7,29 @@
 	import Metadata from './Metadata.svelte';
 	import QuizEditor from './QuizEditor.svelte';
 
-    import { onMount } from 'svelte';
-    import { database, user } from '\$/firebase';
-    import { doc, collection, setDoc, getDoc, getDocs } from 'firebase/firestore';
+	import { onMount } from 'svelte';
+	import { database, user } from '$/firebase';
+	import { doc, collection, setDoc, getDoc, getDocs } from 'firebase/firestore';
 
-    import Frq from './Frq.svelte';
-    import { admin } from '$firebase';
-    import { page } from '$app/stores';
-    import Table from './Table.svelte';
-    import Quiz from './Quiz.svelte';
-
-    let webpage = '/';
+	let webpage = '/';
 	$: webpage = $page.params.page;
 
-    let type = '';
+	let type = '';
 
-    onMount( async () => {
+	onMount(async () => {
+		const db = database();
+		const pageDocRef = doc(db, 'pages' + '/' + webpage);
+		const pageDocSnapshot = await getDoc(pageDocRef);
+		const pageDocData = pageDocSnapshot.data();
 
-        const db = database();
-        const pageDocRef = doc(db, 'pages' + "/" + webpage);
-        const pageDocSnapshot = await getDoc(pageDocRef);
-        const pageDocData = pageDocSnapshot.data();
+		type = pageDocData?.type;
+	});
 
-        type = pageDocData?.type;
-    });
+	let showmetadata = false;
 
+	function viewMD() {
+		showmetadata = true;
+	}
 
 	function viewTable() {
 		showmetadata = false;
