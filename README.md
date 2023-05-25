@@ -32,12 +32,7 @@ pnpm run dev
 
 ## Building
 
-To create a production version of your app:
+Del Norte CSA by Us is open source code, and free to develop on for everyone and be attributed for their own purpose
 
-```bash
-npm run build
-```
+## Formatting and Adding Files
 
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
