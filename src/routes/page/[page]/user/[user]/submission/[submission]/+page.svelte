@@ -1,3 +1,1 @@
-<div>
-    A different submission
-</div>
+<div>A different submission</div>

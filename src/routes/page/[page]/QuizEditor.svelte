@@ -35,12 +35,6 @@
 
 		can_submit = all_answered ? true : false;
 	}
-
-	async function submit() {
-		if (can_submit) {
-			
-		}
-	}
 </script>
 
 <div class="flex flex-col bg-base-200 p-2">
@@ -68,7 +62,7 @@
 	</div>
 	<div class="w-full h-fit flex justify-between pt-2 gap-2">
 		<div>
-			<button class="btn {can_submit ? '' : 'btn-disabled'} btn-primary normal-case" on:click={submit}>
+			<button class="btn {can_submit ? '' : 'btn-disabled'} btn-primary normal-case">
 				Submit
 			</button>
 		</div>

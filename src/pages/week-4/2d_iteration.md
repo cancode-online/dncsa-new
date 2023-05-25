@@ -14,17 +14,19 @@ type: 'page'
 <Runnable code={Monkey} lang={'java'} title={'Monkey.java'}/>
 
 ## Hacks (Mini-lab)
-> Build you own Jupyter Notebook.  Feel free to use any ASCII art of your choice, there are some much better ones [here](https://www.asciiart.eu/animals/monkeys).  My little guys were made up out of my head while looking at unicode characters.
+
+> Build you own Jupyter Notebook. Feel free to use any ASCII art of your choice, there are some much better ones [here](https://www.asciiart.eu/animals/monkeys). My little guys were made up out of my head while looking at unicode characters.
 
 - Print monkeys horizontally versus vertically.
 - Build more or entire rhyme for the "Monkey Jumpers" countdown poem
 - Add names or other properties to the monkeys
- 
+
 > In you notebook, illustrate or answer some of these questions.
+
 - Is this program in more of an Imperative Programming Style or OOP style? Explain.
-    - Observe variable assignments.
-    - Is each Monkey an object?
-    - Build an where the monkey is an object versus two-dimensional array.  This would be leading into Unit 5 requirements.
+  - Observe variable assignments.
+  - Is each Monkey an object?
+  - Build an where the monkey is an object versus two-dimensional array. This would be leading into Unit 5 requirements.
 - Study loops and zero based counting
-    - Study two-dimensional (2D) array references
-    - Explain different way you can access a 2D array
+  - Study two-dimensional (2D) array references
+  - Explain different way you can access a 2D array

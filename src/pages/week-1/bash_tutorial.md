@@ -7,9 +7,10 @@ type: 'page'
 ---
 
 ## Prerequisites for Bash on Jupyter
-> Being able to find a Bash Reference.  Here is a [Bash Cheat Sheet](https://www.pcwdld.com/bash-cheat-sheet)
 
-> Install the Bash Kernel for Jupyter notebooks.  Expectations are pip3 and python3 are defined within the path.  The bash shell allowed construction of this tutorial.
+> Being able to find a Bash Reference. Here is a [Bash Cheat Sheet](https://www.pcwdld.com/bash-cheat-sheet)
+
+> Install the Bash Kernel for Jupyter notebooks. Expectations are pip3 and python3 are defined within the path. The bash shell allowed construction of this tutorial.
 
 - pip install bash_kernel
 - python -m bash_kernel.install
@@ -17,12 +18,11 @@ type: 'page'
 Selecting a kernel in "code --project--" or "jupyter notebook --file.ipynb--" that have bash in options.
 ![](https://nighthawkcoders.github.io/APCSA/images/copied_from_nb/images/kernels.png)
 
-
 ## Prerequisites for Project Directory
-> Practice pulling code from git to your machine. This will create a project directory and add APCSP github project to the directory.  There is conditional logic to make sure that directory and pull only happen if it does not (!) exist.
+
+> Practice pulling code from git to your machine. This will create a project directory and add APCSP github project to the directory. There is conditional logic to make sure that directory and pull only happen if it does not (!) exist.
 
 - Hack: Change variables, make new directory, clone to that directory.
-
 
 ```bash
 echo "Using conditional statement to create a project directory and project"
@@ -36,11 +36,11 @@ cd ~    # start in home directory
 
 # Conditional block to make a project directory
 if [ ! -d $project_dir ]
-then 
+then
     echo "Directory $project_dir does not exists... makinng directory $project_dir"
     mkdir -p $project_dir
 fi
-echo "Directory $project_dir exists." 
+echo "Directory $project_dir exists."
 
 # Conditional block to git clone a project from project_repo
 if [ ! -d $project ]
@@ -50,17 +50,17 @@ then
     git clone $project_repo
     cd ~
 fi
-echo "Directory $project exists." 
+echo "Directory $project exists."
 ```
 
 ### Look inside Fastpages/Github page project
-> All computers contain files and directories.  The clone brought more files from cloud to your machine.  Using the bash shell you will see some commands that show and interact with files and directories.
+
+> All computers contain files and directories. The clone brought more files from cloud to your machine. Using the bash shell you will see some commands that show and interact with files and directories.
 
 - "ls" lists computer files in Unix and Unix-like operating systems
 - "cd" offers way to navigate and change working directory
 - "pwd" print working directory
 - "echo" used to display line of text/string that are passed as an argument
-
 
 ```bash
 # You must run cells above to define variable and project
@@ -82,7 +82,6 @@ echo "list all files in long format"
 ls -al   # all files and long listing
 ```
 
-
 ```bash
 # You must run cells above to define variable and project
 
@@ -92,7 +91,6 @@ cd $posts  # this should exist per fastpages
 pwd  # present working directory
 ls -l  # list posts
 ```
-
 
 ```bash
 # You must run cells above to define variable and project
@@ -104,7 +102,6 @@ pwd  # present working directory
 ls -l  # list notebooks
 ```
 
-
 ```bash
 # You must run cells above to define notebooks location
 
@@ -115,8 +112,8 @@ ls -l
 ```
 
 ### Look inside a Markdown File
-> "cat" reads data from the file and gives its content as output
 
+> "cat" reads data from the file and gives its content as output
 
 ```bash
 # You must run cells above to define project
@@ -133,13 +130,13 @@ echo "end of README.md"
 ```
 
 ### Env, Git and GitHub
-> Env(ironment) is used to capture things like path to Code or Home directory.  Git and GitHub is NOT Only used to exchange code between individuals, it is often used to exchange code through servers, in our case deployment for Website.   All tools we use have a behind the scenes hav relationship with the system they run on (MacOS, Windows, Linus) or a relationship with servers which they are connected to (ie GitHub).  There is an "env" command in bash.  There are environment files and setting files (.git/config) for Git.  They both use a key/value concept.
+
+> Env(ironment) is used to capture things like path to Code or Home directory. Git and GitHub is NOT Only used to exchange code between individuals, it is often used to exchange code through servers, in our case deployment for Website. All tools we use have a behind the scenes hav relationship with the system they run on (MacOS, Windows, Linus) or a relationship with servers which they are connected to (ie GitHub). There is an "env" command in bash. There are environment files and setting files (.git/config) for Git. They both use a key/value concept.
 
 - "env" show setting for your shell
 - "git clone" sets up a director of files
 - "cd $project" allows user to move inside that directory of files
-- ".git" is a hidden directory that is used by git to establish relationship between machine and the git server on GitHub.  
-
+- ".git" is a hidden directory that is used by git to establish relationship between machine and the git server on GitHub.
 
 ```bash
 # This command has no dependencies
@@ -149,7 +146,6 @@ echo ""
 
 env
 ```
-
 
 ```bash
 # This command has dependencies on project
@@ -167,16 +163,17 @@ cat config
 ```
 
 ### Student Request - Make a file in Bash
-> This example was requested by a student (Jun Lim, CSA). The request was to make jupyer file using bash, I adapted the request to markdown.  This type of thought will have great extrapolation to coding and possibilities of using List, Arrays, or APIs to build user interfaces.  JavaScript is a language where building HTML is very common.
 
-> To get more interesting output from terminal, this will require using something like mdless (https://github.com/ttscoff/mdless).  This enables see markdown in rendered format.
+> This example was requested by a student (Jun Lim, CSA). The request was to make jupyer file using bash, I adapted the request to markdown. This type of thought will have great extrapolation to coding and possibilities of using List, Arrays, or APIs to build user interfaces. JavaScript is a language where building HTML is very common.
+
+> To get more interesting output from terminal, this will require using something like mdless (https://github.com/ttscoff/mdless). This enables see markdown in rendered format.
+
 - On Desktop [Install PKG from MacPorts](https://www.macports.org/install.php)
 - In Terminal on MacOS
-    - [Install ncurses](https://ports.macports.org/port/ncurses/)
-    - ```gem install mdless```
-    
-> Output of the example is much nicer in "jupyter"
+  - [Install ncurses](https://ports.macports.org/port/ncurses/)
+  - `gem install mdless`
 
+> Output of the example is much nicer in "jupyter"
 
 ```bash
 # This example has error in VSCode, it run best on Jupyter
@@ -213,10 +210,10 @@ rm $file  # clean up termporary file
 ```
 
 ## Hacks
+
 > Go back to some of the deployment procedures and think about some thing you could verify through Bash notebook.
 
 - Is there anything we use to verify tools we install? Think about versions.
 - Is there anything we could verify with Anaconda?
 - How would you update a repository?
 - Really cool would be automating a procedure from installation.
-

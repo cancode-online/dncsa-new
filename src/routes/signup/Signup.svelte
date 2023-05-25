@@ -30,8 +30,7 @@
 
 	async function post() {
 		try {
-
-			console.log(email, password, firstName, lastName)
+			console.log(email, password, firstName, lastName);
 			signUpWithEmail(email, password, firstName, lastName);
 
 			goto(redirect);
