@@ -4,7 +4,7 @@ import { database, user } from "../../../firebase";
 
 export async function POST({ request, fetch }) {
 
-	const data = request.data();
+	const data =  await request.json();
 
 
 	// request : selected_answers & webpage & clientUid
@@ -36,7 +36,7 @@ export async function POST({ request, fetch }) {
 	await setDoc(userDocRef, {
 		grade: {
 			earned: user.grade.earned + score,
-			total: user.grade.total + grade_total
+			total: user.grade.total + pageDocData.grade_total
 		}
 	}, {merge: true});
 	
