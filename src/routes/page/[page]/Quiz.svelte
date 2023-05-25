@@ -1,8 +1,34 @@
 <script lang="ts">
 	import LucideArrowRight from '~icons/lucide/arrow-right';
 	import LucideArrowLeft from '~icons/lucide/arrow-left';
+	import { onMount } from 'svelte';
+
+
+	import { database } from '$firebase';
+	import { doc, getDoc} from 'firebase/firestore'
 
 	export let webpage = '';
+
+	let selected_answers = [];
+
+	onMount(async ()=> {
+
+		const db = database();
+		const docRef = doc(db, `pages/${webpage}`);
+		const docSnap = await getDoc(docRef);
+		const docData = docSnap.data();
+
+		const _questions = docData.questions; 
+		const correct_answers = docData.correct_answers
+
+		for (let i = 0; i < correct_answers.length; i++) {
+
+			selected_answers.push(-1);
+
+		}
+
+		questions = _questions;
+	});
 
 	let questions = [
 		{
@@ -20,7 +46,7 @@
 			]
 		}
 	] as { question: string; answers: string[] }[];
-	let selected_answers = [-1, -1];
+
 	let current_question = 0;
 	let can_submit = false;
 
