@@ -58,7 +58,7 @@
 			}
 		}
 
-		can_submit = all_answered ? true : false;
+		can_submit = selected_answers.length > 0 ? (all_answered ? true : false) : false;
 	}
 
 	async function submit() {
@@ -117,7 +117,7 @@
 				class="btn btn-square btn-neutral"
 				on:click={() => {
 					current_question--;
-					current_question = Math.max(0, Math.min(questions.length, current_question));
+					current_question = Math.max(0, Math.min(questions.length - 1, current_question -= 1));
 				}}
 			>
 				<LucideArrowLeft />
@@ -125,8 +125,7 @@
 			<button
 				class="btn btn-square btn-neutral"
 				on:click={() => {
-					current_question++;
-					current_question = Math.max(0, Math.min(questions.length, current_question));
+					current_question = Math.max(0, Math.min(questions.length - 1, current_question += 1));
 				}}
 			>
 				<LucideArrowRight />
