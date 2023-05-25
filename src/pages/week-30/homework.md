@@ -6,7 +6,7 @@ tags: ['lesson', 'Unit 5', 'Unit 9', 'Unit 10']
 type: 'frq_assignment'
 due_start: '2023-04-21'
 due_end: '2023-04-21'
-grade_total: 1
+grade_total: 3
 ---
 
 ## How to Submit
