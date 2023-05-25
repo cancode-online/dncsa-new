@@ -7,9 +7,11 @@
 	import Metadata from './Metadata.svelte';
 	import QuizEditor from './QuizEditor.svelte';
 
+	import { getPages, getFolderMetadata } from '\$/lib/utils/pages';
+
 	import { onMount } from 'svelte';
 	import { database, user } from '$/firebase';
-	import { doc, collection, setDoc, getDoc, getDocs } from 'firebase/firestore';
+	import { doc, collection, setDoc, getDoc, getDocs, deleteDoc } from 'firebase/firestore';
 
 	let webpage = '/';
 	$: webpage = $page.params.page;
@@ -17,12 +19,72 @@
 	let type = '';
 
 	onMount(async () => {
+		
 		const db = database();
 		const pageDocRef = doc(db, 'pages' + '/' + webpage);
 		const pageDocSnapshot = await getDoc(pageDocRef);
 		const pageDocData = pageDocSnapshot.data();
 
 		type = pageDocData?.type;
+
+		const _pages = await getPages();
+		const post = await _pages[webpage].import();
+		
+		
+		if(!pageDocData){
+
+			if (post.metadata.type === 'frq_assignment' || post.metadata.type === 'quiz_assignment'){
+			
+				let pageData = {
+
+					correct_answers: {},
+					
+					questions:
+					{
+						question: '',
+						answers: {}
+
+					},
+
+					gradeTotal: post.metadata.grade_total,
+					dueStart: post.metadata.due_start,
+					dueEnd: post.metadata.due_end,
+					type: post.metadata.type,
+					ungraded_submissions: []
+
+				}
+
+				console.log(pageData);
+
+				await setDoc(pageDocRef, pageData);
+
+			}
+
+			else{
+
+				let pageData = {
+
+					gradeTotal: post.metadata.grade_total,
+					dueStart: post.metadata.due_start,
+					dueEnd: post.metadata.due_end,
+					type: post.metadata.type,
+
+				}
+
+				console.log(pageData);
+
+				await setDoc(pageDocRef, pageData, {merge: true});
+
+			}
+
+		}
+		
+		else {
+			if (post.metadata.type === 'page'){
+				deleteDoc(pageDocRef);
+			}
+		}
+
 	});
 
 	let showmetadata = false;
