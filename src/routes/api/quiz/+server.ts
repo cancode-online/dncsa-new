@@ -17,7 +17,7 @@ export async function POST({ request, fetch }) {
 	const correct_answers = pageDocData.correct_answers;
 	let correct = 0;
 
-	for (let i = 0; i < correct_answers.length) {
+	for (let i = 0; i < correct_answers.length; i++) {
 
 		if (correct_answers[i] === data.selected_answers[i]) {
 			correct++;
