@@ -6,28 +6,28 @@ import type { User } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import {
-	getAuth,
-	onAuthStateChanged,
-	signInWithPopup,
-	GoogleAuthProvider,
-	signOut,
-	GithubAuthProvider,
-	createUserWithEmailAndPassword,
-	signInWithEmailAndPassword,
-	updateProfile,
-	FacebookAuthProvider
+    getAuth,
+    onAuthStateChanged,
+    signInWithPopup,
+    GoogleAuthProvider,
+    signOut,
+    GithubAuthProvider,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    updateProfile,
+    FacebookAuthProvider
 } from 'firebase/auth';
 import { goto } from '$app/navigation';
 import { alert } from '$stores/alerts';
 
 const APP = initializeApp({
-	apiKey: 'AIzaSyAE5tH1vHtEf8cHVuPqqxe4ThkAimNIDhs',
-	authDomain: 'delnorte-apcsa.firebaseapp.com',
-	projectId: 'delnorte-apcsa',
-	storageBucket: 'delnorte-apcsa.appspot.com',
-	messagingSenderId: '1006540206160',
-	appId: '1:1006540206160:web:d9e5295a60702225222155',
-	measurementId: 'G-2G3ESBL1DQ'
+    apiKey: "AIzaSyAE5tH1vHtEf8cHVuPqqxe4ThkAimNIDhs",
+    authDomain: "delnorte-apcsa.firebaseapp.com",
+    projectId: "delnorte-apcsa",
+    storageBucket: "delnorte-apcsa.appspot.com",
+    messagingSenderId: "1006540206160",
+    appId: "1:1006540206160:web:d9e5295a60702225222155",
+    measurementId: "G-2G3ESBL1DQ"
 });
 
 export const authenticated = writable(undefined) as Writable<boolean | undefined>;
@@ -44,19 +44,21 @@ export const user = writable(null) as Writable<User | null>;
 // Listen for authentication state to change => updates authenticated store
 onAuthStateChanged(getAuth(APP), async (User) => {
 	if (User) {
+
 		const db = database();
 		const docRef = doc(db, 'users', User.uid);
 		const docSnap = await getDoc(docRef);
 		const document = docSnap.data();
 
 		authenticated.set(true);
-
-		if (document.admin === true) {
+		
+		if (document.admin === true){
 			admin.set(true);
-		} else {
+		}
+		else {
 			admin.set(false);
 		}
-
+		
 		user.set(User);
 	} else {
 		authenticated.set(false);
@@ -77,32 +79,33 @@ export const logOut = () => {
 };
 
 const createUserDocument = async (firstName, lastName) => {
-	const auth = getAuthApp();
-
-	if (!auth?.currentUser) return;
-
-	const db = database();
-	const docRef = doc(db, 'users', auth.currentUser.uid);
-	const docSnap = await getDoc(docRef);
-	const document = docSnap.data();
-
-	const docCollection = collection(db, 'users');
-
-	if (!document) {
-		const userData = {
-			admin: false,
-			first_name: firstName || '', // Ensure empty string if no value provided
-			last_name: lastName || '', // Ensure empty string if no value provided
-			verified_info: false,
-			grade: {
-				earned: 0,
-				total: 0
-			}
-		};
-
-		await setDoc(docRef, userData);
-	}
-};
+    const auth = getAuthApp();
+  
+    if (!auth?.currentUser) return;
+  
+    const db = database();
+    const docRef = doc(db, 'users', auth.currentUser.uid);
+    const docSnap = await getDoc(docRef);
+    const document = docSnap.data();
+  
+    const docCollection = collection(db, 'users');
+  
+    if (!document) {
+      const userData = {
+        admin: false,
+        first_name: firstName || '', // Ensure empty string if no value provided
+        last_name: lastName || '', // Ensure empty string if no value provided
+        verified_info: false,
+        grade: {
+          earned: 0,
+          total: 0
+        }
+      };
+  
+      await setDoc(docRef, userData);
+    }
+  };
+  
 
 // Sign up with Email/Password function
 export const signUpWithEmail = async (
@@ -116,7 +119,7 @@ export const signUpWithEmail = async (
 		.then(async () => {
 			const auth = getAuthApp();
 			await updateProfile(auth.currentUser, { displayName: firstName + ' ' + lastName });
-			createUserDocument(firstName, lastName);
+            createUserDocument(firstName, lastName)
 
 			alert('Successfully signed up', 'success');
 		})
@@ -151,8 +154,8 @@ export const signInWithGoogle = () => {
 			.then((result) => {
 				alert('Successsfully logged in', 'success');
 				const user = result.user;
-				const [firstName, lastName] = user.displayName.split(' ');
-				createUserDocument(firstName, lastName);
+                const [firstName, lastName] = user.displayName.split(' ');
+                createUserDocument(firstName, lastName);
 				resolve('Successfully logged in');
 			})
 			.catch(() => {
@@ -172,8 +175,8 @@ export const signInWithGithub = () => {
 			.then((result) => {
 				alert('Successsfully logged in', 'success');
 				const user = result.user;
-				const [firstName, lastName] = user.displayName.split(' ');
-				createUserDocument(firstName, lastName);
+                const [firstName, lastName] = user.displayName.split(' ');
+                createUserDocument(firstName, lastName);
 
 				resolve('Successfully logged in');
 			})
@@ -194,8 +197,8 @@ export const signInWithFacebook = () => {
 			.then((result) => {
 				alert('Successsfully logged in', 'success');
 				const user = result.user;
-				const [firstName, lastName] = user.displayName.split(' ');
-				createUserDocument(firstName, lastName);
+                const [firstName, lastName] = user.displayName.split(' ');
+                createUserDocument(firstName, lastName);
 
 				resolve('Successfully logged in');
 			})
