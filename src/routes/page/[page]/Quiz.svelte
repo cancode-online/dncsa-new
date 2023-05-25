@@ -3,8 +3,7 @@
 	import LucideArrowLeft from '~icons/lucide/arrow-left';
 	import { onMount } from 'svelte';
 
-
-	import { database } from '$firebase';
+	import { user, database } from '$firebase';
 	import { doc, getDoc} from 'firebase/firestore'
 
 	export let webpage = '';
@@ -64,7 +63,19 @@
 
 	async function submit() {
 		if (can_submit) {
-			
+			const response = await fetch(`/api/quiz`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				selected_answers: selected_answers,
+				userUid: $user.uid,
+				webpage: webpage
+			})
+		});
+
+			console.log('you win')
 		}
 	}
 </script>
