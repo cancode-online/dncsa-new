@@ -10,19 +10,24 @@ All one needs to access the content of the website is signing in through Google.
 ## Developing
 
 When cloning the site and developing, one will need to run ` npm install -g pnpm ` in their bash terminal for the project. This will only work with updated versions of npm and nvm/node.js.  
+
 Use ` curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash ` to install the newest version of nvm (Node Version Manager). 
 (As of May 2023)  
+
 After installating nvm, run ` nvm install node `.  
+
 After all installations are finished, run ` pnpm i ` in terminal.
+
 To run a local version of the server, run ` pnpm run dev `
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+All commands:
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+nvm install node
+npm install -g pnpm
+pnpm i
+pnpm run dev
 ```
 
 ## Building
