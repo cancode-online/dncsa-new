@@ -9,7 +9,7 @@ All one needs to access the content of the website is signing in through Google.
 
 ## Developing
 
-When cloning the site and developing, one will need to run ` npm install -g pnpm `. This will only work with updated versions of npm and node.js
+When cloning the site and developing, one will need to run ` npm install -g pnpm `. This will only work with updated versions of npm and nvm/node.js
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
 ```bash
