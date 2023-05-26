@@ -143,7 +143,7 @@
 		<Frq {webpage} />
 	</div>
 {:else if type === 'quiz_assignment'}
-	<div class="bg-blue-500 w-full h-64">
+	<div class="w-full h-64">
 		<Quiz {webpage} />
 	</div>
 {:else}

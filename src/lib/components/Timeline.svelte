@@ -20,13 +20,10 @@
 		for (let folder in _folderMetadata) {
 			timeline.push(_folderMetadata[folder]);
 		}
-		// timeline.forEach((value) => {
-		// console.log(value.date);
-		// });
 		timeline.sort(sortFunction);
-		console.log(timeline);
 		timeline = timeline;
 	})();
+
 </script>
 
 <div class="bg-base-200 w-56 h-fit flex flex-col p-1 gap-1">
@@ -36,13 +33,13 @@
 		</div>
 		<span class="self-center normal-case">Timeline</span>
 	</div>
-	{#each timeline as page}
-		<a href="/page/{page.order[0]}">
-			<div class="btn btn-ghost btn-sm flex justify-start px-2 gap-2">
+	{#each timeline as _page, i}
+		<a href="/page/{_page.order[0]}">
+			<div class="btn btn-ghost btn-sm flex justify-start px-2 gap-2 {_page.order[0] === $page.params.page ? "btn-primary" : ""}">
 				<div>
 					<LucideFiles />
 				</div>
-				<span class="self-center normal-case"> {page.title} </span>
+				<span class="self-center normal-case"> {_page.title} </span>
 			</div>
 		</a>
 	{/each}
