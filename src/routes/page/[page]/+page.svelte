@@ -16,10 +16,11 @@
 	let webpage = '/';
 	$: webpage = $page.params.page;
 
+	let updated = false;
+
 	let type = '';
 
-	onMount(async () => {
-		
+	async function updatePagesFirebase(){
 		const db = database();
 		const pageDocRef = doc(db, 'pages' + '/' + webpage);
 		const pageDocSnapshot = await getDoc(pageDocRef);
@@ -58,6 +59,9 @@
 
 				await setDoc(pageDocRef, pageData);
 
+				updated = true;
+				type = post.metadata.type;
+
 			}
 
 			else{
@@ -74,6 +78,8 @@
 				console.log(pageData);
 
 				await setDoc(pageDocRef, pageData, {merge: true});
+				updated = true
+				type = post.metadata.type;
 
 			}
 
@@ -81,10 +87,17 @@
 		
 		else {
 			if (post.metadata.type === 'page'){
-				deleteDoc(pageDocRef);
+				await deleteDoc(pageDocRef);
+				updated = true;
+
+				type = post.metadata.type;
 			}
 		}
+	}
 
+	onMount(async () => {
+		await updatePagesFirebase(); 
+		updated = true; 
 	});
 
 	let showmetadata = false;
@@ -96,6 +109,7 @@
 	function viewTable() {
 		showmetadata = false;
 	}
+
 </script>
 
 {#if $admin}
@@ -140,7 +154,9 @@
 	{/if}
 {:else if type === 'frq_assignment'}
 	<div class="bg-blue-500 w-full h-full">
+		{#if updated}
 		<Frq {webpage} />
+		{/if}
 	</div>
 {:else if type === 'quiz_assignment'}
 	<div class="bg-blue-500 w-full h-64">

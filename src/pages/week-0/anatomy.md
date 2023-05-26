@@ -3,7 +3,10 @@ title: anatomy
 date: '2022-08-15'
 summary: "A progressive journey through Java's anatomy starting with the classic Hello, World! example."
 tags: []
-type: 'page'
+due_start: '2023-04-21'
+due_end: '2023-04-21'
+grade_total: 3
+type: 'frq_assignment'
 ---
 
 <script>
