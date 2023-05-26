@@ -43,7 +43,7 @@
 			<div class="w-full p-1 bg-base-200 !rounded-b-none">
 				<Tabs />
 			</div>
-			<div class="!rounded-t-none" bind:clientWidth={pageMaxWidth}>
+			<div class="!rounded-t-none flex flex-col" bind:clientWidth={pageMaxWidth}>
 				<slot maxWidth={pageMaxWidth} />
 			</div>
 		</div>
