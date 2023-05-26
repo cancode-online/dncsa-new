@@ -40,5 +40,8 @@ export async function POST({ request, fetch }) {
 		}
 	}, {merge: true});
 	
-	return new Response(JSON.stringify({}), { status: 200 });
+	return new Response(JSON.stringify({
+		correct: correct,
+		score: score,
+	}), { status: 200 });
 }
