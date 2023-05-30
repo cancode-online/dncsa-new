@@ -29,7 +29,7 @@ export async function POST({ request, fetch }) {
 
 	// removes user from ungraded submissions page
 
-	const userDocRef = doc(db, 'users', data.userUid);
+	const userDocRef = doc(db, `users/${data.userUid}`);
 	const userDocSnap = getDoc(userDocRef);
 	const user = (await userDocSnap).data();
 
@@ -39,9 +39,23 @@ export async function POST({ request, fetch }) {
 			total: user.grade.total + pageDocData.grade_total
 		}
 	}, {merge: true});
-	
+
+	// states the quiz is submitted in user data
+
+	const submissionsRef = doc(userDocRef, `/pages/${data.webpage}`);
+	await setDoc(submissionsRef, {
+		total_submissions: 1,
+		grade: {
+			earned: score,
+			total: pageDocData.grade_total
+		}
+	}, {merge: true});
+
+	// return
+
 	return new Response(JSON.stringify({
 		correct: correct,
 		score: score,
 	}), { status: 200 });
+
 }
