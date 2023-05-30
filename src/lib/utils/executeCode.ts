@@ -1,6 +1,6 @@
 import { Buffer } from 'buffer';
 
-const languages = [
+export const languages = [
 	{
 		names: ['python', 'py'],
 		id: 71
