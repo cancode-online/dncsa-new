@@ -10,22 +10,42 @@
 </script>
 
 <div class="flex justify-center gap-4 p-4">
-	<div
-		class="flex flex-1 justify-end pt-16"
-		in:fly={{
-			y: 100,
+	<div class='flex flex-col flex-1 pt-16 gap-4'>
+		<div
+			class="flex justify-end"
+			in:fly={{
+				y: 100,
+				duration: 800,
+				delay: 200,
+				easing: backOut
+			}}
+			out:fly={{
+				y: 100,
+				duration: 600,
+				delay: 0,
+				easing: backIn
+			}}
+		>
+			<Timeline />
+		</div>
+		<a href='/users' in:fly={{
+			x: -100,
 			duration: 800,
 			delay: 200,
 			easing: backOut
 		}}
 		out:fly={{
-			y: 100,
+			x: -100,
 			duration: 600,
 			delay: 0,
 			easing: backIn
-		}}
-	>
-		<Timeline />
+		}}>
+			<button class='btn btn-primary h-fit p-2 w-56 self-end flex justify-center'>
+				<span class='self-center'>
+					View all grades
+				</span>
+			</button>
+		</a>
 	</div>
 
 	<div

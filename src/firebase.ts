@@ -30,6 +30,36 @@ const APP = initializeApp({
     measurementId: "G-2G3ESBL1DQ"
 });
 
+export async function saveQuestion(question: string, answerChoices: string[], correctAnswers: number[]) {
+	try {
+	  // Prepare the question data
+	  const questions = [{question: question, answers: answerChoices}];
+	  console.log('questions:' + JSON.stringify(questions));
+  
+	  // Save the question data to Firestore
+	  const db = database();
+	  const docRef = doc(db, 'pages', 'unit-5');
+	  const docSnap = await getDoc(docRef);
+	  const document = docSnap.data();
+	  console.log('document:' + JSON.stringify(document));
+	  let correct_answers = correctAnswers;
+	  if(document != null){
+		questions.push(...document.questions);
+		correct_answers = [...correctAnswers, ...document.correct_answers];
+	  }
+	  console.log('correct_answers:' + correct_answers);
+	  const updatedData = {questions: questions, correct_answers: correct_answers};
+	  console.log('updatedData:' + JSON.stringify(updatedData));
+	 
+	  await setDoc(docRef, updatedData);
+
+	  console.log('document:' + JSON.stringify(document));
+
+	} catch (error) {
+	  console.error('Error saving question:', error);
+	}
+  }
+
 export const authenticated = writable(undefined) as Writable<boolean | undefined>;
 export const getAuthApp = () => {
 	return getAuth(APP);
