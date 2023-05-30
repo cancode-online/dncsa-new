@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import { initializeApp } from 'firebase/app';
 import type { Writable } from 'svelte/store';
 import type { User } from 'firebase/auth';
@@ -51,7 +51,7 @@ export async function saveQuestion(question: string, answerChoices: string[], co
 	  const updatedData = {questions: questions, correct_answers: correct_answers};
 	  console.log('updatedData:' + JSON.stringify(updatedData));
 	 
-	  await setDoc(docRef, updatedData);
+	  await updateDoc(docRef, updatedData);
 
 	  console.log('document:' + JSON.stringify(document));
 
