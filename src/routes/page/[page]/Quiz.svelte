@@ -18,10 +18,8 @@
 		const db = database();
 		const auth = getAuthApp();
 
-		const userDocRef = doc(db, `users/${auth.currentUser.uid}`);
-		const usersColRef = collection(userDocRef, 'pages');
-		const submissionsRef = doc(usersColRef, webpage);
-		const submittedSnapshot = await getDoc(submissionsRef);
+		const submittedRef = doc(db, `users/${auth.currentUser.uid}/pages/${webpage}`);
+		const submittedSnapshot = await getDoc(submittedRef);
 		const submittedData = submittedSnapshot.data();
 
 		if (submittedData.total_submissions == 0) {
@@ -103,15 +101,6 @@
 			score = data.score;
 			correct = data.correct;
 			submitted = true;
-		
-		const db = database();
-		const auth = getAuthApp();
-
-		const userDocRef = doc(db, `users/${auth.currentUser.uid}`);
-		const usersColRef = collection(userDocRef, 'pages');
-		const submissionsRef = doc(usersColRef, webpage);
-		await setDoc(submissionsRef, {total_submissions: 1}, {merge: true});
-
 		}
 	}
 </script>
