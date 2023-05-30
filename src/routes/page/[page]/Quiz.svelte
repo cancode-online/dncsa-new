@@ -3,8 +3,9 @@
 	import LucideArrowLeft from '~icons/lucide/arrow-left';
 	import { onMount } from 'svelte';
 
-	import { user, database } from '$firebase';
-	import { doc, getDoc} from 'firebase/firestore'
+	import { user, database, getAuthApp } from '$firebase';
+	import { collection, doc, getDoc, setDoc} from 'firebase/firestore'
+	import { updateCurrentUser } from 'firebase/auth';
 
 	export let webpage = '';
 
@@ -15,21 +16,33 @@
 	onMount(async ()=> {
 
 		const db = database();
-		const docRef = doc(db, `pages/${webpage}`);
-		const docSnap = await getDoc(docRef);
-		const docData = docSnap.data();
+		const auth = getAuthApp();
 
-		const _questions = docData.questions; 
-		const correct_answers = docData.correct_answers
+		const userDocRef = doc(db, `users/${auth.currentUser.uid}`);
+		const usersColRef = collection(userDocRef, 'pages');
+		const submissionsRef = doc(usersColRef, webpage);
+		const submittedSnapshot = await getDoc(submissionsRef);
+		const submittedData = submittedSnapshot.data();
 
-		for (let i = 0; i < correct_answers.length; i++) {
+		if (submittedData.total_submissions == 0) {
+			const docRef = doc(db, `pages/${webpage}`);
+			const docSnap = await getDoc(docRef);
+			const docData = docSnap.data();
 
-			selected_answers.push(-1);
+			const _questions = docData.questions; 
+			const correct_answers = docData.correct_answers
 
+			for (let i = 0; i < correct_answers.length; i++) {
+
+				selected_answers.push(-1);
+
+			}
+
+			grade_total = docData.grade_total;
+			questions = _questions;
+		} else {
+			submitted = true;
 		}
-
-		grade_total = docData.grade_total;
-		questions = _questions;
 	});
 
 	let questions = [
@@ -61,6 +74,8 @@
 			}
 		}
 
+
+
 		can_submit = selected_answers.length > 0 ? (all_answered ? true : false) : false;
 	}
 
@@ -70,6 +85,9 @@
 
 	async function submit() {
 		if (can_submit) {
+			
+			// updating user submission
+
 			const response = await fetch(`/api/quiz`, {
 			method: 'POST',
 			headers: {
@@ -85,6 +103,15 @@
 			score = data.score;
 			correct = data.correct;
 			submitted = true;
+		
+		const db = database();
+		const auth = getAuthApp();
+
+		const userDocRef = doc(db, `users/${auth.currentUser.uid}`);
+		const usersColRef = collection(userDocRef, 'pages');
+		const submissionsRef = doc(usersColRef, webpage);
+		await setDoc(submissionsRef, {total_submissions: 1}, {merge: true});
+
 		}
 	}
 </script>
