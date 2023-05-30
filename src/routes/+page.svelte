@@ -1,25 +1,51 @@
 <script lang="ts">
 	import { fade, fly } from 'svelte/transition';
 	import MarkdownEditor from '\$/lib/components/MarkdownEditor.svelte';
-	import { database, user, admin } from '\$/firebase';
-	import { getDoc, collection, doc, orderBy, getDocs, query} from 'firebase/firestore';
+	import { database, admin } from '\$/firebase';
+	import { getDoc, collection, doc, orderBy, getDocs, query, setDoc, addDoc} from 'firebase/firestore';
 	import { onMount } from 'svelte';
-	import { query_selector_all } from 'svelte/internal';
+	import { getAuthApp } from '\$/firebase';
+	import { each, query_selector_all } from 'svelte/internal';
+	import SvelteMarkdown from 'svelte-markdown';
+	import { dateSinceFormatter } from '$utils/dateSinceFormatter';
 
 	let value = '# Post an Announcement';
+
+	const auth = getAuthApp();
+
+	let userDoc;
+
+	let sortedAnnouncements;
+
 
 	onMount(async () => {
 		const db = database();
 		const announcementsRef = collection(db, 'announcements');
-		const announcementQuery = query(announcementsRef, orderBy('createdAt', 'desc'));
-		const querySnapshot = await getDocs(announcementQuery);
-		const mostRecentDoc = querySnapshot.docs[0];
-		const mostRecentAnnouncement = mostRecentDoc.data();
+		const querySnapshot = await getDocs(query(announcementsRef, orderBy('createdAt', 'desc')));
+		
+		const docRef = doc(db, 'users', auth.currentUser.uid);
+    	const docSnap = await getDoc(docRef);
+    	userDoc = docSnap.data();
+		
+		sortedAnnouncements = querySnapshot.docs.map((doc) => doc.data());
+		console.log(sortedAnnouncements);
 
-		console.log(mostRecentAnnouncement);
 	});
 
-	function
+	async function submit() {
+
+		const db = database();
+		const announcementsRef = collection(db, 'announcements');
+
+		let announcement_data = {
+			author: userDoc.first_name + ' ' + userDoc.last_name,
+			content: value,
+			createdAt: new Date(),
+		};
+
+		await addDoc(announcementsRef, announcement_data);
+}
+
 
 
 
@@ -35,32 +61,50 @@
 
 		</div>
 
-		<div class='bg-base-100 w-full min-h-[28rem]'>
-			<div class="flex flex-col w-full min-h-[2rem] p-2 justify-center">
-				
-				<span class="self-start text-xl mb-5 font-bold">Teacher Announcement:</span>
-				
-				<div class="flex flex-row w-full h-full gap-2">
+		<div class='w-full min-h-[28rem] max-h-[48rem] bg-base-300 px-2 py-2 overflow-scroll'>
 
-					<div class="avatar self-center">
-						<div class="w-10 rounded-full h-fit border border-lg border-base-300">
-						<img src="https://pbs.twimg.com/profile_images/1665064826/IMG_4772_400x400.jpg" />
+			<span class="self-start text-xl font-bold">Teacher Announcements:</span>
+
+			{#if sortedAnnouncements}
+
+				{#each sortedAnnouncements as post }
+
+					<div class="flex flex-col w-full min-h-[2rem] mt-4 justify-center bg-base-200">
+						<article class="flex flex-row w-full h-full gap-2 prose px-4 pt-4">
+
+							<div class="avatar self-center">
+								<div class="w-10 rounded-full h-fit border border-lg border-base-300">
+								<img src={auth.currentUser?.photoURL} />
+								</div>
+							</div>
+							
+
+							<span class="self-center text-sm">{post.author}</span>
+
+							<span class="self-center text-sm opacity-30"> • </span>
+
+							<span class="self-center text-sm opacity-30">{dateSinceFormatter(post.createdAt)}</span>
+
+						</article>
+
+						<div class="divider w-11/12 self-center"></div> 
+						
+						<div class="prose px-4 pb-4">
+							<SvelteMarkdown source={post.content}/>
 						</div>
-					</div>
 					
+				
+					</div>
 
-					<span class="self-center text-sm">John Mortensen</span>
+				{/each}
 
-					<span class="self-center text-sm opacity-30"> • </span>
+			{/if}
 
-				</div>
-
-			</div>
 		</div>
 
 		<div class='bg-base-100 w-full min-h-[10rem] rounded-md'>
 			<MarkdownEditor bind:value={value}/>
-			<button class="btn btn-primary absolute right-3 bottom-3">Post</button>
+			<button on:click={submit} class="btn btn-primary absolute right-3 bottom-3">Post</button>
 		</div>
 
 	</div>
