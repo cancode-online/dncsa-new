@@ -42,9 +42,11 @@ export async function saveQuestion(question: string, answerChoices: string[], co
 	  const docSnap = await getDoc(docRef);
 	  const document = docSnap.data();
 	  console.log('document:' + JSON.stringify(document));
-	  // questions.push(document.questions); 
-	  const correct_answers = correctAnswers;
-	  // const correct_answers = correctAnswers.push(document.correct_answers);
+	  let correct_answers = correctAnswers;
+	  if(document != null){
+		questions.push(...document.questions);
+		correct_answers = [...correctAnswers, ...document.correct_answers];
+	  }
 	  console.log('correct_answers:' + correct_answers);
 	  const updatedData = {questions: questions, correct_answers: correct_answers};
 	  console.log('updatedData:' + JSON.stringify(updatedData));
