@@ -143,17 +143,17 @@
 		</div>
 	</div>
 	{#if !showmetadata}
-		<div class="bg-red-500">
+		<div>
 			<Table {webpage} />
 		</div>
 	{:else}
-		<div class="bg-red-500">
+		<div>
 			<Metadata {webpage} />
 			<QuizEditor {webpage} />
 		</div>
 	{/if}
 {:else if type === 'frq_assignment'}
-	<div class="bg-blue-500 w-full h-full">
+	<div class="w-full h-full">
 		{#if updated}
 		<Frq {webpage} />
 		{/if}

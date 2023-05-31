@@ -76,6 +76,10 @@
   }
 </script>
 
-<MarkdownEditor bind:value={value}/>
+<span class="text-xl font-bold">Submit Assignment:</span>
 
-<btn class="btn btn-primary" on:click={submit}>Submit</btn>
+<div class='bg-base-200 w-full min-h-[10rem] rounded-md'>
+  <MarkdownEditor bind:value={value}/>
+  <button on:click={submit} class="btn btn-primary absolute right-3 bottom-3">Post</button>
+</div>
+
