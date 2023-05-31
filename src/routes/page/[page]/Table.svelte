@@ -129,7 +129,7 @@
 
 						<td>
 							{#if user.recentSubmissionDate === 'N/A'}
-								<span class="text-neutral opacity-75">{user.gradeEarned}/{user.gradeTotal}</span>
+								<span class="text-neutral opacity-75">{user.recentSubmissionDate}</span>
 							{:else}
 								<span>{user.recentSubmissionDate}</span>
 							{/if}
