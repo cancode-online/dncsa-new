@@ -3,7 +3,10 @@ title: Unit 5
 date: '2023-04-21'
 summary: 'Lesson on topics covered in AP CSA Unit 5 (Classes)'
 tags: ['lesson', 'Unit 5']
-type: 'page'
+type: 'quiz_assignment'
+due_start: '2023-04-21'
+due_end: '2023-04-21'
+grade_total: 3
 ---
 
 <script>
