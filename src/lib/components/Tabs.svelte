@@ -13,8 +13,6 @@
 	authenticated.subscribe(async (value) => {
 		selectedTab = $page.url.pathname.split('/')[2] || '/';
 
-		console.log(selectedTab);
-
 		let _pages = await getPages();
 		let _folderMetadata = await getFolderMetadata();
 

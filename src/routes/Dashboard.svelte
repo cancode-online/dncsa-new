@@ -10,7 +10,7 @@
 </script>
 
 <div class="flex justify-center gap-4 p-4">
-	<div class='flex flex-col flex-1 pt-16 gap-4'>
+	<div class='flex flex-col flex-1 pt-16 gap-4 justify-start'>
 		<div
 			class="flex justify-end"
 			in:fly={{
@@ -28,7 +28,7 @@
 		>
 			<Timeline />
 		</div>
-		<a href='/users' in:fly={{
+		<a href='/users' class='self-end' in:fly={{
 			x: -100,
 			duration: 800,
 			delay: 200,
@@ -40,7 +40,7 @@
 			delay: 0,
 			easing: backIn
 		}}>
-			<button class='btn btn-primary h-fit p-2 w-56 self-end flex justify-center'>
+			<button class='btn btn-primary h-fit p-2 w-56 self-end right-0 flex justify-center'>
 				<span class='self-center'>
 					View all grades
 				</span>
