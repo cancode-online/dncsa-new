@@ -1,6 +1,7 @@
 import { arrayRemove, doc, getDoc, setDoc } from "firebase/firestore";
 import { onMount } from "svelte/internal";
 import { database, user } from "../../../firebase";
+import { collection } from "firebase/firestore";
 
 export async function POST({ request, fetch }) {
 
@@ -43,12 +44,23 @@ export async function POST({ request, fetch }) {
 	// states the quiz is submitted in user data
 
 	const submissionsRef = doc(userDocRef, `/pages/${data.webpage}`);
+
+	const submissionDateRef = collection(submissionsRef, "submissions");
+
+	const newSubmissionDocRef = doc(submissionDateRef);
+
+	await setDoc(newSubmissionDocRef, {
+	createdAt: new Date(),
+	});
+
+
 	await setDoc(submissionsRef, {
 		total_submissions: 1,
 		grade: {
 			earned: score,
-			total: pageDocData.grade_total
-		}
+			total: pageDocData.grade_total,
+		},
+		createdAt: new Date()
 	}, {merge: true});
 
 	// return
