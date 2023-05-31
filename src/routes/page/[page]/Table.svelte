@@ -87,6 +87,8 @@
 					);
 				}
 
+				userArray.userId = userId;
+
 				userData.push(userArray);
 			})
 		);
@@ -147,7 +149,9 @@
 							{#if user.recentSubmissionDate === 'N/A'}
 								<button class="btn btn-disabled btn-sm text-xs p-1 px-2">Details</button>
 							{:else}
+							<a href='{webpage}/user/{user.userId}'>
 								<button class="btn btn-primary btn-sm text-xs p-1 px-2">Details</button>
+							</a>
 							{/if}
 						</td>
 					</tr>
