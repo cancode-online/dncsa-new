@@ -1,3 +1,5 @@
+![image](https://github.com/TristanCopley/delnorte-csa/assets/89225438/bc74339e-0ce7-45eb-88be-42ecec4a95d5)
+
 # Del Norte CSA Website Redone
 
 An easier and simpler way for Mr. Mortensen to interact with his students and for his students to interact with his content during the entire school year for CSA. A better and cleaner version of jupyter notebook documentation.

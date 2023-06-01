@@ -7,7 +7,7 @@
 	import Metadata from './Metadata.svelte';
 	import QuizEditor from './QuizEditor.svelte';
 
-	import { getPages, getFolderMetadata } from '\$/lib/utils/pages';
+	import { getPages, getFolderMetadata } from '$/lib/utils/pages';
 
 	import { onMount } from 'svelte';
 	import { database, user } from '$/firebase';
@@ -20,7 +20,7 @@
 
 	let type = '';
 
-	async function updatePagesFirebase(){
+	async function updatePagesFirebase() {
 		const db = database();
 		const pageDocRef = doc(db, 'pages' + '/' + webpage);
 		const pageDocSnapshot = await getDoc(pageDocRef);
@@ -30,21 +30,15 @@
 
 		const _pages = await getPages();
 		const post = await _pages[webpage].import();
-		
-		
-		if(!pageDocData){
 
-			if (post.metadata.type === 'frq_assignment' || post.metadata.type === 'quiz_assignment'){
-			
+		if (!pageDocData) {
+			if (post.metadata.type === 'frq_assignment' || post.metadata.type === 'quiz_assignment') {
 				let pageData = {
-
 					correct_answers: {},
-					
-					questions:
-					{
+
+					questions: {
 						question: '',
 						answers: {}
-
 					},
 
 					grade_total: post.metadata.grade_total,
@@ -52,8 +46,7 @@
 					due_end: post.metadata.due_end,
 					type: post.metadata.type,
 					ungraded_submissions: []
-
-				}
+				};
 
 				console.log(pageData);
 
@@ -61,32 +54,22 @@
 
 				updated = true;
 				type = post.metadata.type;
-
-			}
-
-			else{
-
+			} else {
 				let pageData = {
-
 					grade_total: post.metadata.grade_total,
 					due_start: post.metadata.due_start,
 					due_end: post.metadata.due_end,
-					type: post.metadata.type,
-
-				}
+					type: post.metadata.type
+				};
 
 				console.log(pageData);
 
-				await setDoc(pageDocRef, pageData, {merge: true});
-				updated = true
+				await setDoc(pageDocRef, pageData, { merge: true });
+				updated = true;
 				type = post.metadata.type;
-
 			}
-
-		}
-		
-		else {
-			if (post.metadata.type === 'page'){
+		} else {
+			if (post.metadata.type === 'page') {
 				await deleteDoc(pageDocRef);
 				updated = true;
 
@@ -96,8 +79,8 @@
 	}
 
 	onMount(async () => {
-		await updatePagesFirebase(); 
-		updated = true; 
+		await updatePagesFirebase();
+		updated = true;
 	});
 
 	let showmetadata = false;
@@ -109,7 +92,6 @@
 	function viewTable() {
 		showmetadata = false;
 	}
-
 </script>
 
 {#if $admin}
@@ -149,13 +131,15 @@
 	{:else}
 		<div>
 			<Metadata {webpage} />
-			<QuizEditor {webpage} />
+			{#if type === 'quiz_assignment'}
+				<QuizEditor {webpage} />
+			{/if}
 		</div>
 	{/if}
 {:else if type === 'frq_assignment'}
 	<div class="w-full h-full">
 		{#if updated}
-		<Frq {webpage} />
+			<Frq {webpage} />
 		{/if}
 	</div>
 {:else if type === 'quiz_assignment'}
