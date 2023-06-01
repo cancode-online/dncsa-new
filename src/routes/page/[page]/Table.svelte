@@ -5,12 +5,6 @@
 	import { page } from '$app/stores';
 	export let webpage = '';
 
-	let webpage_metadata = {
-		due_start: '2021-10-10',
-		due_end: '2021-10-10',
-		grade_total: 1
-	};
-
 	let isDataLoaded = false;
 	let currentPageSlug: string;
 	const db = database();
