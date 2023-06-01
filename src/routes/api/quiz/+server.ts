@@ -44,9 +44,7 @@ export async function POST({ request, fetch }) {
 	// states the quiz is submitted in user data
 
 	const submissionsRef = doc(userDocRef, `/pages/${data.webpage}`);
-
 	const submissionDateRef = collection(submissionsRef, "submissions");
-
 	const newSubmissionDocRef = doc(submissionDateRef);
 
 	await setDoc(newSubmissionDocRef, {

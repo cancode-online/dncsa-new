@@ -32,30 +32,38 @@ const APP = initializeApp({
 
 export async function saveQuestion(webpage, question: string, answerChoices: string[], correctAnswers: number[]) {
 	try {
-	  // Prepare the question data
-	  let questions = [{question: question, answers: answerChoices}];
-	  console.log('questions:' + JSON.stringify(questions));
-  
-	  // Save the question data to Firestore
-	  const db = database();
-	  const docRef = doc(db, 'pages', webpage);
-	  const docSnap = await getDoc(docRef);
-	  let document = docSnap.data();
-	  console.log('document:' + JSON.stringify(document));
-	  let correct_answers = correctAnswers;
-	  if(document != null){
-		questions = questions.concat(document.questions);
-		correct_answers = correct_answers.concat(document.correct_answers);
-		const updatedData = {questions: questions, correct_answers: correct_answers};
-	  	console.log('updatedData:' + JSON.stringify(updatedData));
-	 	await updateDoc(docRef, updatedData);
-	  } else{
-		console.log('correct_answers:' + correct_answers);	
-		const data = {questions: questions, correct_answers: correct_answers}; 
-		await setDoc(docRef, data);
-	  }
-	  document = docSnap.data();
-	  console.log('document:' + JSON.stringify(document));
+		// Prepare the question data
+		let questions = [{question: question, answers: answerChoices}];
+		console.log('questions:' + JSON.stringify(questions));
+
+		// Save the question data to Firestore
+		
+		const docRef = doc(database(), 'pages', webpage);
+		const docSnap = await getDoc(docRef); 
+		let document = docSnap.data();
+		let updatedData;
+
+		if (document != null) {
+			
+			// questions and answers concat
+			questions = questions.concat(document.questions);
+			correctAnswers = correctAnswers.concat(document.correct_answers);
+
+			// update document
+			updatedData = { questions: questions, correct_answers: correctAnswers };
+			await updateDoc(docRef, updatedData);
+		
+		} else {
+			
+			// create new doc
+			const data = { 
+				questions: questions, 
+				correct_answers: correctAnswers 
+			};
+			await setDoc(docRef, data);
+		}
+		document = docSnap.data();
+		console.log('document:' + JSON.stringify(document));
 
 	} catch (error) {
 	  console.error('Error saving question:', error);

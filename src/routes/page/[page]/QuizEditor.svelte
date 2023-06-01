@@ -28,6 +28,7 @@
 			answerChoices[i] = '';
 		}
 
+		
 
 	}
 </script>
