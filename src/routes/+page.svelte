@@ -17,7 +17,6 @@
 
 	let sortedAnnouncements;
 
-
 	onMount(async () => {
 		const db = database();
 		const announcementsRef = collection(db, 'announcements');
@@ -46,12 +45,6 @@
 		await addDoc(announcementsRef, announcement_data);
 }
 
-
-
-
-	
-
-
 </script>
 
 <div class="w-full p-2 bg-base-200 max-w-2xl">
@@ -61,7 +54,7 @@
 
 		</div>
 
-		<div class='w-full min-h-[28rem] max-h-[48rem] bg-base-300 px-2 py-2 overflow-scroll'>
+		<div class='w-full min-h-[28rem] max-h-[48rem] bg-base-300 px-2 py-2 overflow-y-scroll'>
 
 			<span class="self-start text-xl font-bold">Teacher Announcements:</span>
 
@@ -78,11 +71,8 @@
 								</div>
 							</div>
 							
-
 							<span class="self-center text-sm">{post.author}</span>
-
 							<span class="self-center text-sm opacity-30"> • </span>
-
 							<span class="self-center text-sm opacity-30">{dateSinceFormatter(post.createdAt)}</span>
 
 						</article>
