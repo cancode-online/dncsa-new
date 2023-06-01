@@ -27,25 +27,27 @@
 		for (let i = 0; i < answerChoices.length; i++) {
 			answerChoices[i] = '';
 		}
+
+
 	}
 </script>
 
 <div class="flex flex-col bg-base-200 p-2">
-	<div class="w-full h-fit min-h-[8rem] flex flex-col p-2">
-		<div class="text-xs pb-2 opacity-50">Question</div>
+	<div class="w-full h-fit min-h-[8rem] flex flex-col">
+		<div class="text-xs pb-2 opacity-50 font-bold">Question</div>
 		<div class="pb-4">
 			<input
 				bind:value={question}
 				type="text"
 				placeholder="Type a question"
-				class="input w-full max-w-xs bg-base-200 placeholder:text-base-content/30"
+				class="input w-full max-w-full bg-base-100 placeholder:text-base-content/30"
 				name="question"
 				id="question"
 			/>
 		</div>
 	</div>
-	<div class="text-xs px-2 pb-2 opacity-50">Answers</div>
-	<div class="flex flex-col gap-2">
+	<div class="px-2 opacity-50 font-bold text-sm">Answers (Highlight Correct Answer):</div>
+	<div class="flex flex-col gap-2 pb-4">
 		{#each answerChoices as answer, i}
 			<button
 				on:click={() => {
@@ -62,7 +64,7 @@
 						bind:value={answerChoices[i]}
 						type="text"
 						placeholder="Type an answer choice"
-						class="input w-full max-w-xs bg-base-100 placeholder:text-base-content/30"
+						class="input w-full max-w-lg h-fit bg-base-200 placeholder:text-base-content/30"
 						name={'a' + i}
 						id={'a' + i}
 					/>
