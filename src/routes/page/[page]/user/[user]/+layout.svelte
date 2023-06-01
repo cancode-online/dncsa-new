@@ -24,6 +24,23 @@
 
 	let selectedTab = 0;
 
+	$: {
+
+		let foo = grade;
+
+		// Set user grade using firebase
+		setGrade()
+
+	}
+
+	async function setGrade() {
+
+		// Set user grade using firebase
+
+	}
+
+	let grade = 0;
+
 </script>
 
 {#if $admin}
@@ -54,8 +71,11 @@
 					</a>
 					{/each}
 					<div class='bg-green-500 flex justify-end gap-2 w-full h-12 self-end flex-1 p-2'>
-						<div class='bg-orange-500 w-20'>
-							
+						<div class='bg-base-100 w-28 flex justify-center text-base-content'>
+							<input type="text" placeholder="?" bind:value={grade} class="bg-transparent w-10 text-right rounded-sm text h-8 border-none outline-none" />
+							<div class='h-fit w-20 self-center text-left pl-2 '>
+								/ 3
+							</div>
 						</div>
 						<div class='bg-red-500 w-20'>
 							
@@ -73,7 +93,7 @@
 {/if}
 
 <style lang="postcss">
-	div {
+	div, input {
 		border-radius: var(--rounded-btn, 0.5rem);
 	}
 
