@@ -5,6 +5,7 @@
 	import Timeline from '$/lib/components/Timeline.svelte';
 	import Notifications from '$/lib/components/Notifications.svelte';
 	import Tabs from '$/lib/components/Tabs.svelte';
+	import { admin } from '$/firebase';
 
 	let pageMaxWidth = 0;
 </script>
@@ -28,6 +29,7 @@
 		>
 			<Timeline />
 		</div>
+		{#if $admin}
 		<a href='/users' class='self-end' in:fly={{
 			x: -100,
 			duration: 800,
@@ -46,6 +48,25 @@
 				</span>
 			</button>
 		</a>
+		<a href='/users' class='self-end' in:fly={{
+			x: -100,
+			duration: 800,
+			delay: 200,
+			easing: backOut
+		}}
+		out:fly={{
+			x: -100,
+			duration: 600,
+			delay: 0,
+			easing: backIn
+		}}>
+			<button class='btn btn-primary h-fit p-2 w-56 self-end right-0 flex justify-center'>
+				<span class='self-center'>
+					Edit groups
+				</span>
+			</button>
+		</a>
+		{/if}
 	</div>
 
 	<div
