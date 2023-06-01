@@ -1,9 +1,12 @@
 ---
 title: Unit 9
 date: '2023-04-21'
+due_start: '2023-04-21'
+due_end: '2023-04-21'
+grade_total: 3
 summary: 'Lesson on topics covered in AP CSA Unit 9 (Inheritance)'
 tags: ['lesson', 'Unit 9']
-type: 'page'
+type: 'quiz_assignment'
 ---
 
 <script>

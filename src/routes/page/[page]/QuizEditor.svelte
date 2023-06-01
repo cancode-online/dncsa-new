@@ -1,6 +1,4 @@
 <script lang="ts">
-	import LucideArrowRight from '~icons/lucide/arrow-right';
-	import LucideArrowLeft from '~icons/lucide/arrow-left';
 	import { saveQuestion } from '$firebase';
 
 	export let webpage = '';
@@ -24,7 +22,7 @@
 	}
 
 	async function handleSaveQuestion() {
-		await saveQuestion(question, answerChoices, correct_answers);
+		await saveQuestion(webpage, question, answerChoices, correct_answers);
 		question = '';
 		for (let i = 0; i < answerChoices.length; i++) {
 			answerChoices[i] = '';

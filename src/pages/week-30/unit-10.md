@@ -1,9 +1,12 @@
 ---
 title: Unit 10
 date: '2023-04-21'
+due_start: '2023-05-31'
+due_end: '2023-05-31'
+grade_total: 3
 summary: 'Lesson on topics covered in AP CSA Unit 10 (Recursion)'
 tags: ['lesson', 'Unit 10']
-type: 'page'
+type: 'quiz_assignment'
 ---
 
 <script>

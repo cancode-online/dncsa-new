@@ -30,7 +30,7 @@ const APP = initializeApp({
     measurementId: "G-2G3ESBL1DQ"
 });
 
-export async function saveQuestion(question: string, answerChoices: string[], correctAnswers: number[]) {
+export async function saveQuestion(webpage, question: string, answerChoices: string[], correctAnswers: number[]) {
 	try {
 	  // Prepare the question data
 	  let questions = [{question: question, answers: answerChoices}];
@@ -38,12 +38,12 @@ export async function saveQuestion(question: string, answerChoices: string[], co
   
 	  // Save the question data to Firestore
 	  const db = database();
-	  const docRef = doc(db, 'pages', 'unit-5');
+	  const docRef = doc(db, 'pages', webpage);
 	  const docSnap = await getDoc(docRef);
 	  let document = docSnap.data();
 	  console.log('document:' + JSON.stringify(document));
 	  let correct_answers = correctAnswers;
-	  if(document != undefined){
+	  if(document != null){
 		questions = questions.concat(document.questions);
 		correct_answers = correct_answers.concat(document.correct_answers);
 		const updatedData = {questions: questions, correct_answers: correct_answers};
