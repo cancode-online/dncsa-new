@@ -94,8 +94,8 @@
 		<div class="absolute left-0 bottom-0 tabs flex !rounded-b-none px-2 overflow-hidden">
 			{#each tabsArray as tab, i}
 				<a
-					href={tab.slug}
-					class="tab border-none tab-lifted !px-4 !py-0 {selectedTab === tab.slug
+					href={'/page/' + tab?.slug}
+					class="tab border-none tab-lifted !px-4 !py-0 {selectedTab === tab?.slug
 						? 'tab-active'
 						: ''}"
 					in:fly={{
