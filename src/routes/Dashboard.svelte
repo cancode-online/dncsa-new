@@ -48,7 +48,7 @@
 				</span>
 			</button>
 		</a>
-		<a href='/users' class='self-end' in:fly={{
+		<a href='/groups' class='self-end' in:fly={{
 			x: -100,
 			duration: 800,
 			delay: 200,
