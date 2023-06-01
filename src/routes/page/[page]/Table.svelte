@@ -4,6 +4,7 @@
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	export let webpage = '';
+	export let search_value = '';
 
 	let isDataLoaded = false;
 	let currentPageSlug: string;
@@ -108,47 +109,49 @@
 			</thead>
 			<tbody>
 				{#each userData as user, i}
-					<tr>
-						<td>
-							{i}
-						</td>
+				{#if (user.first_name + user.last_name).toString().toLocaleLowerCase().includes(search_value.toString().toLowerCase()) || search_value.length === 0 }
+				<tr>
+					<td>
+						{i}
+					</td>
 
-						<td class="font-bold">
-							{#if user.status === 'Not Submitted'}
-								<span class="text-error font-bold">{user.status}</span>
-							{:else}
-								<span class="text-success font-bold">{user.status}</span>
-							{/if}
-						</td>
+					<td class="font-bold">
+						{#if user.status === 'Not Submitted'}
+							<span class="text-error font-bold">{user.status}</span>
+						{:else}
+							<span class="text-success font-bold">{user.status}</span>
+						{/if}
+					</td>
 
-						<td>{user.first_name} {user.last_name}</td>
+					<td>{user.first_name} {user.last_name}</td>
 
-						<td>
-							{#if user.recentSubmissionDate === 'N/A'}
-								<span class="text-neutral opacity-75">{user.recentSubmissionDate}</span>
-							{:else}
-								<span>{user.recentSubmissionDate}</span>
-							{/if}
-						</td>
+					<td>
+						{#if user.recentSubmissionDate === 'N/A'}
+							<span class="text-neutral opacity-75">{user.recentSubmissionDate}</span>
+						{:else}
+							<span>{user.recentSubmissionDate}</span>
+						{/if}
+					</td>
 
-						<td>
-							{#if user.gradeEarned === 'N'}
-								<span class="text-neutral opacity-75">{user.gradeEarned}/{user.gradeTotal}</span>
-							{:else}
-								<span>{user.gradeEarned}/{user.gradeTotal}</span>
-							{/if}
-						</td>
+					<td>
+						{#if user.gradeEarned === 'N'}
+							<span class="text-neutral opacity-75">{user.gradeEarned}/{user.gradeTotal}</span>
+						{:else}
+							<span>{user.gradeEarned}/{user.gradeTotal}</span>
+						{/if}
+					</td>
 
-						<td>
-							{#if user.recentSubmissionDate === 'N/A'}
-								<button class="btn btn-disabled btn-sm text-xs p-1 px-2">Details</button>
-							{:else}
-							<a href='{webpage}/user/{user.userId}'>
-								<button class="btn btn-primary btn-sm text-xs p-1 px-2">Details</button>
-							</a>
-							{/if}
-						</td>
-					</tr>
+					<td>
+						{#if user.recentSubmissionDate === 'N/A'}
+							<button class="btn btn-disabled btn-sm text-xs p-1 px-2">Details</button>
+						{:else}
+						<a href='{webpage}/user/{user.userId}'>
+							<button class="btn btn-primary btn-sm text-xs p-1 px-2">Details</button>
+						</a>
+						{/if}
+					</td>
+				</tr>
+				{/if}
 				{/each}
 			</tbody>
 		</table>
