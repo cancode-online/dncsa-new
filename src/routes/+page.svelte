@@ -9,6 +9,7 @@
 	import SvelteMarkdown from 'svelte-markdown';
 	import { dateSinceFormatter } from '$utils/dateSinceFormatter';
 
+
 	let value = '# Post an Announcement';
 
 	const auth = getAuthApp();
@@ -51,7 +52,7 @@
 	<div class='flex flex-col gap-2' in:fly={{ y: 50, duration: 400, delay: 100 }} out:fade={{ duration: 100 }}>
 
 		<div class='bg-red-500 w-full h-96'>
-
+			<img src='https://github.com/TristanCopley/delnorte-csa/assets/89225438/bc74339e-0ce7-45eb-88be-42ecec4a95d5' alt="bomb" width="656" height="450">
 		</div>
 
 		<div class='w-full min-h-[28rem] max-h-[48rem] bg-base-300 px-2 py-2 overflow-y-scroll'>
