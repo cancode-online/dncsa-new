@@ -45,7 +45,12 @@
 					due_start: post.metadata.due_start,
 					due_end: post.metadata.due_end,
 					type: post.metadata.type,
-					ungraded_submissions: []
+
+					submissions: {
+						ungraded_submissions: [],
+						submitted_submissions: [],
+						graded_submissions: {}	
+					}
 				};
 
 				console.log(pageData);

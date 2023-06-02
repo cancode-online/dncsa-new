@@ -10,8 +10,7 @@ export async function POST({ request, fetch }) {
 
 	// request : selected_answers & webpage & clientUid
 
-	const db = database();
-	const pageDocRef = doc(db, `pages/${data.webpage}`);
+	const pageDocRef = doc(database(), `pages/${data.webpage}`);
 	const pageDocSnapshot = await getDoc(pageDocRef);
 	const pageDocData = pageDocSnapshot.data();
 
@@ -28,7 +27,7 @@ export async function POST({ request, fetch }) {
 
 	const score = correct / (correct_answers.length) * pageDocData.grade_total;
 
-	// removes user from ungraded submissions page
+	// updates total score for user
 
 	const userDocRef = doc(db, `users/${data.userUid}`);
 	const userDocSnap = getDoc(userDocRef);
@@ -41,24 +40,39 @@ export async function POST({ request, fetch }) {
 		}
 	}, {merge: true});
 
-	// states the quiz is submitted in user data
-
-	const submissionsRef = doc(userDocRef, `/pages/${data.webpage}`);
-	const submissionDateRef = collection(submissionsRef, "submissions");
-	const newSubmissionDocRef = doc(submissionDateRef);
-
-	await setDoc(newSubmissionDocRef, {
-	createdAt: new Date(),
-	});
-
-
-	await setDoc(submissionsRef, {
+	// updates score for users collection of pages
+	
+	const userPageRef = doc(userDocRef, `/pages/${data.webpage}`);
+	
+	await setDoc(userPageRef, {
 		total_submissions: 1,
 		grade: {
 			earned: score,
 			total: pageDocData.grade_total,
 		},
 		createdAt: new Date()
+	});
+
+	// updates page information for whose submitted 
+
+	let ungradedArray = pageDocData.submissions.ungraded_submissions;
+
+	const userIdIndex = ungradedArray.indexOf(data.userUid);
+	if (index > -1) {
+		ungradedArray.splice(userIdIndex, 1);
+	}
+
+	let submittedArray = pageDocData.submissions.submitted_submissions;
+
+	console.log("submitted Array" + submittedArray);
+
+	submittedArray.push(data.userUid);
+
+	await setDoc(pageDocRef, {
+		submissions: {
+			ungraded_submissions: ungradedArray,
+			submitted_submissions: submittedArray,
+		}
 	}, {merge: true});
 
 	// return

@@ -50,15 +50,29 @@ export async function saveQuestion(webpage, question: string, answerChoices: str
 			correctAnswers = correctAnswers.concat(document.correct_answers);
 
 			// update document
-			updatedData = { questions: questions, correct_answers: correctAnswers };
-			await updateDoc(docRef, updatedData);
+			updatedData = { 
+				questions: questions, 
+				correct_answers: correctAnswers,
+				submissions: {
+					ungraded_submissions: [],
+					submitted_submissions: [],
+					graded_submissions: [],	
+				}
+			};
+
+			await updateDoc(docRef, updatedData, {merge: true});
 		
 		} else {
 			
 			// create new doc
 			const data = { 
 				questions: questions, 
-				correct_answers: correctAnswers 
+				correct_answers: correctAnswers,
+				submissions: {
+					ungraded_submissions: [],
+					submitted_submissions: [],
+					graded_submissions: [],	
+				} 
 			};
 			await setDoc(docRef, data);
 		}
