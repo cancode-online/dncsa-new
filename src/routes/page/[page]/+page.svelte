@@ -92,13 +92,16 @@
 	function viewTable() {
 		showmetadata = false;
 	}
+
+	let search_value = '';
+
 </script>
 
 {#if $admin}
 	<!--$admin-->
 	<div class="bg-base-200 h-12 !rounded-b-none flex justify-between p-2">
 		<div class="flex gap-2">
-			<input type="text" placeholder="Search..." class="input h-8 w-48" />
+			<input bind:value={search_value} type="text" placeholder="Search..." class="input h-8 w-48" />
 			<select class="select max-w-xs h-8 min-h-0 w-48">
 				<option disabled selected>Group</option>
 				<option>All</option>
@@ -126,7 +129,7 @@
 	</div>
 	{#if !showmetadata}
 		<div>
-			<Table {webpage} />
+			<Table {webpage} {search_value} />
 		</div>
 	{:else}
 		<div>

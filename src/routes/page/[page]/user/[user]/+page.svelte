@@ -1,38 +1,58 @@
 <script lang='ts'>
+	import SvelteMarkdown from 'svelte-markdown';
 
 	import { onMount } from 'svelte';
 	import { database, getAuthApp } from '$firebase';
-	import { collection, query, orderBy, getDocs, doc, getDoc } from 'firebase/firestore/lite';
+	import { collection, query, orderBy, getDocs, doc, getDoc } from 'firebase/firestore';
 
 	import { admin } from '$firebase';
 	import { page } from '$app/stores';
 
 	let currentUserPage = $page.params.user;
-	$: currentUserPage = $page.params.user;
+	let currentPage = $page.params.page;
+	$: {
 
-	// const auth = getAuthApp();
+		currentPage = $page.params.page;
+		currentUserPage = $page.params.user;
 
-	// let userDoc;
+		console.log(currentUserPage)
 
-	// let sortedSubmissions;
+		populatePages();
 
-	// onMount(async () => {
-	// 	const db = database();
-	// 	const announcementsRef = collection(db, 'users', userId, 'pages');;
-	// 	const querySnapshot = await getDocs(query(announcementsRef, orderBy('createdAt', 'desc')));
+	}
+
+	const auth = getAuthApp();
+
+	async function populatePages() {
+
+		const db = database();
+
+		console.log(db)
+
+		const pagesRef = collection(db, `users/${currentUserPage}/pages/${currentPage}/submissions` );
+
+		console.log(pagesRef)
+		const querySnapshot = await getDocs(query(pagesRef, orderBy('createdAt', 'desc')));
 		
-	// 	const docRef = doc(db, 'users', auth.currentUser.uid);
-    // 	const docSnap = await getDoc(docRef);
-    // 	userDoc = docSnap.data();
+		const docRef = doc(db, 'users', auth.currentUser.uid);
+		const docSnap = await getDoc(docRef);
+		userDoc = docSnap.data();
 		
-	// 	sortedSubmissions = querySnapshot.docs.map((doc) => doc.data());
-	// 	console.log(sortedSubmissions);
+		sortedSubmissions = querySnapshot.docs.map((doc) => doc.data());
+		console.log(sortedSubmissions);
 
-	// });
+		md = sortedSubmissions[0].submission_text;
+
+	}
+
+	let userDoc;
+
+	let sortedSubmissions;
+
+	let md = ''
 
 </script>
 
-<div>
-	Current user document {Math.random()}
-	<a href={Math.random().toString()}> New user </a>
+<div class='prose p-2'>
+	<SvelteMarkdown source={md} />
 </div>
